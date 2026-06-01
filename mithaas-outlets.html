@@ -1,0 +1,546 @@
+<!--
+  MITHAAS — OUTLETS & RESERVATIONS PAGE
+  Standalone embed | paste into CMS custom HTML block
+  Style: Fraunces + Manrope + Caveat | maroon #4E0E0E · saffron #E8871A · cream #FDF6EC · ink #1A0A0A
+  Features: outlet cards (image, address, directions, phone), city filter, search, table-booking modal
+  NOTE: Replace placeholder phone numbers + image URLs with real data (see PHONE/IMG comments).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Manrope:wght@300;400;500;600;700;800&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+.mout * { box-sizing: border-box; margin: 0; padding: 0; }
+.mout {
+  --maroon:   #7B1818;
+  --maroon-d: #4E0E0E;
+  --saffron:  #E8871A;
+  --saff-l:   #F5A83A;
+  --cream:    #FDF6EC;
+  --cream-d:  #F5E8D0;
+  --ink:      #1A0A0A;
+  --gold:     #C9942A;
+  --gold-l:   #F2C96E;
+  --white:    #FFFFFF;
+  --muted:    #7A5E4A;
+  --green:    #2D6A4F;
+  font-family: 'Manrope', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ═══ HERO ═══ */
+.mout-hero {
+  background: var(--maroon-d);
+  position: relative;
+  overflow: hidden;
+  padding: 86px 40px 64px;
+  text-align: center;
+}
+.mout-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 18% 40%, rgba(232,135,26,0.16) 0%, transparent 55%),
+    radial-gradient(ellipse at 82% 60%, rgba(200,80,20,0.2) 0%, transparent 55%);
+  pointer-events: none;
+}
+.mout-hero::after {
+  content: '📍';
+  position: absolute;
+  font-size: 280px;
+  opacity: 0.04;
+  right: 5%; top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.mout-hero-eyebrow {
+  font-family: 'Caveat', cursive;
+  font-size: 1.4rem; color: var(--gold-l);
+  display: block; margin-bottom: 12px; position: relative;
+}
+.mout-hero-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  color: var(--white); line-height: 1.02;
+  letter-spacing: -0.03em; position: relative;
+}
+.mout-hero-title em { font-style: italic; color: var(--gold-l); }
+.mout-hero-sub {
+  font-size: 1.05rem; color: rgba(255,255,255,0.6);
+  max-width: 520px; margin: 20px auto 0; line-height: 1.65; position: relative;
+}
+.mout-search-wrap { max-width: 540px; margin: 34px auto 0; position: relative; }
+.mout-search {
+  width: 100%; padding: 16px 24px 16px 52px;
+  border-radius: 50px; border: none;
+  background: rgba(255,255,255,0.95);
+  font-family: 'Manrope', sans-serif; font-size: 1rem; color: var(--ink);
+  outline: none; box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  transition: box-shadow 0.2s;
+}
+.mout-search:focus { box-shadow: 0 8px 36px rgba(232,135,26,0.4); }
+.mout-search::placeholder { color: #A89580; }
+.mout-search-ic { position: absolute; left: 22px; top: 50%; transform: translateY(-50%); font-size: 1.1rem; color: var(--saffron); }
+
+/* ═══ BODY ═══ */
+.mout-body { padding: 56px 40px 80px; }
+.mout-inner { max-width: 1180px; margin: 0 auto; }
+
+/* city filter chips */
+.mout-cats { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 14px; }
+.mout-chip {
+  font-size: 0.85rem; font-weight: 600;
+  padding: 9px 20px; border-radius: 40px;
+  border: 1.5px solid rgba(123,24,24,0.18);
+  background: var(--white); color: var(--maroon-d);
+  cursor: pointer; transition: all 0.2s; white-space: nowrap;
+}
+.mout-chip:hover { border-color: var(--saffron); }
+.mout-chip.active { background: var(--maroon-d); border-color: var(--maroon-d); color: var(--white); }
+.mout-count { text-align: center; color: var(--muted); font-size: 0.88rem; margin-bottom: 40px; }
+.mout-count strong { color: var(--saffron); font-weight: 700; }
+
+/* outlet grid */
+.mout-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 26px;
+}
+.mout-card {
+  background: var(--white);
+  border: 1px solid rgba(123,24,24,0.07);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  box-shadow: 0 4px 20px rgba(123,24,24,0.06);
+  transition: transform 0.28s, box-shadow 0.28s;
+}
+.mout-card:hover { transform: translateY(-6px); box-shadow: 0 16px 44px rgba(123,24,24,0.14); }
+.mout-card.hidden { display: none; }
+
+/* card image */
+.mout-card-img {
+  position: relative;
+  aspect-ratio: 16/10;
+  background: linear-gradient(135deg, var(--maroon-d), var(--maroon) 70%, #B04010);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 10px; overflow: hidden;
+}
+.mout-card-img img { width: 100%; height: 100%; object-fit: cover; display: none; }
+.mout-card-img.has-img img { display: block; }
+.mout-card-img.has-img .mout-ph { display: none; }
+.mout-card-img::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+.mout-ph-ic {
+  width: 56px; height: 56px; border-radius: 50%;
+  border: 2px dashed rgba(255,255,255,0.25);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; color: rgba(255,255,255,0.3); position: relative;
+}
+.mout-ph-tx { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.3); position: relative; }
+.mout-city-badge {
+  position: absolute; top: 14px; left: 14px;
+  background: var(--saffron); color: var(--maroon-d);
+  font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em;
+  padding: 6px 13px; border-radius: 30px; z-index: 2;
+}
+
+/* card body */
+.mout-card-body { padding: 22px 24px 24px; flex: 1; display: flex; flex-direction: column; }
+.mout-card-name {
+  font-family: 'Fraunces', serif; font-weight: 700;
+  font-size: 1.25rem; color: var(--maroon-d); line-height: 1.25; margin-bottom: 10px;
+}
+.mout-card-addr {
+  font-size: 0.88rem; color: var(--muted); line-height: 1.6;
+  display: flex; gap: 8px; margin-bottom: 14px;
+}
+.mout-card-addr .ai { color: var(--saffron); flex-shrink: 0; }
+.mout-card-meta { display: flex; flex-direction: column; gap: 7px; margin-bottom: 18px; }
+.mout-card-row { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--muted); }
+.mout-card-row .ri { color: var(--saffron); width: 16px; text-align: center; }
+.mout-card-row a { color: var(--maroon-d); text-decoration: none; font-weight: 600; }
+.mout-card-row a:hover { color: var(--saffron); }
+.mout-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.mout-tag {
+  font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;
+  padding: 3px 10px; border-radius: 20px;
+  background: var(--cream); color: var(--maroon); border: 1px solid rgba(123,24,24,0.1);
+}
+
+/* card actions */
+.mout-card-actions { display: flex; gap: 10px; margin-top: auto; }
+.mout-act {
+  flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 11px 12px; border-radius: 12px; font-size: 0.82rem; font-weight: 700;
+  text-decoration: none; cursor: pointer; border: none;
+  font-family: 'Manrope', sans-serif; transition: transform 0.15s, background 0.2s, color 0.2s;
+}
+.mout-act:hover { transform: translateY(-2px); }
+.mout-act-dir {
+  background: var(--cream-d); color: var(--maroon-d);
+  border: 1px solid rgba(123,24,24,0.1);
+}
+.mout-act-dir:hover { background: var(--maroon-d); color: var(--white); }
+.mout-act-book {
+  background: var(--saffron); color: var(--maroon-d);
+  box-shadow: 0 4px 14px rgba(232,135,26,0.35);
+}
+.mout-act-book:hover { box-shadow: 0 7px 20px rgba(232,135,26,0.5); }
+
+/* empty */
+.mout-empty { text-align: center; padding: 60px 20px; display: none; }
+.mout-empty.show { display: block; }
+.mout-empty-ic { font-size: 3rem; opacity: 0.4; margin-bottom: 12px; }
+.mout-empty-tx { color: var(--muted); }
+
+/* ═══ RESERVATION MODAL ═══ */
+.mout-modal {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(26,10,10,0.7);
+  backdrop-filter: blur(4px);
+  display: none; align-items: center; justify-content: center;
+  padding: 20px;
+}
+.mout-modal.open { display: flex; }
+.mout-modal-box {
+  background: var(--cream); border-radius: 24px;
+  max-width: 480px; width: 100%; max-height: 92vh; overflow-y: auto;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+  position: relative;
+  animation: moutPop 0.28s ease;
+}
+@keyframes moutPop { from { transform: scale(0.94); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.mout-modal-head {
+  background: var(--maroon-d); padding: 28px 30px 24px;
+  border-radius: 24px 24px 0 0; position: relative; overflow: hidden;
+}
+.mout-modal-head::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 80% 20%, rgba(232,135,26,0.2) 0%, transparent 60%);
+}
+.mout-modal-eyebrow { font-family: 'Caveat', cursive; font-size: 1.15rem; color: var(--gold-l); position: relative; }
+.mout-modal-title {
+  font-family: 'Fraunces', serif; font-weight: 900; font-size: 1.55rem;
+  color: var(--white); position: relative; line-height: 1.15; margin-top: 2px;
+}
+.mout-modal-outlet {
+  font-size: 0.82rem; color: rgba(255,255,255,0.6); margin-top: 8px;
+  position: relative; display: flex; align-items: center; gap: 6px;
+}
+.mout-modal-close {
+  position: absolute; top: 20px; right: 20px; z-index: 2;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: rgba(255,255,255,0.15); border: none; cursor: pointer;
+  color: var(--white); font-size: 1.2rem; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.mout-modal-close:hover { background: rgba(255,255,255,0.3); }
+
+.mout-form { padding: 28px 30px 30px; }
+.mout-field { margin-bottom: 16px; }
+.mout-field label {
+  display: block; font-size: 0.78rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--maroon-d); margin-bottom: 7px;
+}
+.mout-field input, .mout-field select, .mout-field textarea {
+  width: 100%; padding: 12px 14px;
+  border: 1.5px solid rgba(123,24,24,0.15); border-radius: 12px;
+  background: var(--white); font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem; color: var(--ink); outline: none; transition: border-color 0.2s;
+}
+.mout-field input:focus, .mout-field select:focus, .mout-field textarea:focus { border-color: var(--saffron); }
+.mout-field textarea { resize: vertical; min-height: 64px; }
+.mout-field-row { display: flex; gap: 12px; }
+.mout-field-row .mout-field { flex: 1; }
+.mout-submit {
+  width: 100%; padding: 15px; margin-top: 6px;
+  background: var(--saffron); color: var(--maroon-d);
+  border: none; border-radius: 14px;
+  font-family: 'Manrope', sans-serif; font-size: 1rem; font-weight: 800;
+  letter-spacing: 0.02em; cursor: pointer;
+  box-shadow: 0 6px 20px rgba(232,135,26,0.4); transition: transform 0.2s, box-shadow 0.2s;
+}
+.mout-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(232,135,26,0.55); }
+.mout-form-note { font-size: 0.78rem; color: var(--muted); text-align: center; margin-top: 14px; line-height: 1.5; }
+
+/* success state */
+.mout-success { padding: 50px 30px; text-align: center; display: none; }
+.mout-success.show { display: block; }
+.mout-success-ic {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: var(--green); color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; margin: 0 auto 20px;
+}
+.mout-success-h { font-family: 'Fraunces', serif; font-weight: 900; font-size: 1.5rem; color: var(--maroon-d); margin-bottom: 10px; }
+.mout-success-p { color: var(--muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 22px; }
+
+@media (max-width: 700px) {
+  .mout-hero { padding: 70px 22px 52px; }
+  .mout-body { padding: 44px 18px 64px; }
+  .mout-grid { grid-template-columns: 1fr; }
+  .mout-field-row { flex-direction: column; gap: 0; }
+}
+</style>
+
+<div class="mout">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="mout-hero">
+    <span class="mout-hero-eyebrow">25+ Outlets &amp; Counting</span>
+    <h1 class="mout-hero-title">Find a <em>Mithaas</em> Near You</h1>
+    <p class="mout-hero-sub">Visit us, get directions, call ahead, or reserve a table for your next celebration.</p>
+    <div class="mout-search-wrap">
+      <span class="mout-search-ic">🔍</span>
+      <input type="text" class="mout-search" id="moutSearch" placeholder="Search by area, sector, or city...">
+    </div>
+  </section>
+
+  <!-- ═══ BODY ═══ -->
+  <section class="mout-body">
+    <div class="mout-inner">
+
+      <!-- city chips -->
+      <div class="mout-cats" id="moutCats">
+        <button class="mout-chip active" data-city="all">All Cities</button>
+        <button class="mout-chip" data-city="Noida">Noida</button>
+        <button class="mout-chip" data-city="Greater Noida">Greater Noida</button>
+        <button class="mout-chip" data-city="Ghaziabad">Ghaziabad</button>
+        <button class="mout-chip" data-city="Faridabad">Faridabad</button>
+        <button class="mout-chip" data-city="Delhi">Delhi</button>
+        <button class="mout-chip" data-city="Jammu">Jammu</button>
+      </div>
+      <p class="mout-count"><strong id="moutNum">19</strong> outlets shown</p>
+
+      <!-- grid -->
+      <div class="mout-grid" id="moutGrid">
+        <!-- Cards injected by JS -->
+      </div>
+
+      <div class="mout-empty" id="moutEmpty">
+        <div class="mout-empty-ic">📍</div>
+        <p class="mout-empty-tx">No outlets match your search. Try another area or city.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ RESERVATION MODAL ═══ -->
+  <div class="mout-modal" id="moutModal">
+    <div class="mout-modal-box">
+      <div class="mout-modal-head">
+        <button class="mout-modal-close" id="moutClose">✕</button>
+        <span class="mout-modal-eyebrow">Reserve Your Spot</span>
+        <div class="mout-modal-title">Book a Table</div>
+        <div class="mout-modal-outlet"><span>📍</span> <span id="moutModalOutlet">—</span></div>
+      </div>
+
+      <!-- form -->
+      <form class="mout-form" id="moutForm">
+        <div class="mout-field">
+          <label>Full Name</label>
+          <input type="text" id="moutName" placeholder="Your name" required>
+        </div>
+        <div class="mout-field-row">
+          <div class="mout-field">
+            <label>Phone</label>
+            <input type="tel" id="moutPhone" placeholder="Mobile number" required>
+          </div>
+          <div class="mout-field">
+            <label>Guests</label>
+            <select id="moutGuests" required>
+              <option value="">Select</option>
+              <option>1–2</option><option>3–4</option><option>5–6</option>
+              <option>7–10</option><option>10+ (Party)</option>
+            </select>
+          </div>
+        </div>
+        <div class="mout-field-row">
+          <div class="mout-field">
+            <label>Date</label>
+            <input type="date" id="moutDate" required>
+          </div>
+          <div class="mout-field">
+            <label>Time</label>
+            <input type="time" id="moutTime" required>
+          </div>
+        </div>
+        <div class="mout-field">
+          <label>Occasion / Special Request <span style="font-weight:400;text-transform:none;color:var(--muted);">(optional)</span></label>
+          <textarea id="moutNote" placeholder="Birthday, anniversary, party hall, dietary notes..."></textarea>
+        </div>
+        <button type="submit" class="mout-submit">Confirm Reservation Request</button>
+        <p class="mout-form-note">We'll call you shortly to confirm your booking. For instant confirmation, call the outlet directly.</p>
+      </form>
+
+      <!-- success -->
+      <div class="mout-success" id="moutSuccess">
+        <div class="mout-success-ic">✓</div>
+        <h3 class="mout-success-h">Request Received!</h3>
+        <p class="mout-success-p">Thank you, <strong id="moutSuccessName">guest</strong>. Your table request at <strong id="moutSuccessOutlet">Mithaas</strong> has been noted. Our team will call you shortly to confirm.</p>
+        <button class="mout-submit" id="moutDone" style="max-width:200px;margin:0 auto;">Done</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var root = document.querySelector('.mout');
+  if (!root) return;
+
+  /* ──────────────────────────────────────────
+     OUTLET DATA
+     Edit this list: add real phone numbers + image URLs.
+     - phone: replace "+91XXXXXXXXXX" with the outlet's number
+     - img:   set to a real image URL ("" shows placeholder)
+     - lat/lng or address used for Google Maps directions
+  ────────────────────────────────────────── */
+  var OUTLETS = [
+    { name:"Ashirwad Complex, Sector 53", city:"Noida", area:"Sector 53", img:"", phone:"+91XXXXXXXXXX", tags:["Flagship","Dine-In","Sweets"], maps:"Mithaas Ashirwad Complex Sector 53 Noida" },
+    { name:"Kanchanjungha Market, Sector 53", city:"Noida", area:"Sector 53", img:"", phone:"+91XXXXXXXXXX", tags:["Dine-In","Sweets"], maps:"Mithaas Kanchanjungha Market Sector 53 Noida" },
+    { name:"Logix Mall City Centre", city:"Noida", area:"City Centre", img:"", phone:"+91XXXXXXXXXX", tags:["Food Court","Dine-In"], maps:"Mithaas Logix City Centre Mall Noida" },
+    { name:"B Block, Sector 62", city:"Noida", area:"Sector 62", img:"", phone:"+91XXXXXXXXXX", tags:["Dine-In","Takeaway"], maps:"Mithaas Sector 62 Noida" },
+    { name:"Amrapali Crystal Homes, Sector 76", city:"Noida", area:"Sector 76", img:"", phone:"+91XXXXXXXXXX", tags:["Sweets","Takeaway"], maps:"Mithaas Amrapali Crystal Homes Sector 76 Noida" },
+    { name:"Hazipur, Sector 104", city:"Noida", area:"Sector 104", img:"", phone:"+91XXXXXXXXXX", tags:["Dine-In"], maps:"Mithaas Hazipur Sector 104 Noida" },
+    { name:"Shahdara, Sector 141", city:"Noida", area:"Sector 141", img:"", phone:"+91XXXXXXXXXX", tags:["Dine-In"], maps:"Mithaas Sector 141 Noida" },
+
+    { name:"Golden-i, Noida Extension", city:"Greater Noida", area:"Noida Extension", img:"", phone:"+91XXXXXXXXXX", tags:["Dine-In","Sweets"], maps:"Mithaas Golden-i Noida Extension" },
+    { name:"KP 2, Greater Noida", city:"Greater Noida", area:"KP 2", img:"", phone:"+91XXXXXXXXXX", tags:["Dine-In"], maps:"Mithaas KP 2 Greater Noida" },
+    { name:"Pi 2, Greater Noida", city:"Greater Noida", area:"Pi 2", img:"", phone:"+91XXXXXXXXXX", tags:["Dine-In"], maps:"Mithaas Pi 2 Greater Noida" },
+
+    { name:"Vaibhav Khand, Indirapuram", city:"Ghaziabad", area:"Indirapuram", img:"", phone:"+91XXXXXXXXXX", tags:["Dine-In","Sweets"], maps:"Mithaas Vaibhav Khand Indirapuram Ghaziabad" },
+    { name:"Niti Khand-1, Indirapuram", city:"Ghaziabad", area:"Indirapuram", img:"", phone:"+91XXXXXXXXXX", tags:["Dine-In"], maps:"Mithaas Niti Khand Indirapuram Ghaziabad" },
+    { name:"Kings Woods Market, Crossings Republik", city:"Ghaziabad", area:"Crossings Republik", img:"", phone:"+91XXXXXXXXXX", tags:["Dine-In"], maps:"Mithaas Kings Woods Crossings Republik Ghaziabad" },
+    { name:"Kavi Nagar", city:"Ghaziabad", area:"Kavi Nagar", img:"", phone:"+91XXXXXXXXXX", tags:["Sweets","Bakery"], maps:"Mithaas Kavi Nagar Ghaziabad" },
+    { name:"Rajnagar Extension", city:"Ghaziabad", area:"Rajnagar Extension", img:"", phone:"+91XXXXXXXXXX", tags:["Dine-In"], maps:"Mithaas Rajnagar Extension Ghaziabad" },
+
+    { name:"Sector 28, Faridabad", city:"Faridabad", area:"Sector 28", img:"", phone:"+91XXXXXXXXXX", tags:["Dine-In","Sweets"], maps:"Mithaas Sector 28 Faridabad" },
+
+    { name:"Lajpat Nagar", city:"Delhi", area:"Lajpat Nagar", img:"", phone:"+91XXXXXXXXXX", tags:["New","Dine-In","Sweets"], maps:"Mithaas Lajpat Nagar Delhi" },
+
+    { name:"Vaishno Devi, Jammu", city:"Jammu", area:"Vaishno Devi", img:"", phone:"+91XXXXXXXXXX", tags:["New","Sweets"], maps:"Mithaas Vaishno Devi Jammu" }
+  ];
+
+  var grid = root.querySelector('#moutGrid');
+  var numEl = root.querySelector('#moutNum');
+  var emptyEl = root.querySelector('#moutEmpty');
+  var search = root.querySelector('#moutSearch');
+  var chips = root.querySelectorAll('.mout-chip');
+
+  function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function mapsUrl(o){
+    return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(o.maps || (o.name+' '+o.city));
+  }
+
+  // build cards
+  OUTLETS.forEach(function(o, i){
+    var hasImg = o.img && o.img.trim() !== '';
+    var phoneClean = (o.phone||'').replace(/[^+0-9]/g,'');
+    var phoneDisplay = (o.phone && o.phone.indexOf('X') === -1) ? esc(o.phone) : 'Call for details';
+    var card = document.createElement('div');
+    card.className = 'mout-card';
+    card.setAttribute('data-city', o.city);
+    card.setAttribute('data-search', (o.name+' '+o.city+' '+o.area).toLowerCase());
+    card.innerHTML =
+      '<div class="mout-card-img ' + (hasImg ? 'has-img' : '') + '">' +
+        '<span class="mout-city-badge">' + esc(o.city) + '</span>' +
+        '<img src="' + esc(o.img) + '" alt="' + esc(o.name) + '" onerror="this.parentNode.classList.remove(\'has-img\')">' +
+        '<span class="mout-ph"><span class="mout-ph-ic">🏬</span></span>' +
+        '<span class="mout-ph mout-ph-tx">Add Outlet Photo</span>' +
+      '</div>' +
+      '<div class="mout-card-body">' +
+        '<div class="mout-card-name">' + esc(o.name) + '</div>' +
+        '<div class="mout-card-addr"><span class="ai">📍</span><span>' + esc(o.area) + ', ' + esc(o.city) + '</span></div>' +
+        '<div class="mout-card-meta">' +
+          '<div class="mout-card-row"><span class="ri">📞</span>' +
+            (phoneClean.indexOf('X')===-1 && phoneClean.length>5 ? '<a href="tel:'+phoneClean+'">'+phoneDisplay+'</a>' : '<span>'+phoneDisplay+'</span>') +
+          '</div>' +
+          '<div class="mout-card-row"><span class="ri">🕐</span><span>Open Daily · 9 AM – 11 PM</span></div>' +
+        '</div>' +
+        '<div class="mout-tags">' + o.tags.map(function(t){ return '<span class="mout-tag">'+esc(t)+'</span>'; }).join('') + '</div>' +
+        '<div class="mout-card-actions">' +
+          '<a class="mout-act mout-act-dir" href="' + mapsUrl(o) + '" target="_blank" rel="noopener">🧭 Directions</a>' +
+          '<button class="mout-act mout-act-book" data-outlet="' + esc(o.name) + ' (' + esc(o.city) + ')">🍽️ Book Table</button>' +
+        '</div>' +
+      '</div>';
+    grid.appendChild(card);
+  });
+
+  // filter logic
+  var cards = root.querySelectorAll('.mout-card');
+  function applyFilter(){
+    var city = root.querySelector('.mout-chip.active').getAttribute('data-city');
+    var term = search.value.trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function(c){
+      var cityMatch = (city === 'all' || c.getAttribute('data-city') === city);
+      var searchMatch = (term === '' || c.getAttribute('data-search').indexOf(term) !== -1);
+      if (cityMatch && searchMatch) { c.classList.remove('hidden'); shown++; }
+      else c.classList.add('hidden');
+    });
+    numEl.textContent = shown;
+    emptyEl.classList.toggle('show', shown === 0);
+  }
+  chips.forEach(function(ch){
+    ch.addEventListener('click', function(){
+      chips.forEach(function(c){ c.classList.remove('active'); });
+      ch.classList.add('active');
+      applyFilter();
+    });
+  });
+  search.addEventListener('input', applyFilter);
+  applyFilter();
+
+  /* ── RESERVATION MODAL ── */
+  var modal = root.querySelector('#moutModal');
+  var modalOutlet = root.querySelector('#moutModalOutlet');
+  var form = root.querySelector('#moutForm');
+  var success = root.querySelector('#moutSuccess');
+
+  function openModal(name){
+    modalOutlet.textContent = name;
+    form.style.display = 'block';
+    success.classList.remove('show');
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+    form.reset();
+  }
+
+  grid.addEventListener('click', function(e){
+    var btn = e.target.closest('.mout-act-book');
+    if (btn) openModal(btn.getAttribute('data-outlet'));
+  });
+  root.querySelector('#moutClose').addEventListener('click', closeModal);
+  root.querySelector('#moutDone').addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e){ if (e.target === modal) closeModal(); });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    root.querySelector('#moutSuccessName').textContent = root.querySelector('#moutName').value || 'guest';
+    root.querySelector('#moutSuccessOutlet').textContent = modalOutlet.textContent;
+    form.style.display = 'none';
+    success.classList.add('show');
+    /* NOTE: This is a front-end demo. To actually receive bookings,
+       connect this form to your backend / email / WhatsApp / Google Form here. */
+  });
+
+  // set min date = today
+  var dateInput = root.querySelector('#moutDate');
+  if (dateInput) dateInput.min = new Date().toISOString().split('T')[0];
+})();
+</script>

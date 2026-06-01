@@ -1,0 +1,633 @@
+<!--
+  MITHAAS — MODERN IMAGE SLIDER HERO
+  Standalone embed | paste at the top of homepage
+  Style: Fraunces + Manrope + Caveat | maroon · saffron · cream · ink
+
+  Features:
+  • Full-bleed cinematic images with Ken Burns zoom animation
+  • Smooth crossfade transitions between slides
+  • Animated text reveal with staggered timing
+  • Auto-play with progress indicator
+  • Dot navigation + arrows + keyboard + touch swipe
+  • Pause on hover
+  • Slide counter (01 / 05)
+  • Scroll hint at bottom
+  • Two CTA buttons per slide
+
+  HOW TO USE YOUR OWN IMAGES:
+  Find the SLIDES array near the top of the <script> block and set the "img" field
+  to your real image URL for each slide. Leave img: '' to use the decorative gradient placeholder.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Manrope:wght@300;400;500;600;700;800;900&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+.mslide * { box-sizing: border-box; margin: 0; padding: 0; }
+.mslide {
+  --maroon-d: #4E0E0E;
+  --maroon-x: #2E0606;
+  --saffron:  #E8871A;
+  --saff-l:   #F5A83A;
+  --gold-l:   #F2C96E;
+  --cream:    #FDF6EC;
+  --ink:      #1A0A0A;
+  --white:    #FFFFFF;
+
+  font-family: 'Manrope', sans-serif;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 580px;
+  max-height: 820px;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--white);
+}
+
+/* ═══ SLIDES ═══ */
+.mslide-track {
+  position: absolute; inset: 0;
+}
+.mslide-item {
+  position: absolute; inset: 0;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  pointer-events: none;
+}
+.mslide-item.active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 1;
+}
+
+/* image / gradient background with Ken Burns zoom */
+.mslide-img {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1);
+  transition: transform 8s ease-out;
+}
+.mslide-item.active .mslide-img {
+  transform: scale(1.12);
+}
+
+/* fallback gradient layers per slide (used when no image) */
+.mslide-img.g1 { background: linear-gradient(135deg, #4E0E0E 0%, #7B1818 40%, #B04010 100%); }
+.mslide-img.g2 { background: linear-gradient(135deg, #2E0606 0%, #4E0E0E 50%, #C04500 100%); }
+.mslide-img.g3 { background: linear-gradient(135deg, #1A0A0A 0%, #4E0E0E 50%, #E8871A 100%); }
+.mslide-img.g4 { background: linear-gradient(135deg, #7B1818 0%, #C04500 50%, #F5A83A 100%); }
+.mslide-img.g5 { background: linear-gradient(135deg, #2E0606 0%, #7B1818 60%, #4E0E0E 100%); }
+
+/* dark gradient overlay for text legibility */
+.mslide-overlay {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(26,10,10,0.2) 0%, rgba(26,10,10,0.45) 50%, rgba(26,10,10,0.85) 100%),
+    linear-gradient(90deg, rgba(26,10,10,0.55) 0%, transparent 60%);
+}
+/* dot pattern texture overlay */
+.mslide-overlay::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+/* ═══ CONTENT ═══ */
+.mslide-content {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 0 6vw 14vh;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex; align-items: flex-end;
+  width: 100%;
+  height: 100%;
+}
+.mslide-text {
+  max-width: 720px;
+  position: relative;
+}
+
+.mslide-eyebrow {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--saff-l);
+  margin-bottom: 22px;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.mslide-eyebrow::before {
+  content: '';
+  width: 36px; height: 2px;
+  background: var(--saffron);
+}
+
+.mslide-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: clamp(2.6rem, 7vw, 5.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin-bottom: 20px;
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.mslide-title em {
+  font-style: italic;
+  color: var(--gold-l);
+  display: inline-block;
+}
+.mslide-title .ln { display: block; }
+
+.mslide-desc {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.65;
+  max-width: 540px;
+  margin-bottom: 32px;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.mslide-ctas {
+  display: flex; gap: 14px; flex-wrap: wrap;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.mslide-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem; font-weight: 800;
+  letter-spacing: 0.02em;
+  text-decoration: none; cursor: pointer; border: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+.mslide-btn-p {
+  background: var(--saffron);
+  color: var(--maroon-d);
+  box-shadow: 0 10px 30px rgba(232,135,26,0.45);
+}
+.mslide-btn-p:hover {
+  background: var(--saff-l);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(232,135,26,0.6);
+}
+.mslide-btn-g {
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+  border: 1.5px solid rgba(255,255,255,0.3);
+  backdrop-filter: blur(8px);
+}
+.mslide-btn-g:hover {
+  border-color: var(--saff-l);
+  color: var(--saff-l);
+  background: rgba(255,255,255,0.18);
+  transform: translateY(-3px);
+}
+.mslide-btn .ic { font-size: 1.1rem; transition: transform 0.3s; }
+.mslide-btn:hover .ic { transform: translateX(4px); }
+
+/* staggered enter animation on active slide */
+.mslide-item.active .mslide-eyebrow { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
+.mslide-item.active .mslide-title   { opacity: 1; transform: translateY(0); transition-delay: 0.45s; }
+.mslide-item.active .mslide-desc    { opacity: 1; transform: translateY(0); transition-delay: 0.6s; }
+.mslide-item.active .mslide-ctas    { opacity: 1; transform: translateY(0); transition-delay: 0.75s; }
+
+/* ═══ NAV ARROWS ═══ */
+.mslide-nav {
+  position: absolute;
+  top: 50%;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: 1.5px solid rgba(255,255,255,0.18);
+  color: var(--white);
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(10px);
+  transition: background 0.25s, transform 0.25s, border-color 0.25s, color 0.25s;
+  z-index: 10;
+}
+.mslide-nav.prev { left: 32px; transform: translateY(-50%); }
+.mslide-nav.next { right: 32px; transform: translateY(-50%); }
+.mslide-nav:hover {
+  background: var(--saffron);
+  border-color: var(--saffron);
+  color: var(--maroon-d);
+}
+.mslide-nav.prev:hover { transform: translateY(-50%) translateX(-5px) scale(1.05); }
+.mslide-nav.next:hover { transform: translateY(-50%) translateX(5px) scale(1.05); }
+
+/* ═══ BOTTOM CONTROLS ═══ */
+.mslide-controls {
+  position: absolute;
+  left: 0; right: 0; bottom: 38px;
+  padding: 0 6vw;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; z-index: 10;
+  max-width: 1280px; margin: 0 auto;
+}
+
+/* slide counter */
+.mslide-count {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  display: flex; align-items: center; gap: 8px;
+}
+.mslide-count .cur {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--saff-l);
+}
+.mslide-count .sep {
+  width: 32px; height: 1px;
+  background: rgba(255,255,255,0.3);
+}
+.mslide-count .tot { color: rgba(255,255,255,0.5); }
+
+/* dot indicators */
+.mslide-dots {
+  display: flex; gap: 10px;
+  align-items: center;
+}
+.mslide-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.25s, transform 0.25s, width 0.3s;
+}
+.mslide-dot.active {
+  background: var(--saffron);
+  width: 30px;
+  border-radius: 6px;
+  box-shadow: 0 0 12px rgba(232,135,26,0.6);
+}
+.mslide-dot:hover:not(.active) {
+  background: rgba(255,255,255,0.5);
+  transform: scale(1.2);
+}
+
+/* play/pause */
+.mslide-play {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--white);
+  cursor: pointer;
+  font-size: 0.85rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.25s, border-color 0.25s;
+  backdrop-filter: blur(8px);
+}
+.mslide-play:hover {
+  background: var(--saffron);
+  border-color: var(--saffron);
+  color: var(--maroon-d);
+}
+
+/* ═══ PROGRESS BAR ═══ */
+.mslide-progress {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 3px;
+  background: rgba(255,255,255,0.08);
+  z-index: 10;
+}
+.mslide-progress-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(to right, var(--saffron), var(--gold-l));
+  box-shadow: 0 0 16px rgba(232,135,26,0.7);
+  transition: width 6s linear;
+}
+.mslide.paused .mslide-progress-fill { transition: none; }
+
+/* ═══ SCROLL HINT ═══ */
+.mslide-scroll {
+  position: absolute;
+  right: 32px; top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: center;
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  z-index: 5;
+}
+.mslide-scroll::after {
+  content: '';
+  width: 40px; height: 1px;
+  background: rgba(255,255,255,0.4);
+  animation: mslideLine 2s ease-in-out infinite;
+}
+@keyframes mslideLine {
+  0%, 100% { width: 20px; opacity: 0.4; }
+  50%      { width: 50px; opacity: 1; }
+}
+
+/* ═══ CORNER LABEL ═══ */
+.mslide-corner {
+  position: absolute;
+  top: 32px; left: 32px;
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 40px;
+  padding: 8px 18px;
+  font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--saff-l);
+  backdrop-filter: blur(10px);
+  z-index: 5;
+}
+.mslide-corner .pulse {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--saffron);
+  animation: mslidePulse 1.6s infinite;
+}
+@keyframes mslidePulse {
+  0%   { box-shadow: 0 0 0 0 rgba(232,135,26,0.7); }
+  70%  { box-shadow: 0 0 0 8px rgba(232,135,26,0); }
+  100% { box-shadow: 0 0 0 0 rgba(232,135,26,0); }
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 880px) {
+  .mslide { height: auto; min-height: 600px; }
+  .mslide-content { padding: 0 24px 18vh; align-items: center; }
+  .mslide-nav { width: 44px; height: 44px; font-size: 1.2rem; }
+  .mslide-nav.prev { left: 12px; }
+  .mslide-nav.next { right: 12px; }
+  .mslide-controls { padding: 0 24px; bottom: 32px; }
+  .mslide-scroll { display: none; }
+  .mslide-corner { top: 20px; left: 20px; padding: 6px 14px; font-size: 0.68rem; }
+}
+@media (max-width: 520px) {
+  .mslide-title { font-size: 2.4rem; }
+  .mslide-desc { font-size: 0.98rem; }
+  .mslide-btn { padding: 13px 24px; font-size: 0.88rem; }
+  .mslide-count .cur { font-size: 1.2rem; }
+  .mslide-dots { gap: 8px; }
+}
+</style>
+
+<section class="mslide" id="mslide">
+
+  <!-- ═══ CORNER LABEL ═══ -->
+  <div class="mslide-corner">
+    <span class="pulse"></span>
+    <span>Mithaas · Since 2012</span>
+  </div>
+
+  <!-- ═══ SLIDES TRACK ═══ -->
+  <div class="mslide-track" id="mslideTrack">
+    <!-- slides injected by JS -->
+  </div>
+
+  <!-- ═══ NAV ARROWS ═══ -->
+  <button class="mslide-nav prev" id="mslidePrev" aria-label="Previous slide">‹</button>
+  <button class="mslide-nav next" id="mslideNext" aria-label="Next slide">›</button>
+
+  <!-- ═══ SCROLL HINT ═══ -->
+  <div class="mslide-scroll">Scroll</div>
+
+  <!-- ═══ BOTTOM CONTROLS ═══ -->
+  <div class="mslide-controls">
+    <div class="mslide-count">
+      <span class="cur" id="mslideCur">01</span>
+      <span class="sep"></span>
+      <span class="tot" id="mslideTot">05</span>
+    </div>
+    <div class="mslide-dots" id="mslideDots"></div>
+    <button class="mslide-play" id="mslidePlay" aria-label="Pause autoplay">❚❚</button>
+  </div>
+
+  <!-- ═══ PROGRESS BAR ═══ -->
+  <div class="mslide-progress"><div class="mslide-progress-fill" id="mslideProg"></div></div>
+
+</section>
+
+<script>
+(function(){
+  /* ──────────────────────────────────────────
+     SLIDES DATA
+     To use your own images, set "img" to a real URL for each slide.
+     When img is empty, a themed gradient ('g1'..'g5') is used as placeholder.
+  ────────────────────────────────────────── */
+  var SLIDES = [
+    {
+      img: '',  // your image URL
+      grad: 'g1',
+      eyebrow: 'Welcome to Mithaas',
+      titleA: 'A taste of',
+      titleB: 'tradition',
+      desc:  'Crafting authentic Indian sweets, snacks and 100% vegetarian meals since 2012 — with the warmth of family and the finesse of tradition.',
+      btn1: { label: 'Explore Menu',  icon: '🍽️', href: '[/menu]' },
+      btn2: { label: 'Our Story',     icon: '→',  href: '[/about]' }
+    },
+    {
+      img: '',
+      grad: 'g2',
+      eyebrow: 'Signature Sweets',
+      titleA: 'Every bite,',
+      titleB: 'a celebration',
+      desc:  'From Kaju Burfi to Rasmalai — handcrafted with pure desi ghee, the finest dry fruits and recipes refined over generations.',
+      btn1: { label: 'Order Sweets', icon: '🛒', href: '[/sweets]' },
+      btn2: { label: 'View All',     icon: '→',  href: '[/menu]' }
+    },
+    {
+      img: '',
+      grad: 'g3',
+      eyebrow: 'Dine With Us',
+      titleA: 'Multi-cuisine',
+      titleB: 'pure veg dining',
+      desc:  'North Indian, South Indian, Chinese & Continental — all under one roof, all 100% vegetarian, in warm family-friendly outlets across NCR.',
+      btn1: { label: 'Book a Table', icon: '🪑', href: '[/reservations]' },
+      btn2: { label: 'Find Outlet',  icon: '📍', href: '[/outlets]' }
+    },
+    {
+      img: '',
+      grad: 'g4',
+      eyebrow: 'Gifts & Hampers',
+      titleA: 'Sweet moments,',
+      titleB: 'shared joys',
+      desc:  'Curated gift hampers and festive collections — perfect for Diwali, Raksha Bandhan, weddings, corporate gifting and every special occasion.',
+      btn1: { label: 'Shop Hampers',  icon: '🎁', href: '[/hampers]' },
+      btn2: { label: 'Bulk Orders',   icon: '→',  href: '[/bulk-orders]' }
+    },
+    {
+      img: '',
+      grad: 'g5',
+      eyebrow: 'Global Export',
+      titleA: 'Bringing India',
+      titleB: 'to the world',
+      desc:  'Authentic frozen and packaged Indian sweets shipped worldwide — quality you can taste, anywhere on the map.',
+      btn1: { label: 'Export Enquiry', icon: '🌍', href: '[/export]' },
+      btn2: { label: 'Pan-India Shop', icon: '→',  href: '[/shop]' }
+    }
+  ];
+
+  var root      = document.getElementById('mslide');
+  var track     = document.getElementById('mslideTrack');
+  var dotsEl    = document.getElementById('mslideDots');
+  var curEl     = document.getElementById('mslideCur');
+  var totEl     = document.getElementById('mslideTot');
+  var prevBtn   = document.getElementById('mslidePrev');
+  var nextBtn   = document.getElementById('mslideNext');
+  var playBtn   = document.getElementById('mslidePlay');
+  var progEl    = document.getElementById('mslideProg');
+
+  var current = 0;
+  var timer = null;
+  var playing = true;
+  var AUTO_MS = 6000;
+
+  function pad(n){ return n < 10 ? '0' + n : '' + n; }
+
+  // build slides
+  SLIDES.forEach(function(s, i){
+    var item = document.createElement('div');
+    item.className = 'mslide-item' + (i === 0 ? ' active' : '');
+    item.setAttribute('data-i', i);
+
+    var imgStyle = s.img ? ('background-image:url(' + s.img + ');') : '';
+    item.innerHTML =
+      '<div class="mslide-img ' + (s.img ? '' : s.grad) + '" style="' + imgStyle + '"></div>' +
+      '<div class="mslide-overlay"></div>' +
+      '<div class="mslide-content">' +
+        '<div class="mslide-text">' +
+          '<div class="mslide-eyebrow">' + s.eyebrow + '</div>' +
+          '<h1 class="mslide-title"><span class="ln">' + s.titleA + '</span><em class="ln">' + s.titleB + '</em></h1>' +
+          '<p class="mslide-desc">' + s.desc + '</p>' +
+          '<div class="mslide-ctas">' +
+            '<a class="mslide-btn mslide-btn-p" href="' + s.btn1.href + '"><span class="ic">' + s.btn1.icon + '</span>' + s.btn1.label + '</a>' +
+            '<a class="mslide-btn mslide-btn-g" href="' + s.btn2.href + '">' + s.btn2.label + ' <span class="ic">' + s.btn2.icon + '</span></a>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    track.appendChild(item);
+  });
+
+  // build dots
+  SLIDES.forEach(function(s, i){
+    var d = document.createElement('button');
+    d.className = 'mslide-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Go to slide ' + (i+1));
+    d.addEventListener('click', function(){ goTo(i); });
+    dotsEl.appendChild(d);
+  });
+
+  // total
+  totEl.textContent = pad(SLIDES.length);
+
+  var items = track.querySelectorAll('.mslide-item');
+  var dots  = dotsEl.querySelectorAll('.mslide-dot');
+
+  function render(i){
+    items.forEach(function(it, idx){ it.classList.toggle('active', idx === i); });
+    dots.forEach(function(d, idx){ d.classList.toggle('active', idx === i); });
+    curEl.textContent = pad(i + 1);
+    current = i;
+    resetProgress();
+  }
+  function resetProgress(){
+    progEl.style.transition = 'none';
+    progEl.style.width = '0%';
+    requestAnimationFrame(function(){
+      if (playing) {
+        progEl.style.transition = 'width ' + (AUTO_MS/1000) + 's linear';
+        progEl.style.width = '100%';
+      }
+    });
+  }
+  function goTo(i){
+    if (i < 0) i = SLIDES.length - 1;
+    if (i >= SLIDES.length) i = 0;
+    render(i);
+    if (playing) restartAuto();
+  }
+  function next(){ goTo(current + 1); }
+  function prev(){ goTo(current - 1); }
+
+  function restartAuto(){
+    if (timer) clearInterval(timer);
+    timer = setInterval(next, AUTO_MS);
+  }
+  function stopAuto(){
+    if (timer) clearInterval(timer);
+    timer = null;
+  }
+
+  prevBtn.addEventListener('click', prev);
+  nextBtn.addEventListener('click', next);
+
+  // play/pause toggle
+  playBtn.addEventListener('click', function(){
+    playing = !playing;
+    if (playing) {
+      playBtn.textContent = '❚❚';
+      playBtn.setAttribute('aria-label', 'Pause autoplay');
+      root.classList.remove('paused');
+      restartAuto();
+      resetProgress();
+    } else {
+      playBtn.textContent = '▶';
+      playBtn.setAttribute('aria-label', 'Play autoplay');
+      root.classList.add('paused');
+      stopAuto();
+      progEl.style.transition = 'none';
+    }
+  });
+
+  // pause on hover
+  root.addEventListener('mouseenter', function(){ if (playing) stopAuto(); });
+  root.addEventListener('mouseleave', function(){ if (playing) restartAuto(); });
+
+  // keyboard
+  document.addEventListener('keydown', function(e){
+    var rect = root.getBoundingClientRect();
+    if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
+
+  // touch swipe
+  var startX = 0, startY = 0;
+  root.addEventListener('touchstart', function(e){
+    startX = e.touches[0].clientX; startY = e.touches[0].clientY;
+  }, { passive: true });
+  root.addEventListener('touchend', function(e){
+    var dx = e.changedTouches[0].clientX - startX;
+    var dy = e.changedTouches[0].clientY - startY;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+      dx < 0 ? next() : prev();
+    }
+  });
+
+  // init
+  resetProgress();
+  restartAuto();
+})();
+</script>

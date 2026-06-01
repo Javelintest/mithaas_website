@@ -1,0 +1,362 @@
+<!--
+  MITHAAS — TERMS & CONDITIONS PAGE
+  Standalone embed | paste into CMS custom HTML block
+  Style: Fraunces + Manrope + Caveat | maroon #4E0E0E · saffron #E8871A · cream #FDF6EC · ink #1A0A0A
+
+  ⚠ IMPORTANT: This is a TEMPLATE. Replace every [ ] bracket with Mithaas' real
+  details and have it reviewed by legal counsel before publishing.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Manrope:wght@300;400;500;600;700;800&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+.mtc * { box-sizing: border-box; margin: 0; padding: 0; }
+.mtc {
+  --maroon:   #7B1818;
+  --maroon-d: #4E0E0E;
+  --saffron:  #E8871A;
+  --saff-l:   #F5A83A;
+  --cream:    #FDF6EC;
+  --cream-d:  #F5E8D0;
+  --ink:      #1A0A0A;
+  --gold:     #C9942A;
+  --gold-l:   #F2C96E;
+  --white:    #FFFFFF;
+  --muted:    #6E5645;
+  font-family: 'Manrope', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ═══ HERO ═══ */
+.mtc-hero {
+  background: var(--maroon-d);
+  position: relative; overflow: hidden;
+  padding: 84px 40px 64px; text-align: center;
+}
+.mtc-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 40%, rgba(232,135,26,0.15) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 60%, rgba(200,80,20,0.18) 0%, transparent 55%);
+  pointer-events: none;
+}
+.mtc-hero::after {
+  content: '📜'; position: absolute; font-size: 240px; opacity: 0.04;
+  right: 6%; top: 50%; transform: translateY(-50%); pointer-events: none;
+}
+.mtc-hero-eyebrow {
+  font-family: 'Caveat', cursive; font-size: 1.35rem; color: var(--gold-l);
+  display: block; margin-bottom: 10px; position: relative;
+}
+.mtc-hero-title {
+  font-family: 'Fraunces', serif; font-weight: 900;
+  font-size: clamp(2.4rem, 6vw, 4rem); color: var(--white);
+  line-height: 1.05; letter-spacing: -0.025em; position: relative;
+}
+.mtc-hero-title em { font-style: italic; color: var(--gold-l); }
+.mtc-hero-meta {
+  margin-top: 18px; font-size: 0.9rem; color: rgba(255,255,255,0.55);
+  position: relative; letter-spacing: 0.02em;
+}
+.mtc-hero-meta strong { color: var(--saff-l); font-weight: 600; }
+
+/* ═══ LAYOUT ═══ */
+.mtc-body { padding: 64px 40px 90px; }
+.mtc-wrap {
+  max-width: 980px; margin: 0 auto;
+  display: grid; grid-template-columns: 240px 1fr; gap: 48px; align-items: start;
+}
+.mtc-toc {
+  position: sticky; top: 24px;
+  background: var(--white);
+  border: 1px solid rgba(123,24,24,0.08);
+  border-radius: 18px; padding: 24px 22px;
+  box-shadow: 0 4px 20px rgba(123,24,24,0.05);
+}
+.mtc-toc-h { font-family: 'Caveat', cursive; font-size: 1.25rem; color: var(--saffron); margin-bottom: 14px; }
+.mtc-toc a {
+  display: block; font-size: 0.86rem; color: var(--muted); text-decoration: none;
+  padding: 7px 0; line-height: 1.4; border-bottom: 1px solid rgba(123,24,24,0.05);
+  transition: color 0.2s, padding-left 0.2s;
+}
+.mtc-toc a:last-child { border-bottom: none; }
+.mtc-toc a:hover { color: var(--maroon-d); padding-left: 6px; }
+
+.mtc-content { min-width: 0; }
+.mtc-intro {
+  font-size: 1.05rem; color: var(--muted); line-height: 1.85;
+  padding-bottom: 28px; margin-bottom: 12px;
+  border-bottom: 2px solid rgba(232,135,26,0.2);
+}
+.mtc-intro strong { color: var(--maroon-d); font-weight: 700; }
+
+.mtc-sec { padding-top: 40px; scroll-margin-top: 24px; }
+.mtc-sec-num {
+  font-family: 'Fraunces', serif; font-weight: 900; font-size: 0.95rem;
+  color: var(--saffron); letter-spacing: 0.1em; display: block; margin-bottom: 6px;
+}
+.mtc-sec-h {
+  font-family: 'Fraunces', serif; font-weight: 900;
+  font-size: clamp(1.35rem, 2.6vw, 1.7rem);
+  color: var(--maroon-d); line-height: 1.2; margin-bottom: 16px;
+}
+.mtc-sec p { font-size: 0.97rem; color: var(--muted); line-height: 1.82; margin-bottom: 14px; }
+.mtc-sec p strong { color: var(--maroon-d); font-weight: 700; }
+.mtc-sec ul { list-style: none; margin: 4px 0 16px; }
+.mtc-sec li {
+  font-size: 0.97rem; color: var(--muted); line-height: 1.7;
+  padding: 6px 0 6px 26px; position: relative;
+}
+.mtc-sec li::before {
+  content: ''; position: absolute; left: 4px; top: 15px;
+  width: 7px; height: 7px; border-radius: 50%; background: var(--saffron);
+}
+.mtc-sec li strong { color: var(--maroon-d); font-weight: 700; }
+
+.mtc-fill {
+  background: rgba(232,135,26,0.14); color: var(--maroon-d);
+  border-radius: 5px; padding: 1px 7px; font-weight: 600; font-size: 0.92em;
+  border: 1px dashed rgba(232,135,26,0.5);
+}
+.mtc-note {
+  background: var(--cream-d); border-left: 4px solid var(--saffron);
+  border-radius: 0 14px 14px 0; padding: 20px 24px; margin: 18px 0;
+}
+.mtc-note p { margin: 0; font-size: 0.92rem; color: var(--maroon-d); line-height: 1.7; }
+
+.mtc-contact {
+  margin-top: 48px;
+  background: linear-gradient(135deg, var(--maroon-d) 0%, var(--maroon) 60%, #B04010 100%);
+  border-radius: 22px; padding: 40px 38px; position: relative; overflow: hidden;
+}
+.mtc-contact::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 28px 28px; pointer-events: none;
+}
+.mtc-contact-h { font-family: 'Fraunces', serif; font-weight: 900; font-size: 1.5rem; color: var(--white); margin-bottom: 10px; position: relative; }
+.mtc-contact-p { color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.7; margin-bottom: 22px; position: relative; }
+.mtc-contact-rows { position: relative; display: flex; flex-direction: column; gap: 12px; }
+.mtc-contact-row { display: flex; align-items: center; gap: 12px; font-size: 0.95rem; color: var(--white); }
+.mtc-contact-row .ci {
+  width: 38px; height: 38px; border-radius: 10px; background: rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;
+}
+.mtc-contact-row a { color: var(--saff-l); text-decoration: none; font-weight: 600; }
+.mtc-contact-row a:hover { text-decoration: underline; }
+
+@media (max-width: 820px) {
+  .mtc-hero { padding: 66px 22px 52px; }
+  .mtc-body { padding: 44px 20px 70px; }
+  .mtc-wrap { grid-template-columns: 1fr; gap: 28px; }
+  .mtc-toc { position: static; }
+  .mtc-contact { padding: 30px 24px; }
+}
+</style>
+
+<div class="mtc">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="mtc-hero">
+    <span class="mtc-hero-eyebrow">Please Read Carefully</span>
+    <h1 class="mtc-hero-title">Terms &amp; <em>Conditions</em></h1>
+    <p class="mtc-hero-meta">Mithaas Sweets and Restaurant Pvt. Ltd. &nbsp;·&nbsp; Last updated: <strong>[Month, Year]</strong></p>
+  </section>
+
+  <!-- ═══ BODY ═══ -->
+  <section class="mtc-body">
+    <div class="mtc-wrap">
+
+      <!-- TOC -->
+      <aside class="mtc-toc">
+        <div class="mtc-toc-h">On this page</div>
+        <a href="#mtc-1">1. Acceptance of Terms</a>
+        <a href="#mtc-2">2. Use of Our Services</a>
+        <a href="#mtc-3">3. Orders &amp; Pricing</a>
+        <a href="#mtc-4">4. Reservations</a>
+        <a href="#mtc-5">5. Payments</a>
+        <a href="#mtc-6">6. Cancellations &amp; Refunds</a>
+        <a href="#mtc-7">7. Food &amp; Allergen Notice</a>
+        <a href="#mtc-8">8. Intellectual Property</a>
+        <a href="#mtc-9">9. User Conduct</a>
+        <a href="#mtc-10">10. Limitation of Liability</a>
+        <a href="#mtc-11">11. Indemnity</a>
+        <a href="#mtc-12">12. Governing Law</a>
+        <a href="#mtc-13">13. Changes to Terms</a>
+        <a href="#mtc-contact">Contact Us</a>
+      </aside>
+
+      <!-- CONTENT -->
+      <div class="mtc-content">
+
+        <p class="mtc-intro">
+          Welcome to <strong>Mithaas Sweets and Restaurant Pvt. Ltd.</strong> ("Mithaas", "we", "us", or "our"). These Terms &amp; Conditions ("Terms") govern your use of our website, online ordering, table reservations, and the products and services we provide at our outlets. By accessing our website or using our services, you agree to be bound by these Terms. Please read them carefully.
+        </p>
+
+        <div class="mtc-note">
+          <p>📌 <strong>Note:</strong> These Terms should be read together with our <a href="[/privacy-policy]" style="color:var(--saffron);font-weight:600;">Privacy Policy</a> and <a href="[/refund-policy]" style="color:var(--saffron);font-weight:600;">Cancellation &amp; Refund Policy</a>.</p>
+        </div>
+
+        <!-- 1 -->
+        <div class="mtc-sec" id="mtc-1">
+          <span class="mtc-sec-num">SECTION 01</span>
+          <h2 class="mtc-sec-h">Acceptance of Terms</h2>
+          <p>By placing an order, making a reservation, browsing our website, or otherwise using our services, you confirm that you are at least 18 years of age and that you accept these Terms in full. If you do not agree with any part of these Terms, please do not use our services.</p>
+        </div>
+
+        <!-- 2 -->
+        <div class="mtc-sec" id="mtc-2">
+          <span class="mtc-sec-num">SECTION 02</span>
+          <h2 class="mtc-sec-h">Use of Our Services</h2>
+          <p>You agree to use our website and services only for lawful purposes and in a manner that does not infringe the rights of, restrict, or inhibit anyone else's use. You agree to provide accurate, current, and complete information when placing orders or making reservations.</p>
+        </div>
+
+        <!-- 3 -->
+        <div class="mtc-sec" id="mtc-3">
+          <span class="mtc-sec-num">SECTION 03</span>
+          <h2 class="mtc-sec-h">Orders &amp; Pricing</h2>
+          <ul>
+            <li>All orders are subject to availability and confirmation by Mithaas.</li>
+            <li>Prices are listed in Indian Rupees (₹) and are <strong>inclusive / exclusive of applicable taxes</strong> as indicated. <span class="mtc-fill">[Confirm GST handling]</span></li>
+            <li>We reserve the right to modify prices, menu items, and availability at any time without prior notice.</li>
+            <li>In the event of a pricing or product error, we reserve the right to cancel the affected order and refund any amount paid.</li>
+            <li>Product images are for representation purposes; actual items may vary slightly in appearance.</li>
+          </ul>
+        </div>
+
+        <!-- 4 -->
+        <div class="mtc-sec" id="mtc-4">
+          <span class="mtc-sec-num">SECTION 04</span>
+          <h2 class="mtc-sec-h">Table Reservations</h2>
+          <ul>
+            <li>Reservation requests submitted online are <strong>requests only</strong> and are confirmed once our team contacts you.</li>
+            <li>We may hold a reserved table for a limited grace period <span class="mtc-fill">[e.g. 15 minutes]</span> past the booking time, after which it may be released.</li>
+            <li>For large parties or event bookings, additional terms, advance notice, or a deposit may apply. <span class="mtc-fill">[Specify party/deposit policy]</span></li>
+            <li>Mithaas reserves the right to decline or cancel a reservation at its discretion.</li>
+          </ul>
+        </div>
+
+        <!-- 5 -->
+        <div class="mtc-sec" id="mtc-5">
+          <span class="mtc-sec-num">SECTION 05</span>
+          <h2 class="mtc-sec-h">Payments</h2>
+          <p>Payments may be made through the methods we offer at our outlets and online <span class="mtc-fill">[list accepted methods — UPI, cards, cash, wallets]</span>. All online payments are processed through secure third-party payment gateways. Mithaas is not responsible for issues arising from the payment provider's systems.</p>
+        </div>
+
+        <!-- 6 -->
+        <div class="mtc-sec" id="mtc-6">
+          <span class="mtc-sec-num">SECTION 06</span>
+          <h2 class="mtc-sec-h">Cancellations &amp; Refunds</h2>
+          <p>As we deal in <strong>fresh, perishable food products</strong>, our cancellation and refund terms are limited and specific. Please refer to our dedicated <a href="[/refund-policy]" style="color:var(--saffron);font-weight:600;">Cancellation &amp; Refund Policy</a> for full details.</p>
+          <ul>
+            <li>Orders already prepared or dispatched generally cannot be cancelled.</li>
+            <li>Refunds, where applicable, are processed to the original payment method within <span class="mtc-fill">[X business days]</span>.</li>
+            <li>Concerns about quality or incorrect orders should be reported promptly — <span class="mtc-fill">[within X hours of delivery/pickup]</span>.</li>
+          </ul>
+        </div>
+
+        <!-- 7 -->
+        <div class="mtc-sec" id="mtc-7">
+          <span class="mtc-sec-num">SECTION 07</span>
+          <h2 class="mtc-sec-h">Food &amp; Allergen Notice</h2>
+          <p>Mithaas is a <strong>100% pure vegetarian</strong> establishment. Our products may contain or come into contact with common allergens such as <strong>milk, nuts, gluten, and dairy</strong>. If you have any allergies or dietary restrictions, please inform our staff before ordering. While we take care, we cannot guarantee an allergen-free environment.</p>
+        </div>
+
+        <!-- 8 -->
+        <div class="mtc-sec" id="mtc-8">
+          <span class="mtc-sec-num">SECTION 08</span>
+          <h2 class="mtc-sec-h">Intellectual Property</h2>
+          <p>All content on our website and materials — including the <strong>Mithaas name, logo, trademarks, text, graphics, images, and designs</strong> — is the property of Mithaas Sweets and Restaurant Pvt. Ltd. or its licensors, and is protected by applicable intellectual property laws. You may not copy, reproduce, distribute, or use any of this content without our prior written permission.</p>
+        </div>
+
+        <!-- 9 -->
+        <div class="mtc-sec" id="mtc-9">
+          <span class="mtc-sec-num">SECTION 09</span>
+          <h2 class="mtc-sec-h">User Conduct</h2>
+          <p>When interacting with our services, you agree not to:</p>
+          <ul>
+            <li>Provide false, misleading, or fraudulent information.</li>
+            <li>Attempt to disrupt, damage, or gain unauthorised access to our website or systems.</li>
+            <li>Use our services for any unlawful, abusive, or harmful purpose.</li>
+            <li>Post or transmit any content that is offensive, defamatory, or infringes the rights of others.</li>
+          </ul>
+        </div>
+
+        <!-- 10 -->
+        <div class="mtc-sec" id="mtc-10">
+          <span class="mtc-sec-num">SECTION 10</span>
+          <h2 class="mtc-sec-h">Limitation of Liability</h2>
+          <p>To the maximum extent permitted by law, Mithaas shall not be liable for any indirect, incidental, or consequential damages arising from your use of our services or consumption of our products, except where such liability cannot be excluded under applicable law. Our total liability for any claim shall not exceed the amount paid by you for the relevant order.</p>
+        </div>
+
+        <!-- 11 -->
+        <div class="mtc-sec" id="mtc-11">
+          <span class="mtc-sec-num">SECTION 11</span>
+          <h2 class="mtc-sec-h">Indemnity</h2>
+          <p>You agree to indemnify and hold harmless Mithaas, its directors, employees, and partners from any claims, losses, liabilities, or expenses arising out of your breach of these Terms or your misuse of our services.</p>
+        </div>
+
+        <!-- 12 -->
+        <div class="mtc-sec" id="mtc-12">
+          <span class="mtc-sec-num">SECTION 12</span>
+          <h2 class="mtc-sec-h">Governing Law &amp; Jurisdiction</h2>
+          <p>These Terms shall be governed by and construed in accordance with the laws of India. Any disputes arising in connection with these Terms shall be subject to the exclusive jurisdiction of the courts in <span class="mtc-fill">[City, State — e.g. Gautam Buddh Nagar (Noida), Uttar Pradesh]</span>.</p>
+        </div>
+
+        <!-- 13 -->
+        <div class="mtc-sec" id="mtc-13">
+          <span class="mtc-sec-num">SECTION 13</span>
+          <h2 class="mtc-sec-h">Changes to These Terms</h2>
+          <p>We may revise these Terms from time to time. The most current version will always be posted on this page with the "Last updated" date. Your continued use of our services after any changes constitutes acceptance of the revised Terms.</p>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="mtc-contact" id="mtc-contact">
+          <h3 class="mtc-contact-h">Questions About These Terms?</h3>
+          <p class="mtc-contact-p">If you have any questions regarding these Terms &amp; Conditions, please contact us:</p>
+          <div class="mtc-contact-rows">
+            <div class="mtc-contact-row">
+              <span class="ci">🏢</span>
+              <span>Mithaas Sweets and Restaurant Pvt. Ltd.<br><span style="color:rgba(255,255,255,0.5);font-size:0.86rem;">[Registered office address]</span></span>
+            </div>
+            <div class="mtc-contact-row">
+              <span class="ci">📧</span>
+              <span>Email: <a href="mailto:[support@mithaas.com]">[support@mithaas.com]</a></span>
+            </div>
+            <div class="mtc-contact-row">
+              <span class="ci">📞</span>
+              <span>Phone: <a href="tel:[+91XXXXXXXXXX]">[+91 XXXXX XXXXX]</a></span>
+            </div>
+            <div class="mtc-contact-row">
+              <span class="ci">🌐</span>
+              <span>Web: <a href="[https://www.mithaas.com]" target="_blank" rel="noopener">[www.mithaas.com]</a></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  var root = document.querySelector('.mtc');
+  if (!root) return;
+  root.querySelectorAll('.mtc-toc a').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href');
+      if (id.charAt(0) !== '#') return; // skip external links
+      var target = root.querySelector(id);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+})();
+</script>

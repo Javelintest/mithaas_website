@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mithaas Exports — Bringing Authentic India to the World</title>
+<meta name="description" content="Mithaas Exports — premium frozen Indian sweets, snacks, gravies and breads. FSSC 22000 & USFDA certified. Crafted in India, loved globally." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Manrope:wght@300;400;500;600;700;800&family=Caveat:wght@400..700&family=Allura&family=Sacramento&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   MITHAAS EXPORTS — Editorial food-magazine aesthetic
+   Palette inspired by saffron, cardamom, rose, and ghee
+   ========================================================= */
+:root{
+  --maroon:        #4A0E1C;
+  --maroon-deep:   #2E0812;
+  --crimson:       #C3122E;
+  --saffron:       #F2A93B;
+  --turmeric:      #E37C1F;
+  --cream:         #FBF4E8;
+  --cream-warm:    #F4E9D2;
+  --ivory:         #FFFDF7;
+  --ink:           #1A0A0E;
+  --rose:          #E89BA7;
+  --leaf:          #4A6B3A;
+  --gold:          #C49A3F;
+
+  --font-display:  'Fraunces', 'Times New Roman', serif;
+  --font-body:     'Manrope', system-ui, -apple-system, sans-serif;
+  --font-hand:     'Caveat', cursive;
+  --font-script:   'Allura', 'Caveat', cursive;
+
+  --container:     1280px;
+  --r-sm: 6px;
+  --r-md: 14px;
+  --r-lg: 28px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body{
+  margin:0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--ivory);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img { max-width:100%; display:block; }
+a { color: inherit; text-decoration: none; }
+
+/* paper / grain texture for warmth (CSS-only noise) */
+body::before{
+  content:"";
+  position: fixed; inset:0;
+  pointer-events:none;
+  background-image:
+    radial-gradient(rgba(74,14,28,.025) 1px, transparent 1px);
+  background-size: 3px 3px;
+  mix-blend-mode: multiply;
+  z-index: 1;
+  opacity:.5;
+}
+
+.container{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 640px){ .container{ padding: 0 20px; } }
+
+/* =========== HERO =========== */
+.hero{
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--maroon-deep);
+  color: var(--cream);
+  isolation: isolate;
+}
+.hero__bg{
+  position: absolute; inset:0;
+  background-image: url('images/hero-spread.jpg');
+  background-size: cover;
+  background-position: center 65%;
+  filter: saturate(1.05) brightness(.85);
+  z-index: 0;
+}
+.hero__bg::after{
+  content:""; position:absolute; inset:0;
+  background:
+    radial-gradient(60% 80% at 25% 50%, rgba(46,8,18,.78), rgba(46,8,18,.15) 70%),
+    linear-gradient(180deg, rgba(46,8,18,.65) 0%, rgba(46,8,18,.25) 40%, rgba(46,8,18,.85) 100%);
+}
+.hero__inner{
+  position: relative; z-index: 2;
+  min-height: 100vh;
+  display: grid;
+  align-content: center;
+  padding: 140px 0 100px;
+}
+.hero__eyebrow{
+  display: inline-flex;
+  align-items:center;
+  gap: 14px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: .35em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--saffron);
+  margin-bottom: 28px;
+}
+.hero__eyebrow::before, .hero__eyebrow::after{
+  content:""; width: 32px; height: 1px; background: var(--saffron); opacity:.7;
+}
+.hero__title{
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(44px, 6.8vw, 104px);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  margin: 0 0 32px;
+  max-width: 18ch;
+  font-variation-settings: "opsz" 120, "SOFT" 50;
+}
+.hero__title em{
+  font-style: italic;
+  color: var(--saffron);
+  font-weight: 400;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.hero__title .script{
+  font-family: var(--font-script);
+  color: var(--rose);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.92em;
+  display: inline-block;
+  transform: rotate(-3deg) translateY(0.02em);
+  line-height: 0.85;
+  letter-spacing: .005em;
+  margin: 0.05em 0;
+}
+.hero__sub{
+  font-size: 19px;
+  line-height: 1.55;
+  max-width: 52ch;
+  color: rgba(251,244,232,.85);
+  margin: 0 0 44px;
+  font-weight: 400;
+}
+.hero__actions{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 18px;
+}
+.hero__cta{
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 34px;
+  background: var(--crimson);
+  color: #fff;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: .04em;
+  transition: transform .35s cubic-bezier(.2,.7,.2,1), background .25s;
+  border: none;
+  cursor: pointer;
+}
+.hero__cta:hover{ background: #d3193a; transform: translateY(-2px); }
+.hero__cta .arrow{ width: 18px; height: 18px; transition: transform .3s; }
+.hero__cta:hover .arrow{ transform: translateX(4px); }
+.hero__secondary{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 18px;
+  padding: 18px 24px;
+  color: var(--cream);
+  font-weight: 500;
+  font-size: 15px;
+  border-bottom: 1px solid rgba(251,244,232,.4);
+  transition: border-color .25s;
+}
+.hero__secondary:hover{ border-color: var(--saffron); }
+
+/* hero corner ornament */
+.hero__corner{
+  position: absolute;
+  bottom: 36px; right: 40px;
+  z-index: 3;
+  text-align: right;
+  color: rgba(251,244,232,.6);
+  font-size: 11px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+}
+.hero__corner span{ display:block; }
+.hero__corner em{
+  font-family: var(--font-hand);
+  font-style: normal;
+  font-size: 28px;
+  color: var(--saffron);
+  letter-spacing: 0;
+  text-transform: none;
+  display:block;
+  margin-top: 4px;
+}
+
+/* hero stats strip */
+.hero__stats{
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 3;
+  background: linear-gradient(180deg, transparent, rgba(46,8,18,.95));
+  padding: 28px 0 22px;
+}
+.hero__stats-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  border-top: 1px solid rgba(242,169,59,.25);
+  padding-top: 22px;
+}
+.stat{ text-align: left; }
+.stat__num{
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.4vw, 44px);
+  font-weight: 400;
+  color: var(--saffron);
+  line-height: 1;
+  letter-spacing: -.02em;
+  font-variation-settings: "opsz" 144;
+}
+.stat__label{
+  font-size: 11px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: rgba(251,244,232,.7);
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+@media (max-width:760px){
+  .hero__corner{ display:none; }
+  .hero__stats-grid{ grid-template-columns: repeat(2,1fr); gap: 18px 12px; }
+  .hero__secondary{ margin-left: 0; margin-top: 4px; }
+  .hero__inner{ padding: 120px 0 200px; }
+  .hero__title{ max-width: 100%; }
+}
+
+/* =========== SECTION SHARED =========== */
+section { position: relative; z-index: 2; }
+.section{
+  padding: 130px 0;
+}
+@media (max-width:760px){ .section{ padding: 80px 0; } }
+
+.eyebrow{
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  letter-spacing: .35em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin-bottom: 22px;
+}
+.eyebrow::before{
+  content:""; width:36px; height:1px; background: var(--crimson);
+}
+.h-display{
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(38px, 5.4vw, 76px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin: 0 0 28px;
+  color: var(--maroon);
+  font-variation-settings: "opsz" 120, "SOFT" 30;
+}
+.h-display em{
+  font-style: italic;
+  color: var(--turmeric);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.h-display .script{
+  font-family: var(--font-script);
+  font-style: normal;
+  font-weight: 400;
+  color: var(--crimson);
+  display: inline-block;
+  transform: rotate(-2deg);
+  font-size: 1.15em;
+  line-height: .85;
+  letter-spacing: .005em;
+}
+.lede{
+  font-size: 19px;
+  line-height: 1.55;
+  max-width: 58ch;
+  color: rgba(26,10,14,.78);
+  margin: 0;
+}
+
+/* =========== STORY =========== */
+.story{
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.story__deco{
+  position: absolute;
+  top: -80px; right: -120px;
+  width: 480px; height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, var(--saffron), transparent 65%);
+  opacity: .25;
+  z-index: 1;
+}
+.story__grid{
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 90px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 900px){
+  .story__grid{ grid-template-columns: 1fr; gap: 50px; }
+}
+.story__image{
+  position: relative;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  box-shadow: 0 30px 60px -20px rgba(74,14,28,.35);
+}
+.story__image img{ width:100%; height:100%; object-fit:cover; }
+.story__image::after{
+  content:""; position:absolute; inset:0;
+  background: linear-gradient(180deg, transparent 50%, rgba(74,14,28,.5));
+}
+.story__image-label{
+  position: absolute;
+  bottom: 24px; left: 24px; right: 24px;
+  z-index: 2;
+  color: var(--cream);
+  font-family: var(--font-hand);
+  font-size: 28px;
+  line-height: 1.1;
+  transform: rotate(-1.5deg);
+}
+.story__badge{
+  position: absolute;
+  top: 24px; right: 24px;
+  z-index: 2;
+  background: var(--ivory);
+  color: var(--maroon);
+  font-family: var(--font-display);
+  width: 96px; height: 96px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.15;
+  font-weight: 500;
+  letter-spacing: .04em;
+  box-shadow: 0 8px 24px rgba(74,14,28,.2);
+  transform: rotate(8deg);
+}
+.story__badge strong{
+  font-size: 22px;
+  display: block;
+  color: var(--crimson);
+  font-weight: 600;
+}
+.story__content p{
+  font-size: 17.5px;
+  line-height: 1.7;
+  color: rgba(26,10,14,.78);
+  margin: 0 0 20px;
+}
+.story__content p:first-of-type{
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1.45;
+  color: var(--maroon);
+  font-weight: 400;
+  font-style: italic;
+  font-variation-settings: "opsz" 36;
+}
+.story__pullquote{
+  margin-top: 36px;
+  padding: 24px 0 4px;
+  border-top: 1px solid rgba(74,14,28,.15);
+  font-family: var(--font-hand);
+  font-size: 28px;
+  line-height: 1.2;
+  color: var(--crimson);
+}
+.story__pullquote::before{
+  content:"❝";
+  display:block;
+  font-family: var(--font-display);
+  font-size: 60px;
+  color: var(--saffron);
+  line-height: .5;
+  margin-bottom: 10px;
+}
+
+/* =========== PROCESS =========== */
+.process{
+  background: var(--maroon);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.process::before{
+  content:"";
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 12% 88%, rgba(242,169,59,.18), transparent 38%),
+    radial-gradient(circle at 88% 12%, rgba(227,124,31,.15), transparent 40%);
+  pointer-events: none;
+}
+.process .h-display{ color: var(--cream); }
+.process .h-display em{ color: var(--saffron); }
+.process .lede{ color: rgba(251,244,232,.78); }
+.process .eyebrow{ color: var(--saffron); }
+.process .eyebrow::before{ background: var(--saffron); }
+
+.process__header{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: end;
+  margin-bottom: 80px;
+}
+@media (max-width: 840px){
+  .process__header{ grid-template-columns: 1fr; gap: 24px; }
+}
+
+.process__grid{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(242,169,59,.25);
+  border-bottom: 1px solid rgba(242,169,59,.25);
+}
+@media (max-width: 980px){
+  .process__grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px){
+  .process__grid{ grid-template-columns: 1fr; }
+}
+.step{
+  padding: 38px 28px 42px;
+  border-right: 1px solid rgba(242,169,59,.25);
+  position: relative;
+  transition: background .35s;
+}
+.step:last-child{ border-right: none; }
+@media (max-width: 980px){
+  .step{ border-right: none; border-bottom: 1px solid rgba(242,169,59,.25); }
+  .step:nth-child(2n){ border-right: none; }
+}
+@media (min-width: 981px){
+  .step:nth-child(2n){ background: rgba(242,169,59,.04); }
+}
+.step:hover{ background: rgba(242,169,59,.08); }
+.step__num{
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 64px;
+  color: var(--saffron);
+  line-height: 1;
+  font-variation-settings: "opsz" 144;
+  font-style: italic;
+}
+.step__title{
+  margin: 18px 0 12px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--cream);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.step__text{
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: rgba(251,244,232,.7);
+  margin: 0;
+}
+
+/* =========== PRODUCTS =========== */
+.products{
+  background: var(--cream-warm);
+  position: relative;
+}
+.products__header{
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 70px;
+}
+@media (max-width: 900px){
+  .products__header{ grid-template-columns: 1fr; gap: 24px; }
+}
+
+.cat-grid{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 28px;
+}
+.cat{
+  position: relative;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--maroon-deep);
+  color: var(--cream);
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  isolation: isolate;
+  cursor: pointer;
+  transition: transform .5s cubic-bezier(.2,.7,.2,1);
+  text-decoration: none;
+}
+.cat:hover{ transform: translateY(-4px); }
+.cat__cta{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: var(--saffron);
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(242,169,59,.3);
+  transition: gap .3s;
+}
+.cat__cta svg{ width: 14px; height: 14px; transition: transform .3s; }
+.cat:hover .cat__cta{ gap: 12px; }
+.cat:hover .cat__cta svg{ transform: translateX(4px); }
+.cat__media{
+  position: absolute; inset: 0; z-index: 0;
+  overflow: hidden;
+}
+.cat__media img{
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 1.2s cubic-bezier(.2,.7,.2,1);
+}
+.cat:hover .cat__media img{ transform: scale(1.06); }
+.cat__media::after{
+  content:""; position: absolute; inset:0;
+  background: linear-gradient(180deg, rgba(46,8,18,.0) 25%, rgba(46,8,18,.35) 55%, rgba(46,8,18,.92));
+}
+.cat__body{
+  position: relative; z-index: 2;
+  padding: 28px 28px 30px;
+}
+.cat__tag{
+  display: inline-block;
+  font-size: 10.5px;
+  letter-spacing: .3em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--saffron);
+  margin-bottom: 14px;
+  padding: 6px 12px;
+  border: 1px solid rgba(242,169,59,.5);
+  border-radius: 999px;
+}
+.cat__title{
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.05;
+  letter-spacing: -.01em;
+  margin: 0 0 14px;
+  font-variation-settings: "opsz" 72, "SOFT" 50;
+}
+.cat__title em{
+  font-style: italic;
+  color: var(--saffron);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.cat__meta{
+  font-size: 13px;
+  letter-spacing: .04em;
+  color: rgba(251,244,232,.7);
+  margin-bottom: 16px;
+}
+.cat__meta span{ color: var(--saffron); }
+.cat__list{
+  margin: 0; padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .5s cubic-bezier(.2,.7,.2,1), margin .4s, opacity .35s;
+  opacity: 0;
+}
+.cat:hover .cat__list{
+  max-height: 240px;
+  opacity: 1;
+  margin-top: 4px;
+}
+.cat__list li{
+  font-size: 12px;
+  padding: 5px 11px;
+  background: rgba(251,244,232,.12);
+  border-radius: 999px;
+  color: var(--cream);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(251,244,232,.1);
+}
+
+/* Editorial bento layout — varied sizes */
+.cat--lg{ grid-column: span 7; min-height: 560px; }
+.cat--md{ grid-column: span 5; min-height: 560px; }
+.cat--sm{ grid-column: span 4; min-height: 460px; }
+.cat--tall{ grid-column: span 5; min-height: 620px; }
+.cat--wide{ grid-column: span 8; min-height: 460px; }
+.cat--full{ grid-column: span 6; min-height: 460px; }
+
+.cat--lg .cat__title{ font-size: 44px; }
+.cat--tall .cat__title{ font-size: 40px; }
+
+@media (max-width: 1100px){
+  .cat--lg, .cat--md, .cat--sm, .cat--tall, .cat--wide, .cat--full{
+    grid-column: span 6;
+    min-height: 440px;
+  }
+}
+@media (max-width: 640px){
+  .cat-grid{ gap: 18px; }
+  .cat--lg, .cat--md, .cat--sm, .cat--tall, .cat--wide, .cat--full{
+    grid-column: span 12;
+    min-height: 540px;
+  }
+  .cat__title, .cat--lg .cat__title, .cat--tall .cat__title{ font-size: 30px; }
+  .cat__body{ padding: 24px 22px 26px; }
+  /* On mobile, give the gradient overlay more strength so text stays readable */
+  .cat__media::after{
+    background: linear-gradient(180deg, rgba(46,8,18,.0) 15%, rgba(46,8,18,.55) 40%, rgba(46,8,18,.96));
+  }
+  .cat__list{ max-height: 320px; opacity: 1; margin-top: 14px; }
+  .cat__list li{ font-size: 11.5px; padding: 4px 9px; }
+}
+
+/* =========== SPECS / packaging banner =========== */
+.specs{
+  background: var(--ivory);
+}
+.specs__grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(74,14,28,.12);
+  border-bottom: 1px solid rgba(74,14,28,.12);
+}
+@media (max-width: 840px){
+  .specs__grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 460px){
+  .specs__grid{ grid-template-columns: 1fr; }
+}
+.spec{
+  padding: 50px 30px;
+  border-right: 1px solid rgba(74,14,28,.12);
+  position: relative;
+}
+.spec:last-child{ border-right: none; }
+@media (max-width: 840px){
+  .spec:nth-child(2n){ border-right: none; }
+  .spec:nth-child(-n+2){ border-bottom: 1px solid rgba(74,14,28,.12); }
+}
+.spec__icon{
+  width: 44px; height: 44px;
+  display: grid; place-items: center;
+  color: var(--crimson);
+  margin-bottom: 22px;
+}
+.spec__icon svg{ width: 100%; height: 100%; }
+.spec__h{
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--maroon);
+  margin: 0 0 8px;
+  letter-spacing: -.01em;
+}
+.spec__p{
+  font-size: 14.5px;
+  color: rgba(26,10,14,.7);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* =========== CERTIFICATIONS =========== */
+.certs{
+  background: var(--ivory);
+  padding-top: 0;
+  padding-bottom: 130px;
+}
+.certs__inner{
+  background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-deep) 100%);
+  border-radius: var(--r-lg);
+  padding: 80px 60px;
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.certs__inner::before{
+  content:"";
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(242,169,59,.16), transparent 60%);
+  top: -200px; right: -200px;
+}
+.certs__grid{
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 900px){
+  .certs__grid{ grid-template-columns: 1fr; gap: 36px; }
+  .certs__inner{ padding: 50px 28px; }
+}
+.certs__title{
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  margin: 0;
+  color: var(--cream);
+  font-variation-settings: "opsz" 120, "SOFT" 40;
+}
+.certs__title em{ font-style: italic; color: var(--saffron); font-variation-settings: "opsz" 144, "SOFT" 100; }
+.certs__list{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 540px){ .certs__list{ grid-template-columns: 1fr; } }
+.certs__item{
+  padding: 24px;
+  border: 1px solid rgba(242,169,59,.3);
+  border-radius: var(--r-md);
+  background: rgba(251,244,232,.04);
+}
+.certs__item h4{
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0 0 6px;
+  color: var(--saffron);
+  letter-spacing: .02em;
+}
+.certs__item p{
+  font-size: 13.5px;
+  margin: 0;
+  color: rgba(251,244,232,.75);
+  line-height: 1.55;
+}
+
+/* =========== FAQ =========== */
+.faq{
+  background: var(--cream);
+}
+.faq__grid{
+  display: grid;
+  grid-template-columns: 1fr 1.8fr;
+  gap: 80px;
+}
+@media (max-width: 900px){
+  .faq__grid{ grid-template-columns: 1fr; gap: 40px; }
+}
+.faq__list{ display: flex; flex-direction: column; gap: 0; }
+.q{
+  border-top: 1px solid rgba(74,14,28,.18);
+  padding: 28px 0;
+}
+.q:last-child{ border-bottom: 1px solid rgba(74,14,28,.18); }
+.q summary{
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 500;
+  color: var(--maroon);
+  line-height: 1.25;
+  letter-spacing: -.005em;
+}
+.q summary::-webkit-details-marker{ display: none; }
+.q__icon{
+  flex-shrink: 0;
+  width: 36px; height: 36px;
+  border: 1px solid var(--maroon);
+  border-radius: 50%;
+  display: grid; place-items: center;
+  position: relative;
+  transition: background .25s, transform .35s;
+}
+.q__icon::before, .q__icon::after{
+  content:"";
+  position: absolute;
+  background: var(--maroon);
+  transition: opacity .25s, transform .35s;
+}
+.q__icon::before{ width: 12px; height: 1.5px; }
+.q__icon::after{ width: 1.5px; height: 12px; }
+.q[open] .q__icon{ background: var(--maroon); transform: rotate(45deg); }
+.q[open] .q__icon::before, .q[open] .q__icon::after{ background: var(--cream); }
+.q[open] .q__icon::after{ opacity: 0; }
+.q__answer{
+  padding: 20px 60px 0 0;
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: rgba(26,10,14,.75);
+}
+
+/* =========== CTA =========== */
+.cta{
+  background: var(--maroon-deep);
+  color: var(--cream);
+  padding: 130px 0;
+  position: relative;
+  overflow: hidden;
+}
+.cta::before{
+  content:"";
+  position: absolute; inset:0;
+  background-image: url('images/frozen-food.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: .25;
+  filter: blur(2px);
+}
+.cta::after{
+  content:""; position:absolute; inset:0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(46,8,18,.5), rgba(46,8,18,.95));
+}
+.cta__inner{
+  position: relative; z-index: 2;
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto;
+}
+.cta__eyebrow{
+  font-family: var(--font-hand);
+  font-size: 32px;
+  color: var(--saffron);
+  display: block;
+  margin-bottom: 12px;
+  transform: rotate(-2deg);
+}
+.cta__title{
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(36px, 5.4vw, 68px);
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  margin: 0 0 32px;
+  color: var(--cream);
+  font-variation-settings: "opsz" 120, "SOFT" 40;
+}
+.cta__title em{ font-style: italic; color: var(--saffron); font-variation-settings: "opsz" 144, "SOFT" 100;}
+.cta__info{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 40px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(242,169,59,.3);
+}
+.cta__info-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 200px;
+}
+.cta__info-label{
+  font-size: 11px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: rgba(251,244,232,.6);
+  font-weight: 600;
+}
+.cta__info-val{
+  font-family: var(--font-display);
+  font-size: 19px;
+  color: var(--cream);
+  font-weight: 400;
+}
+.cta__info-val a:hover{ color: var(--saffron); }
+.cta__btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 38px;
+  background: var(--saffron);
+  color: var(--maroon-deep);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: .04em;
+  transition: transform .3s, background .25s;
+}
+.cta__btn:hover{ background: #ffba47; transform: translateY(-2px); }
+.cta__btn .arrow{ width: 18px; height: 18px; transition: transform .3s; }
+.cta__btn:hover .arrow{ transform: translateX(4px); }
+
+/* footer attribution */
+.foot{
+  padding: 36px 0;
+  background: var(--maroon-deep);
+  color: rgba(251,244,232,.5);
+  font-size: 13px;
+  text-align: center;
+  border-top: 1px solid rgba(242,169,59,.15);
+}
+
+/* ---------- Reveal animations ---------- */
+[data-reveal]{
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1);
+}
+[data-reveal].in{ opacity: 1; transform: translateY(0); }
+[data-reveal-delay="1"]{ transition-delay: .08s; }
+[data-reveal-delay="2"]{ transition-delay: .18s; }
+[data-reveal-delay="3"]{ transition-delay: .28s; }
+[data-reveal-delay="4"]{ transition-delay: .38s; }
+[data-reveal-delay="5"]{ transition-delay: .48s; }
+
+/* Hero on-load animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero__eyebrow, .hero__title, .hero__sub, .hero__actions, .hero__stats{
+  animation: fadeUp 1s cubic-bezier(.2,.7,.2,1) both;
+}
+.hero__eyebrow{ animation-delay: .05s; }
+.hero__title{ animation-delay: .18s; }
+.hero__sub{ animation-delay: .35s; }
+.hero__actions{ animation-delay: .50s; }
+.hero__stats{ animation-delay: .65s; }
+</style>
+</head>
+<body>
+
+<!-- ====================  HERO  ==================== -->
+<header class="hero">
+  <div class="hero__bg" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="hero__inner">
+      <span class="hero__eyebrow">Mithaas Exports · Since 2013</span>
+
+      <h1 class="hero__title">
+        Bringing the <em>taste of India</em><br>
+        <span class="script">to&nbsp;the&nbsp;world,</span><br>
+        one bite at a time.
+      </h1>
+
+      <p class="hero__sub">
+        Authentic Indian sweets, snacks, gravies and breads — flash-frozen at peak freshness,
+        crafted in FSSC 22000 &amp; USFDA certified kitchens, and shipped globally to retailers,
+        distributors and food-service partners.
+      </p>
+
+      <div class="hero__actions">
+        <a class="hero__cta" href="#products">
+          Explore the Catalogue
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+        <a class="hero__secondary" href="#contact">Become a partner →</a>
+      </div>
+    </div>
+
+    <div class="hero__stats">
+      <div class="hero__stats-grid">
+        <div class="stat">
+          <div class="stat__num">16+</div>
+          <div class="stat__label">Stores · NCR</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num">60+</div>
+          <div class="stat__label">SKUs Exported</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num">12mo</div>
+          <div class="stat__label">Shelf life @ −18°C</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num">100%</div>
+          <div class="stat__label">Vegetarian</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__corner">
+    <span>Frozen · Fresh · Forever</span>
+    <em>~ heat &amp; eat ~</em>
+  </div>
+</header>
+
+<!-- ====================  STORY  ==================== -->
+<section class="section story">
+  <div class="story__deco"></div>
+  <div class="container">
+    <div class="story__grid">
+      <div class="story__image" data-reveal>
+        <img src="images/gulab-jamun.jpg" alt="Authentic Indian sweets — gulab jamun" />
+        <div class="story__badge">
+          <div>
+            <strong>2013</strong>
+            since
+          </div>
+        </div>
+        <div class="story__image-label">crafted with ghee &amp; soul</div>
+      </div>
+
+      <div class="story__content" data-reveal data-reveal-delay="1">
+        <span class="eyebrow">Our Story</span>
+        <h2 class="h-display">
+          A <em>sweet odyssey</em><br>
+          that began with <span class="script">one store.</span>
+        </h2>
+        <p>
+          In 2013, Mithaas commenced its sweet odyssey with a single store in Ashirwad Complex —
+          dedicated to preserving the authentic taste of Indian sweets and delicacies.
+        </p>
+        <p>
+          Sweetened by the smiles of satisfied customers, that one store grew into a
+          network of <strong>16+ outlets across the NCR</strong>. Every Mithaas
+          counter is a small ode to our dedication: not just sweets, but moments of
+          joy. Now, through our Frozen Food Division, we bring that same warmth
+          to families and partners across the world.
+        </p>
+        <div class="story__pullquote">
+          Heat and eat, then repeat.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================  PROCESS  ==================== -->
+<section class="section process">
+  <div class="container">
+    <div class="process__header">
+      <div data-reveal>
+        <span class="eyebrow">Farm to Freezer</span>
+        <h2 class="h-display">
+          Five steps,<br>
+          <em>zero shortcuts.</em>
+        </h2>
+      </div>
+      <p class="lede" data-reveal data-reveal-delay="1">
+        Every box that leaves our facility passes through five quietly obsessive
+        stages — designed to lock in flavour, aroma and nutrition without a single
+        preservative.
+      </p>
+    </div>
+
+    <div class="process__grid">
+      <div class="step" data-reveal data-reveal-delay="1">
+        <div class="step__num">01</div>
+        <h3 class="step__title">Sourcing</h3>
+        <p class="step__text">
+          Our team meticulously selects the finest, freshest ingredients —
+          from desi ghee to seasonal produce — to craft exceptional culinary creations.
+        </p>
+      </div>
+      <div class="step" data-reveal data-reveal-delay="2">
+        <div class="step__num">02</div>
+        <h3 class="step__title">Sorting</h3>
+        <p class="step__text">
+          A devoted team carefully sorts and grades each batch, keeping only the
+          highest-grade ingredients for unparalleled quality.
+        </p>
+      </div>
+      <div class="step" data-reveal data-reveal-delay="3">
+        <div class="step__num">03</div>
+        <h3 class="step__title">Production</h3>
+        <p class="step__text">
+          Modern technology meets time-honoured family recipes — every dish is
+          crafted the way your grandmother would recognise it.
+        </p>
+      </div>
+      <div class="step" data-reveal data-reveal-delay="4">
+        <div class="step__num">04</div>
+        <h3 class="step__title">Packaging</h3>
+        <p class="step__text">
+          IQF, Blast Freezing, Nitro-flushing and high-barrier films lock in
+          freshness while minimising oxidation and moisture exposure.
+        </p>
+      </div>
+      <div class="step" data-reveal data-reveal-delay="5">
+        <div class="step__num">05</div>
+        <h3 class="step__title">Assurance</h3>
+        <p class="step__text">
+          Processed in FSSC 22000 &amp; USFDA certified units, every batch passes
+          rigorous quality checks before it ever sees a freezer.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================  PRODUCT CATEGORIES  ==================== -->
+<section class="section products" id="products">
+  <div class="container">
+    <div class="products__header">
+      <div data-reveal>
+        <span class="eyebrow">The Catalogue</span>
+        <h2 class="h-display">
+          Seven worlds<br>
+          of <em>Indian flavour,</em><br>
+          all <span class="script">heat &amp; eat.</span>
+        </h2>
+      </div>
+      <p class="lede" data-reveal data-reveal-delay="1">
+        From silver-leafed kaju katli to bubbling dal makhani, our frozen range
+        spans the breadth of Indian cuisine — packed in 500g, 1kg and bulk formats,
+        engineered for retail and food-service alike.
+      </p>
+    </div>
+
+    <div class="cat-grid">
+      <!-- 1. Desi Ghee Sweets -->
+      <a class="cat cat--lg" href="categories/desi-ghee-sweets.html" data-reveal>
+        <div class="cat__media"><img src="images/gulab-jamun.jpg" alt="Desi Ghee Sweets — Gulab Jamun" /></div>
+        <div class="cat__body">
+          <span class="cat__tag">Category 01 · Mithai</span>
+          <h3 class="cat__title">Desi Ghee <em>Sweets</em></h3>
+          <p class="cat__meta">16 SKUs · <span>1kg &amp; 3–5kg bulk</span> · 12 months @ −18°C</p>
+          <ul class="cat__list">
+            <li>Gulab Jamun</li><li>Special Boondi Ladoo</li><li>Jodhpuri Ladoo</li>
+            <li>Gondgiri Ladoo</li><li>Panjiri Ladoo</li><li>Besan Ladoo</li>
+            <li>Imarti</li><li>Ghujia</li><li>Chana Burfi</li><li>Patisa</li>
+            <li>Balushahi</li><li>Moong Dal Halwa</li><li>Doda Burfi</li>
+            <li>Karachi Halwa</li><li>Moong Dal Pinni</li><li>Urad Dal Pinni</li>
+          </ul>
+          <span class="cat__cta">View all 16 sweets <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+      <!-- 2. Dry Fruit Sweets -->
+      <a class="cat cat--md" href="categories/dry-fruit-sweets.html" data-reveal data-reveal-delay="1">
+        <div class="cat__media"><img src="images/kaju-katli.jpg" alt="Dry Fruit Sweets — Kaju Katli" /></div>
+        <div class="cat__body">
+          <span class="cat__tag">Category 02 · Premium</span>
+          <h3 class="cat__title">Dry Fruit <em>Sweets</em></h3>
+          <p class="cat__meta">13 SKUs · <span>500g, 1kg &amp; bulk</span> · 12 months @ −18°C</p>
+          <ul class="cat__list">
+            <li>Kaju Katli</li><li>Kaju Jalebi</li><li>Kaju Samosa</li>
+            <li>Kaju Anjeer Roll</li><li>Kaju Kalash</li><li>Kaju Roll</li>
+            <li>Anjeer Burfi</li><li>Kaju Mango Crunch</li>
+            <li>Kaju Pineapple Crunch</li><li>Kaju Orange Crunch</li>
+            <li>Orange Bite</li><li>Chocolate Bite</li><li>Rose Bite</li>
+          </ul>
+          <span class="cat__cta">View all 13 sweets <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+      <!-- 3. Bengali Sweets -->
+      <a class="cat cat--sm" href="categories/bengali-sweets.html" data-reveal>
+        <div class="cat__media"><img src="images/rasgulla.jpg" alt="Bengali Sweets — Rasgulla &amp; Rasmalai" /></div>
+        <div class="cat__body">
+          <span class="cat__tag">Category 03 · Chenna</span>
+          <h3 class="cat__title">Bengali <em>Sweets</em></h3>
+          <p class="cat__meta">6 SKUs · <span>5–15kg bulk</span> · 12 months @ −18°C</p>
+          <ul class="cat__list">
+            <li>Sponge Rasgulla</li><li>Rasbhari</li><li>Laccha Rabri</li>
+            <li>Rasmalai Tikki</li><li>Milk Cake</li><li>Rajbhog</li>
+          </ul>
+          <span class="cat__cta">View all 6 sweets <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+      <!-- 4. Ready Indian Gravies -->
+      <a class="cat cat--wide" href="categories/ready-gravies.html" data-reveal data-reveal-delay="1">
+        <div class="cat__media"><img src="images/palak-paneer.jpg" alt="Ready Indian Gravies — Palak Paneer" /></div>
+        <div class="cat__body">
+          <span class="cat__tag">Category 04 · Mains</span>
+          <h3 class="cat__title">Ready Indian <em>Gravies</em></h3>
+          <p class="cat__meta">19 SKUs · <span>300g pouches &amp; 5kg bulk</span> · microwave 2 mins</p>
+          <ul class="cat__list">
+            <li>Dal Makhani</li><li>Paneer Makhni</li><li>Shahi Paneer</li>
+            <li>Methi Matar Malai</li><li>Bhindi Masala</li><li>Baigan Bharta</li>
+            <li>Malai Kofta</li><li>Yellow Dal Tadka</li><li>Paneer Butter Masala</li>
+            <li>Rajma Masala</li><li>Palak Paneer</li><li>Pindi Chole</li>
+            <li>Amritsari Chole</li><li>Malai Paneer</li><li>Mix Veg</li>
+            <li>Kadhai Paneer</li><li>Paneer Lababdar</li><li>Bhaji for Pao</li>
+            <li>Sarson Ka Saag</li>
+          </ul>
+          <span class="cat__cta">View all 19 gravies <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+      <!-- 5. Indian Snacks -->
+      <a class="cat cat--full" href="categories/indian-snacks.html" data-reveal>
+        <div class="cat__media"><img src="images/samosa.jpg" alt="Indian Snacks — Samosa" /></div>
+        <div class="cat__body">
+          <span class="cat__tag">Category 05 · Savouries</span>
+          <h3 class="cat__title">Indian <em>Snacks</em></h3>
+          <p class="cat__meta">12 SKUs · <span>2–5kg bulk</span> · thaw &amp; fry / air fry</p>
+          <ul class="cat__list">
+            <li>Aloo Samosa 70g</li><li>Aloo Samosa 120g</li><li>Aloo Samosa 160g</li>
+            <li>Paneer Samosa</li><li>Gobhi Samosa</li><li>Paneer Pakoda</li>
+            <li>Bread Pakoda</li><li>Bread Cutlet</li><li>Matar Kachori</li>
+            <li>Dry Fruit Kachori</li><li>Onion Spinach Pakoda</li><li>Mirch Pakoda</li>
+          </ul>
+          <span class="cat__cta">View all 12 snacks <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+      <!-- 6. Indian Breads -->
+      <a class="cat cat--full" href="categories/indian-breads.html" data-reveal data-reveal-delay="1">
+        <div class="cat__media"><img src="images/paratha.jpg" alt="Indian Breads — Aloo Paratha" /></div>
+        <div class="cat__body">
+          <span class="cat__tag">Category 06 · Breads</span>
+          <h3 class="cat__title">Indian <em>Breads</em></h3>
+          <p class="cat__meta">13 SKUs · <span>100g / 200g / packs</span> · thaw &amp; pan-heat</p>
+          <ul class="cat__list">
+            <li>Aloo Paratha</li><li>Aloo Pyaaz Paratha</li><li>Paneer Paratha</li>
+            <li>Aloo Achari Paratha</li><li>Mooli Paratha</li><li>Gobhi Paratha</li>
+            <li>Mix Veg Paratha</li><li>Amritsari Kulcha</li><li>Bhatura (pack of 2)</li>
+            <li>Bedmi Puri (pack of 4)</li><li>Fulka Roti (pack of 5)</li>
+            <li>Makke Ki Roti (pack of 5)</li><li>Petti Kulcha (pack of 2)</li>
+          </ul>
+          <span class="cat__cta">View all 13 breads <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+      <!-- 7. Indian Dips -->
+      <a class="cat cat--wide" href="categories/indian-dips.html" data-reveal>
+        <div class="cat__media"><img src="images/chutney.jpg" alt="Indian Dips — Chutneys" /></div>
+        <div class="cat__body">
+          <span class="cat__tag">Category 07 · Accompaniments</span>
+          <h3 class="cat__title">Indian <em>Dips &amp; Chutneys</em></h3>
+          <p class="cat__meta">4 SKUs · <span>Bulk packs</span> · thaw in fridge or at room temp</p>
+          <ul class="cat__list">
+            <li>Green Coriander Chutney</li><li>Tandoori Chutney</li>
+            <li>Gur Amchoor Chutney</li><li>Coconut Chutney</li>
+          </ul>
+          <span class="cat__cta">View all 4 chutneys <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+      <!-- 8. Combo Meals card -->
+      <a class="cat cat--sm" href="categories/indian-snacks.html" data-reveal data-reveal-delay="1">
+        <div class="cat__media"><img src="images/chole-bhature.jpg" alt="Indian Combo — Chole Bhature" /></div>
+        <div class="cat__body">
+          <span class="cat__tag">Bestsellers</span>
+          <h3 class="cat__title">Combo <em>Meals</em></h3>
+          <p class="cat__meta"><span>Chole-Bhature, Chole-Kulcha &amp; more</span></p>
+          <ul class="cat__list">
+            <li>Chole + Bhatura</li><li>Chole + Kulcha</li>
+            <li>Paratha + Chutney</li><li>Saag + Makke Roti</li>
+          </ul>
+          <span class="cat__cta">Explore combos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ====================  SPECS  ==================== -->
+<section class="section specs">
+  <div class="container">
+    <div style="margin-bottom:50px; max-width: 720px;" data-reveal>
+      <span class="eyebrow">Built for export</span>
+      <h2 class="h-display">Specifications that <em>travel well.</em></h2>
+    </div>
+
+    <div class="specs__grid">
+      <div class="spec" data-reveal data-reveal-delay="1">
+        <div class="spec__icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M24 6v36M6 24h36M11 11l26 26M37 11L11 37"/>
+          </svg>
+        </div>
+        <h3 class="spec__h">12-month shelf life</h3>
+        <p class="spec__p">Stable for 12 months when stored at −18°C. IQF freezing locks in texture, flavour and colour.</p>
+      </div>
+
+      <div class="spec" data-reveal data-reveal-delay="2">
+        <div class="spec__icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="8" y="12" width="32" height="28" rx="2"/>
+            <path d="M8 18h32M16 12V8M32 12V8"/>
+          </svg>
+        </div>
+        <h3 class="spec__h">Flexible pack sizes</h3>
+        <p class="spec__p">Retail: 300g, 500g, 1kg consumer packs. Food-service: 2–5kg, 5–15kg bulk cartons.</p>
+      </div>
+
+      <div class="spec" data-reveal data-reveal-delay="3">
+        <div class="spec__icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M24 4l18 8v12c0 11-7.5 17.5-18 20-10.5-2.5-18-9-18-20V12l18-8z"/>
+            <polyline points="16 24 22 30 33 19"/>
+          </svg>
+        </div>
+        <h3 class="spec__h">FSSC 22000 + USFDA</h3>
+        <p class="spec__p">Processed in globally certified facilities. Documentation supplied with every shipment.</p>
+      </div>
+
+      <div class="spec" data-reveal data-reveal-delay="4">
+        <div class="spec__icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="24" cy="24" r="20"/>
+            <path d="M16 28c2 3 5 5 8 5s6-2 8-5M18 20l4 4 4-4M30 20l-4 4M24 8v6"/>
+          </svg>
+        </div>
+        <h3 class="spec__h">100% Vegetarian</h3>
+        <p class="spec__p">All recipes are entirely vegetarian, with halal &amp; jain-friendly options available on request.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================  CERTS  ==================== -->
+<section class="certs">
+  <div class="container">
+    <div class="certs__inner">
+      <div class="certs__grid">
+        <div data-reveal>
+          <span class="eyebrow" style="color: var(--saffron);">Certifications</span>
+          <h2 class="certs__title">Trusted by <em>discerning</em><br>global partners.</h2>
+        </div>
+        <div class="certs__list">
+          <div class="certs__item" data-reveal data-reveal-delay="1">
+            <h4>FSSC 22000</h4>
+            <p>Globally recognised food safety management certification — recognised by GFSI.</p>
+          </div>
+          <div class="certs__item" data-reveal data-reveal-delay="2">
+            <h4>USFDA</h4>
+            <p>Facility registered with the U.S. Food &amp; Drug Administration for export to North America.</p>
+          </div>
+          <div class="certs__item" data-reveal data-reveal-delay="3">
+            <h4>FSSAI</h4>
+            <p>Compliant with the Food Safety &amp; Standards Authority of India for domestic supply.</p>
+          </div>
+          <div class="certs__item" data-reveal data-reveal-delay="4">
+            <h4>HACCP</h4>
+            <p>Hazard analysis &amp; critical control point systems active across every production line.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================  FAQ  ==================== -->
+<section class="section faq">
+  <div class="container">
+    <div class="faq__grid">
+      <div data-reveal>
+        <span class="eyebrow">Frequently asked</span>
+        <h2 class="h-display">
+          Questions, <em>answered.</em>
+        </h2>
+        <p class="lede" style="margin-top: 22px;">
+          Everything importers, distributors and retail buyers most often want to know
+          about working with Mithaas Exports.
+        </p>
+      </div>
+
+      <div class="faq__list" data-reveal data-reveal-delay="1">
+        <details class="q" open>
+          <summary>
+            How does Mithaas handle and store frozen foods?
+            <span class="q__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="q__answer">
+            Mithaas rapidly cools freshly produced food using state-of-the-art freezing
+            technology (IQF and blast freezing), storing it in cold-storage facilities
+            at temperatures of −20°C and below to ensure optimal quality and freshness.
+          </div>
+        </details>
+
+        <details class="q">
+          <summary>
+            How long can frozen food be safely stored?
+            <span class="q__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="q__answer">
+            Frozen food can typically be safely stored for several months to a year,
+            depending on the type of food and how well it's packaged. Mithaas products
+            carry a 12-month shelf life at −18°C — recommended storage and handling
+            guidelines are printed on every carton.
+          </div>
+        </details>
+
+        <details class="q">
+          <summary>
+            Are Mithaas's frozen Indian dishes as tasty and authentic as freshly prepared?
+            <span class="q__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="q__answer">
+            Absolutely. Our frozen dishes are crafted with authentic recipes and premium
+            ingredients, ensuring every bite bursts with the rich, vibrant flavours of
+            traditional Indian cuisine. With careful attention to detail and advanced
+            freezing techniques, we deliver a dining experience that rivals homemade —
+            offering convenience without compromising on taste or authenticity.
+          </div>
+        </details>
+
+        <details class="q">
+          <summary>
+            What are the minimum order quantities for export?
+            <span class="q__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="q__answer">
+            We work with importers, distributors and food-service partners across diverse
+            volume requirements. MOQs vary by SKU and destination — please get in touch
+            for a tailored quotation, sample shipment and HS-code documentation.
+          </div>
+        </details>
+
+        <details class="q">
+          <summary>
+            Can you private-label or co-brand for our retail chain?
+            <span class="q__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="q__answer">
+            Yes — we offer private-label and co-branded production for established
+            retail and food-service partners, subject to volume thresholds and a
+            standard product-development cycle.
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================  CTA  ==================== -->
+<section class="cta" id="contact">
+  <div class="container">
+    <div class="cta__inner" data-reveal>
+      <span class="cta__eyebrow">Let's talk exports</span>
+      <h2 class="cta__title">Bring authentic India to <em>your shelves.</em></h2>
+      <p style="font-size:18px; line-height:1.6; color: rgba(251,244,232,.8); max-width: 56ch; margin: 0 auto 36px;">
+        Whether you're a retailer, distributor, or food-service partner — we'd love
+        to send you our latest catalogue, samples, and pricing for your region.
+      </p>
+
+      <a class="cta__btn" href="mailto:export@themithaas.com">
+        Email our export team
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </a>
+
+      <div class="cta__info">
+        <div class="cta__info-item">
+          <span class="cta__info-label">Business Email</span>
+          <span class="cta__info-val"><a href="mailto:export@themithaas.com">export@themithaas.com</a></span>
+        </div>
+        <div class="cta__info-item">
+          <span class="cta__info-label">Telephone</span>
+          <span class="cta__info-val"><a href="tel:+918448492344">+91 84484 92344</a></span>
+        </div>
+        <div class="cta__info-item">
+          <span class="cta__info-label">Head Office</span>
+          <span class="cta__info-val">J-63, Sector 63, Noida, U.P. 201301</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  © 2025 Mithaas · Making traditions trendy · Exported with love from India
+</footer>
+
+<script>
+  // Intersection observer for reveal animations
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+
+  // Smooth-close other FAQ items when one opens (accordion behaviour, optional)
+  document.querySelectorAll('details.q').forEach(d => {
+    d.addEventListener('toggle', () => {
+      if (d.open) {
+        document.querySelectorAll('details.q').forEach(other => {
+          if (other !== d) other.open = false;
+        });
+      }
+    });
+  });
+</script>
+</body>
+</html>

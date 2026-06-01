@@ -1,0 +1,793 @@
+<!--
+  MITHAAS — PREMIUM FOOTER
+  Standalone embed | paste into CMS custom HTML block at the bottom of every page
+  Style: Fraunces + Manrope + Caveat | maroon #4E0E0E · saffron #E8871A · cream #FDF6EC · ink #1A0A0A
+
+  Features:
+  • Logo placeholder block (drop your logo URL into the <img src=""> tag)
+  • All site pages organised in 4 columns
+  • 18 outlets across 6 cities
+  • Payment methods (UPI, cards, wallets, COD)
+  • Social media icons (LinkedIn, Instagram, Facebook + extras)
+  • Working newsletter signup
+  • Animated scroll-to-top button
+  • Decorative tile/dot patterns + subtle entry animations
+  • Hover micro-interactions on every link
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Manrope:wght@300;400;500;600;700;800&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+.mfoot * { box-sizing: border-box; margin: 0; padding: 0; }
+.mfoot {
+  --maroon:   #7B1818;
+  --maroon-d: #4E0E0E;
+  --maroon-x: #2E0606;
+  --saffron:  #E8871A;
+  --saff-l:   #F5A83A;
+  --cream:    #FDF6EC;
+  --cream-d:  #F5E8D0;
+  --ink:      #1A0A0A;
+  --gold:     #C9942A;
+  --gold-l:   #F2C96E;
+  --white:    #FFFFFF;
+  --muted:    rgba(255,255,255,0.55);
+  --muted-2:  rgba(255,255,255,0.35);
+  --border:   rgba(255,255,255,0.1);
+
+  font-family: 'Manrope', sans-serif;
+  background: var(--maroon-x);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ═══ NEWSLETTER STRIP ═══ */
+.mfoot-news {
+  background: linear-gradient(135deg, var(--saffron) 0%, #F5A83A 50%, #E8871A 100%);
+  padding: 44px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.mfoot-news::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(78,14,14,0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  animation: mfDrift 30s linear infinite;
+}
+@keyframes mfDrift {
+  0% { background-position: 0 0; }
+  100% { background-position: 240px 240px; }
+}
+.mfoot-news-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 30px; flex-wrap: wrap;
+  position: relative;
+}
+.mfoot-news-text { flex: 1; min-width: 260px; }
+.mfoot-news-eyebrow {
+  font-family: 'Caveat', cursive;
+  font-size: 1.3rem;
+  color: var(--maroon-d);
+  display: block; margin-bottom: 4px;
+}
+.mfoot-news-h {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  color: var(--maroon-d);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.mfoot-news-h em { font-style: italic; }
+.mfoot-news-form {
+  display: flex; gap: 10px;
+  min-width: 320px; flex: 1; max-width: 460px;
+}
+.mfoot-news-form input {
+  flex: 1; padding: 14px 20px;
+  border-radius: 50px; border: none;
+  background: var(--white);
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem; color: var(--ink);
+  outline: none;
+  box-shadow: 0 6px 20px rgba(78,14,14,0.15);
+}
+.mfoot-news-form input::placeholder { color: #A89580; }
+.mfoot-news-form button {
+  padding: 14px 26px; border-radius: 50px;
+  background: var(--maroon-d); color: var(--white);
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.92rem; font-weight: 800;
+  letter-spacing: 0.02em;
+  border: none; cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  white-space: nowrap;
+}
+.mfoot-news-form button:hover {
+  background: var(--ink);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.3);
+}
+.mfoot-news-msg {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--maroon-d);
+  text-align: center;
+  display: none;
+}
+.mfoot-news-msg.show { display: block; animation: mfPop 0.4s ease; }
+@keyframes mfPop {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══ MAIN FOOTER ═══ */
+.mfoot-main {
+  padding: 70px 40px 40px;
+  position: relative;
+}
+/* background pattern */
+.mfoot-main::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 15% 30%, rgba(232,135,26,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 70%, rgba(123,24,24,0.3) 0%, transparent 55%);
+  pointer-events: none;
+}
+.mfoot-main::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+}
+
+.mfoot-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 50px;
+  position: relative;
+}
+
+.mfoot-col {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: mfRise 0.7s ease forwards;
+}
+.mfoot-col:nth-child(1) { animation-delay: 0.05s; }
+.mfoot-col:nth-child(2) { animation-delay: 0.15s; }
+.mfoot-col:nth-child(3) { animation-delay: 0.25s; }
+.mfoot-col:nth-child(4) { animation-delay: 0.35s; }
+@keyframes mfRise {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── LOGO COLUMN ── */
+.mfoot-logo-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.mfoot-logo-box {
+  width: 64px; height: 64px;
+  border-radius: 16px;
+  background: var(--cream);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  flex-shrink: 0;
+}
+.mfoot-logo-box img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  padding: 6px;
+  display: block;
+}
+.mfoot-logo-box .mfoot-logo-fallback {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 1.7rem;
+  color: var(--saffron);
+}
+.mfoot-logo-text {
+  display: flex; flex-direction: column;
+}
+.mfoot-logo-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 1.4rem;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+.mfoot-logo-tag {
+  font-family: 'Caveat', cursive;
+  font-size: 1rem;
+  color: var(--saff-l);
+  margin-top: 4px;
+}
+.mfoot-about {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 22px;
+  max-width: 320px;
+}
+
+/* contact stack */
+.mfoot-contact-row {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 0.86rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+  line-height: 1.55;
+  transition: color 0.2s;
+}
+.mfoot-contact-row:hover { color: var(--white); }
+.mfoot-contact-row .ci {
+  width: 28px; height: 28px; border-radius: 8px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; flex-shrink: 0;
+  transition: background 0.25s, border-color 0.25s;
+}
+.mfoot-contact-row:hover .ci {
+  background: var(--saffron);
+  border-color: var(--saffron);
+}
+.mfoot-contact-row a {
+  color: inherit; text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.2s, color 0.2s;
+}
+.mfoot-contact-row a:hover {
+  color: var(--saff-l);
+  border-bottom-color: var(--saff-l);
+}
+
+/* ── COLUMN HEADERS ── */
+.mfoot-col-h {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--white);
+  letter-spacing: 0.02em;
+  margin-bottom: 22px;
+  position: relative;
+  padding-bottom: 12px;
+}
+.mfoot-col-h::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 28px; height: 2px;
+  background: var(--saffron);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+.mfoot-col:hover .mfoot-col-h::after { width: 56px; }
+
+/* ── LINK LISTS ── */
+.mfoot-links { list-style: none; }
+.mfoot-links li { margin-bottom: 11px; }
+.mfoot-links a {
+  display: inline-flex; align-items: center;
+  font-size: 0.88rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.22s, padding-left 0.22s;
+  position: relative;
+}
+.mfoot-links a::before {
+  content: '→';
+  position: absolute;
+  left: -16px;
+  opacity: 0;
+  color: var(--saffron);
+  transition: opacity 0.22s, left 0.22s;
+}
+.mfoot-links a:hover {
+  color: var(--saff-l);
+  padding-left: 18px;
+}
+.mfoot-links a:hover::before {
+  opacity: 1;
+  left: 0;
+}
+
+/* badge on links */
+.mfoot-badge {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px 7px;
+  border-radius: 20px;
+  margin-left: 7px;
+  background: var(--saffron);
+  color: var(--maroon-d);
+}
+
+/* ── OUTLETS QUICK LIST ── */
+.mfoot-cities {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 14px;
+}
+.mfoot-city {
+  font-size: 0.84rem;
+  color: var(--muted);
+  display: flex; align-items: center; gap: 8px;
+  transition: color 0.2s;
+  cursor: default;
+}
+.mfoot-city:hover { color: var(--saff-l); }
+.mfoot-city .pin {
+  color: var(--saffron);
+  font-size: 0.78rem;
+  flex-shrink: 0;
+}
+.mfoot-city .cnt {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  color: var(--white);
+  font-size: 0.78rem;
+  margin-left: auto;
+}
+.mfoot-cities-cta {
+  margin-top: 18px;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--saff-l);
+  text-decoration: none;
+  border: 1px solid rgba(245,168,58,0.4);
+  padding: 9px 18px;
+  border-radius: 30px;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+.mfoot-cities-cta:hover {
+  background: var(--saffron);
+  color: var(--maroon-d);
+  border-color: var(--saffron);
+}
+
+/* ── SOCIAL ICONS ── */
+.mfoot-social-h {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted-2);
+  margin: 30px 0 14px;
+}
+.mfoot-socials {
+  display: flex; gap: 10px;
+  flex-wrap: wrap;
+}
+.mfoot-soc {
+  width: 42px; height: 42px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--white);
+  text-decoration: none;
+  transition: transform 0.25s, background 0.25s, border-color 0.25s, box-shadow 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.mfoot-soc::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: var(--saffron);
+  transform: scale(0);
+  transition: transform 0.3s ease;
+  border-radius: 50%;
+}
+.mfoot-soc:hover {
+  transform: translateY(-4px);
+  border-color: var(--saffron);
+  box-shadow: 0 8px 20px rgba(232,135,26,0.4);
+}
+.mfoot-soc:hover::before { transform: scale(1.6); }
+.mfoot-soc svg {
+  width: 18px; height: 18px;
+  fill: currentColor;
+  position: relative;
+  z-index: 1;
+  transition: fill 0.25s;
+}
+.mfoot-soc:hover svg { fill: var(--maroon-d); }
+
+/* ═══ PAYMENT STRIP ═══ */
+.mfoot-pay {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 24px 40px;
+  background: rgba(0,0,0,0.18);
+  position: relative;
+}
+.mfoot-pay-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; flex-wrap: wrap;
+}
+.mfoot-pay-label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted-2);
+}
+.mfoot-pay-methods {
+  display: flex; gap: 12px; flex-wrap: wrap;
+}
+.mfoot-pay-pill {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--white);
+  color: var(--maroon-d);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: transform 0.22s, box-shadow 0.22s;
+  cursor: default;
+}
+.mfoot-pay-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+.mfoot-pay-pill .pi {
+  font-size: 1rem;
+  line-height: 1;
+}
+.mfoot-pay-pill.upi    { background: linear-gradient(135deg, #FFFFFF, #FFF1E0); }
+.mfoot-pay-pill.visa   { background: #1A1F71; color: #FFFFFF; }
+.mfoot-pay-pill.mc     { background: linear-gradient(135deg, #EB001B, #F79E1B); color: #FFFFFF; }
+.mfoot-pay-pill.rupay  { background: #097D45; color: #FFFFFF; }
+.mfoot-pay-pill.amex   { background: #016FD0; color: #FFFFFF; }
+.mfoot-pay-pill.cod    { background: var(--saffron); color: var(--maroon-d); }
+.mfoot-pay-pill.netb   { background: var(--cream); color: var(--maroon-d); }
+.mfoot-pay-pill.wallet { background: linear-gradient(135deg, #5F259F, #832DD3); color: #FFFFFF; }
+
+.mfoot-trust {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.mfoot-trust .ti { color: var(--saff-l); }
+
+/* ═══ BOTTOM BAR ═══ */
+.mfoot-bottom {
+  padding: 22px 40px;
+  background: var(--ink);
+  position: relative;
+}
+.mfoot-bottom-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 18px; flex-wrap: wrap;
+}
+.mfoot-copy {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.mfoot-copy strong { color: var(--saff-l); font-weight: 600; }
+.mfoot-bottom-links {
+  display: flex; gap: 6px; flex-wrap: wrap;
+  font-size: 0.8rem;
+}
+.mfoot-bottom-links a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0 10px;
+  border-right: 1px solid var(--border);
+  transition: color 0.2s;
+}
+.mfoot-bottom-links a:last-child { border-right: none; }
+.mfoot-bottom-links a:hover { color: var(--saff-l); }
+
+.mfoot-slogan {
+  text-align: center;
+  background: var(--maroon-x);
+  padding: 18px 40px;
+  border-top: 1px solid var(--border);
+  font-family: 'Caveat', cursive;
+  font-size: 1.25rem;
+  color: var(--saff-l);
+  letter-spacing: 0.02em;
+}
+.mfoot-slogan .heart {
+  display: inline-block;
+  color: var(--saffron);
+  animation: mfBeat 1.4s ease-in-out infinite;
+}
+@keyframes mfBeat {
+  0%, 100% { transform: scale(1); }
+  20%      { transform: scale(1.25); }
+  40%      { transform: scale(1); }
+  60%      { transform: scale(1.15); }
+}
+
+/* ═══ SCROLL TOP ═══ */
+.mfoot-top {
+  position: fixed;
+  right: 24px; bottom: 24px;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--saffron);
+  color: var(--maroon-d);
+  border: none; cursor: pointer;
+  font-size: 1.2rem;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 24px rgba(232,135,26,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s, background 0.2s;
+  z-index: 999;
+}
+.mfoot-top.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  animation: mfFloat 3s ease-in-out infinite;
+}
+.mfoot-top:hover {
+  background: var(--saff-l);
+  animation: none;
+  transform: translateY(-4px) scale(1.05);
+}
+@keyframes mfFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 1000px) {
+  .mfoot-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .mfoot-col:first-child { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  .mfoot-news { padding: 36px 22px; }
+  .mfoot-main { padding: 56px 22px 30px; }
+  .mfoot-pay { padding: 22px 22px; }
+  .mfoot-bottom, .mfoot-slogan { padding: 18px 22px; }
+  .mfoot-grid { grid-template-columns: 1fr; gap: 36px; }
+  .mfoot-news-form { min-width: 100%; }
+  .mfoot-pay-inner, .mfoot-bottom-inner { justify-content: center; text-align: center; }
+  .mfoot-cities { grid-template-columns: 1fr; }
+}
+</style>
+
+<footer class="mfoot">
+
+  <!-- ═══ NEWSLETTER STRIP ═══ -->
+  <div class="mfoot-news">
+    <div class="mfoot-news-inner">
+      <div class="mfoot-news-text">
+        <span class="mfoot-news-eyebrow">Stay in the loop</span>
+        <div class="mfoot-news-h">Get sweet <em>offers &amp; updates</em> in your inbox</div>
+      </div>
+      <form class="mfoot-news-form" id="mfootNewsForm" onsubmit="return false;">
+        <input type="email" id="mfootEmail" placeholder="Enter your email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      <div class="mfoot-news-msg" id="mfootNewsMsg">✓ Thank you! We'll be in touch soon.</div>
+    </div>
+  </div>
+
+  <!-- ═══ MAIN FOOTER ═══ -->
+  <div class="mfoot-main">
+    <div class="mfoot-grid">
+
+      <!-- ── COLUMN 1: LOGO + ABOUT + CONTACT ── -->
+      <div class="mfoot-col">
+        <div class="mfoot-logo-wrap">
+          <div class="mfoot-logo-box">
+            <!-- REPLACE: drop your Mithaas logo URL into src -->
+            <img src="" alt="Mithaas Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+            <span class="mfoot-logo-fallback" style="display:none;">M</span>
+          </div>
+          <div class="mfoot-logo-text">
+            <span class="mfoot-logo-name">mithaas</span>
+            <span class="mfoot-logo-tag">Gholey Rishton Mein Mithaas</span>
+          </div>
+        </div>
+
+        <p class="mfoot-about">
+          A traditional Indian sweet shop &amp; casual dining restaurant — crafting authentic sweets, snacks, and 100% vegetarian meals since 2012.
+        </p>
+
+        <div class="mfoot-contact-row">
+          <span class="ci">📍</span>
+          <span><strong style="color:var(--white);">Head Office:</strong><br>[Mithaas Sweets and Restaurant Pvt. Ltd.,<br>Registered office address, NCR, India]</span>
+        </div>
+        <div class="mfoot-contact-row">
+          <span class="ci">📞</span>
+          <span><a href="tel:[+91XXXXXXXXXX]">[+91 XXXXX XXXXX]</a></span>
+        </div>
+        <div class="mfoot-contact-row">
+          <span class="ci">📧</span>
+          <span><a href="mailto:[info@mithaas.com]">[info@mithaas.com]</a></span>
+        </div>
+        <div class="mfoot-contact-row">
+          <span class="ci">🌍</span>
+          <span>Export: <a href="mailto:[export@mithaas.com]">[export@mithaas.com]</a></span>
+        </div>
+        <div class="mfoot-contact-row">
+          <span class="ci">🕐</span>
+          <span>Open Daily · 9 AM – 11 PM</span>
+        </div>
+
+        <div class="mfoot-social-h">Follow Mithaas</div>
+        <div class="mfoot-socials">
+          <a class="mfoot-soc" href="https://in.linkedin.com/company/mithaas" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          </a>
+          <a class="mfoot-soc" href="https://www.instagram.com/mithaasofficial/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+          </a>
+          <a class="mfoot-soc" href="https://www.facebook.com/themithaas/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02z"/></svg>
+          </a>
+          <a class="mfoot-soc" href="[https://wa.me/91XXXXXXXXXX]" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M16.75 13.96c.25.13.41.2.46.3.06.11.04.61-.21 1.18-.2.56-1.24 1.1-1.7 1.12-.46.02-.47.36-2.96-.73-2.49-1.09-3.99-3.75-4.11-3.92-.12-.17-.96-1.38-.92-2.61.05-1.22.69-1.8.95-2.04.24-.26.51-.29.68-.27h.47c.15 0 .36-.06.55.42l.69 1.71c.06.13.1.28.01.44l-.27.41-.39.42c-.12.12-.26.25-.12.5.12.26.62 1.09 1.32 1.78.91.88 1.71 1.17 1.95 1.3.24.14.39.12.54-.04l.81-.94c.19-.25.35-.19.58-.11l1.67.79M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10c-1.97 0-3.8-.57-5.35-1.55L2 22l1.55-4.65A9.97 9.97 0 0 1 2 12 10 10 0 0 1 12 2m0 2a8 8 0 0 0-8 8c0 1.72.54 3.31 1.46 4.61L4.5 19.5l2.89-.96A7.95 7.95 0 0 0 12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8z"/></svg>
+          </a>
+          <a class="mfoot-soc" href="[https://www.youtube.com/@mithaas]" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- ── COLUMN 2: EXPLORE ── -->
+      <div class="mfoot-col">
+        <h4 class="mfoot-col-h">Explore</h4>
+        <ul class="mfoot-links">
+          <li><a href="[/]">Home</a></li>
+          <li><a href="[/about]">About Us</a></li>
+          <li><a href="[/journey]">Our Journey</a></li>
+          <li><a href="[/founders]">Founders &amp; Team</a></li>
+          <li><a href="[/factory]">Factory &amp; Outlets</a></li>
+          <li><a href="[/outlets]">Find an Outlet</a></li>
+          <li><a href="[/reservations]">Book a Table <span class="mfoot-badge">New</span></a></li>
+          <li><a href="[/menu]">Our Menu</a></li>
+          <li><a href="[/bulk-orders]">Bulk &amp; Corporate</a></li>
+          <li><a href="[/faq]">FAQ</a></li>
+          <li><a href="[/contact]">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- ── COLUMN 3: OUTLETS BY CITY ── -->
+      <div class="mfoot-col">
+        <h4 class="mfoot-col-h">Outlets · 25+</h4>
+        <div class="mfoot-cities">
+          <span class="mfoot-city"><span class="pin">📍</span> Noida <span class="cnt">7</span></span>
+          <span class="mfoot-city"><span class="pin">📍</span> Greater Noida <span class="cnt">3</span></span>
+          <span class="mfoot-city"><span class="pin">📍</span> Ghaziabad <span class="cnt">5</span></span>
+          <span class="mfoot-city"><span class="pin">📍</span> Indirapuram <span class="cnt">2</span></span>
+          <span class="mfoot-city"><span class="pin">📍</span> Faridabad <span class="cnt">1</span></span>
+          <span class="mfoot-city"><span class="pin">📍</span> Delhi <span class="cnt">1</span></span>
+          <span class="mfoot-city"><span class="pin">📍</span> Jammu <span class="cnt">1</span></span>
+          <span class="mfoot-city"><span class="pin">📍</span> Coming Soon <span class="cnt">+</span></span>
+        </div>
+        <a href="[/outlets]" class="mfoot-cities-cta">View All Outlets →</a>
+      </div>
+
+      <!-- ── COLUMN 4: SERVICES + LEGAL ── -->
+      <div class="mfoot-col">
+        <h4 class="mfoot-col-h">Our Services</h4>
+        <ul class="mfoot-links">
+          <li><a href="[/dine-in]">Casual Dining</a></li>
+          <li><a href="[/delivery]">Home Delivery</a></li>
+          <li><a href="[/takeaway]">Takeaway</a></li>
+          <li><a href="[/bulk-orders]">Bulk &amp; Corporate</a></li>
+          <li><a href="[/hampers]">Gift Hampers</a></li>
+          <li><a href="[/export]">Export &amp; Frozen <span class="mfoot-badge">Global</span></a></li>
+        </ul>
+
+        <h4 class="mfoot-col-h" style="margin-top:32px;">Policies</h4>
+        <ul class="mfoot-links">
+          <li><a href="[/privacy-policy]">Privacy Policy</a></li>
+          <li><a href="[/terms]">Terms &amp; Conditions</a></li>
+          <li><a href="[/refund-policy]">Cancellation &amp; Refund</a></li>
+          <li><a href="[/shipping-policy]">Shipping Policy</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ PAYMENT STRIP ═══ -->
+  <div class="mfoot-pay">
+    <div class="mfoot-pay-inner">
+      <span class="mfoot-pay-label">We Accept</span>
+      <div class="mfoot-pay-methods">
+        <span class="mfoot-pay-pill upi"><span class="pi">📱</span> UPI</span>
+        <span class="mfoot-pay-pill visa"><span class="pi">💳</span> VISA</span>
+        <span class="mfoot-pay-pill mc"><span class="pi">●●</span> Mastercard</span>
+        <span class="mfoot-pay-pill rupay"><span class="pi">💳</span> RuPay</span>
+        <span class="mfoot-pay-pill amex"><span class="pi">💳</span> Amex</span>
+        <span class="mfoot-pay-pill netb"><span class="pi">🏦</span> Net Banking</span>
+        <span class="mfoot-pay-pill wallet"><span class="pi">👛</span> Wallets</span>
+        <span class="mfoot-pay-pill cod"><span class="pi">💵</span> Cash on Delivery</span>
+      </div>
+      <span class="mfoot-trust"><span class="ti">🔒</span> 100% Secure Payments</span>
+    </div>
+  </div>
+
+  <!-- ═══ BOTTOM BAR ═══ -->
+  <div class="mfoot-bottom">
+    <div class="mfoot-bottom-inner">
+      <div class="mfoot-copy">
+        © <span id="mfootYear">2025</span> <strong>Mithaas Sweets and Restaurant Pvt. Ltd.</strong> · All rights reserved.<br>
+        <span style="font-size:0.72rem;color:var(--muted-2);">FSSAI Compliant · GSTIN: [XXXXXXXXXXXXX]</span>
+      </div>
+      <div class="mfoot-bottom-links">
+        <a href="[/privacy-policy]">Privacy</a>
+        <a href="[/terms]">Terms</a>
+        <a href="[/refund-policy]">Refund</a>
+        <a href="[/shipping-policy]">Shipping</a>
+        <a href="[/sitemap]">Sitemap</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SLOGAN STRIP ═══ -->
+  <div class="mfoot-slogan">
+    Spreading sweetness in every relationship <span class="heart">❤</span> Made with love in India
+  </div>
+
+  <!-- ═══ SCROLL TOP BUTTON ═══ -->
+  <button class="mfoot-top" id="mfootTop" aria-label="Scroll to top">↑</button>
+
+</footer>
+
+<script>
+(function(){
+  // Current year
+  var yr = document.getElementById('mfootYear');
+  if (yr) yr.textContent = new Date().getFullYear();
+
+  // Newsletter form
+  var form = document.getElementById('mfootNewsForm');
+  var msg  = document.getElementById('mfootNewsMsg');
+  var email = document.getElementById('mfootEmail');
+  if (form) {
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (!email.value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) return;
+      msg.classList.add('show');
+      email.value = '';
+      setTimeout(function(){ msg.classList.remove('show'); }, 4500);
+      /* NOTE: Connect this to your real newsletter backend / Mailchimp / form provider. */
+    });
+  }
+
+  // Scroll-to-top
+  var topBtn = document.getElementById('mfootTop');
+  if (topBtn) {
+    window.addEventListener('scroll', function(){
+      if (window.scrollY > 400) topBtn.classList.add('show');
+      else topBtn.classList.remove('show');
+    });
+    topBtn.addEventListener('click', function(){
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+})();
+</script>

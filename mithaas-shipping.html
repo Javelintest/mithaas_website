@@ -1,0 +1,446 @@
+<!--
+  MITHAAS — SHIPPING POLICY PAGE
+  Standalone embed | paste into CMS custom HTML block
+  Style: Fraunces + Manrope + Caveat | maroon #4E0E0E · saffron #E8871A · cream #FDF6EC · ink #1A0A0A
+
+  ⚠ IMPORTANT: This is a TEMPLATE. Replace every [ ] bracket with Mithaas' real
+  shipping details and have it reviewed before publishing.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Manrope:wght@300;400;500;600;700;800&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+.msh * { box-sizing: border-box; margin: 0; padding: 0; }
+.msh {
+  --maroon:   #7B1818;
+  --maroon-d: #4E0E0E;
+  --saffron:  #E8871A;
+  --saff-l:   #F5A83A;
+  --cream:    #FDF6EC;
+  --cream-d:  #F5E8D0;
+  --ink:      #1A0A0A;
+  --gold:     #C9942A;
+  --gold-l:   #F2C96E;
+  --white:    #FFFFFF;
+  --muted:    #6E5645;
+  font-family: 'Manrope', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ═══ HERO ═══ */
+.msh-hero {
+  background: var(--maroon-d);
+  position: relative; overflow: hidden;
+  padding: 84px 40px 64px; text-align: center;
+}
+.msh-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 40%, rgba(232,135,26,0.15) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 60%, rgba(200,80,20,0.18) 0%, transparent 55%);
+  pointer-events: none;
+}
+.msh-hero::after {
+  content: '🚚'; position: absolute; font-size: 250px; opacity: 0.04;
+  right: 5%; top: 50%; transform: translateY(-50%); pointer-events: none;
+}
+.msh-hero-eyebrow {
+  font-family: 'Caveat', cursive; font-size: 1.35rem; color: var(--gold-l);
+  display: block; margin-bottom: 10px; position: relative;
+}
+.msh-hero-title {
+  font-family: 'Fraunces', serif; font-weight: 900;
+  font-size: clamp(2.4rem, 6vw, 4rem); color: var(--white);
+  line-height: 1.05; letter-spacing: -0.025em; position: relative;
+}
+.msh-hero-title em { font-style: italic; color: var(--gold-l); }
+.msh-hero-meta {
+  margin-top: 18px; font-size: 0.9rem; color: rgba(255,255,255,0.55);
+  position: relative; letter-spacing: 0.02em;
+}
+.msh-hero-meta strong { color: var(--saff-l); font-weight: 600; }
+
+/* ═══ TIER CARDS (4 shipment types) ═══ */
+.msh-tiers { background: var(--cream); padding: 70px 40px 30px; }
+.msh-tiers-inner { max-width: 1140px; margin: 0 auto; }
+.msh-tiers-head { text-align: center; margin-bottom: 48px; }
+.msh-tiers-eyebrow { font-family: 'Caveat', cursive; font-size: 1.3rem; color: var(--saffron); display: block; margin-bottom: 8px; }
+.msh-tiers-title {
+  font-family: 'Fraunces', serif; font-weight: 900;
+  font-size: clamp(1.8rem, 4vw, 2.6rem); color: var(--maroon-d); line-height: 1.1;
+}
+.msh-tiers-title em { font-style: italic; color: var(--saffron); }
+.msh-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px;
+}
+.msh-card {
+  background: var(--white); border: 1px solid rgba(123,24,24,0.07);
+  border-radius: 20px; padding: 30px 26px; position: relative; overflow: hidden;
+  transition: transform 0.28s, box-shadow 0.28s; cursor: default;
+}
+.msh-card:hover { transform: translateY(-6px); box-shadow: 0 16px 44px rgba(123,24,24,0.13); }
+.msh-card-ic {
+  width: 58px; height: 58px; border-radius: 16px;
+  background: var(--maroon-d); display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; margin-bottom: 18px;
+}
+.msh-card-tag {
+  font-size: 0.66rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--saffron); display: block; margin-bottom: 6px;
+}
+.msh-card-h {
+  font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.2rem;
+  color: var(--maroon-d); line-height: 1.2; margin-bottom: 12px;
+}
+.msh-card-p { font-size: 0.86rem; color: var(--muted); line-height: 1.65; }
+.msh-card-num {
+  position: absolute; right: 18px; top: 12px;
+  font-family: 'Fraunces', serif; font-weight: 900; font-size: 3rem;
+  color: rgba(232,135,26,0.1); line-height: 1;
+}
+
+/* ═══ DETAIL BODY ═══ */
+.msh-body { padding: 50px 40px 90px; }
+.msh-wrap {
+  max-width: 980px; margin: 0 auto;
+  display: grid; grid-template-columns: 240px 1fr; gap: 48px; align-items: start;
+}
+.msh-toc {
+  position: sticky; top: 24px;
+  background: var(--white); border: 1px solid rgba(123,24,24,0.08);
+  border-radius: 18px; padding: 24px 22px; box-shadow: 0 4px 20px rgba(123,24,24,0.05);
+}
+.msh-toc-h { font-family: 'Caveat', cursive; font-size: 1.25rem; color: var(--saffron); margin-bottom: 14px; }
+.msh-toc a {
+  display: block; font-size: 0.86rem; color: var(--muted); text-decoration: none;
+  padding: 7px 0; line-height: 1.4; border-bottom: 1px solid rgba(123,24,24,0.05);
+  transition: color 0.2s, padding-left 0.2s;
+}
+.msh-toc a:last-child { border-bottom: none; }
+.msh-toc a:hover { color: var(--maroon-d); padding-left: 6px; }
+
+.msh-content { min-width: 0; }
+.msh-intro {
+  font-size: 1.05rem; color: var(--muted); line-height: 1.85;
+  padding-bottom: 28px; margin-bottom: 12px; border-bottom: 2px solid rgba(232,135,26,0.2);
+}
+.msh-intro strong { color: var(--maroon-d); font-weight: 700; }
+
+.msh-sec { padding-top: 40px; scroll-margin-top: 24px; }
+.msh-sec-num {
+  font-family: 'Fraunces', serif; font-weight: 900; font-size: 0.95rem;
+  color: var(--saffron); letter-spacing: 0.1em; display: block; margin-bottom: 6px;
+}
+.msh-sec-h {
+  font-family: 'Fraunces', serif; font-weight: 900;
+  font-size: clamp(1.35rem, 2.6vw, 1.7rem); color: var(--maroon-d); line-height: 1.2; margin-bottom: 8px;
+}
+.msh-sec-sub { font-size: 0.84rem; font-weight: 600; color: var(--saffron); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; display: block; }
+.msh-sec p { font-size: 0.97rem; color: var(--muted); line-height: 1.82; margin-bottom: 14px; }
+.msh-sec p strong { color: var(--maroon-d); font-weight: 700; }
+.msh-sec ul { list-style: none; margin: 4px 0 16px; }
+.msh-sec li { font-size: 0.97rem; color: var(--muted); line-height: 1.7; padding: 6px 0 6px 26px; position: relative; }
+.msh-sec li::before { content: ''; position: absolute; left: 4px; top: 15px; width: 7px; height: 7px; border-radius: 50%; background: var(--saffron); }
+.msh-sec li strong { color: var(--maroon-d); font-weight: 700; }
+
+.msh-fill {
+  background: rgba(232,135,26,0.14); color: var(--maroon-d);
+  border-radius: 5px; padding: 1px 7px; font-weight: 600; font-size: 0.92em;
+  border: 1px dashed rgba(232,135,26,0.5);
+}
+.msh-note {
+  background: var(--cream-d); border-left: 4px solid var(--saffron);
+  border-radius: 0 14px 14px 0; padding: 20px 24px; margin: 18px 0;
+}
+.msh-note p { margin: 0; font-size: 0.92rem; color: var(--maroon-d); line-height: 1.7; }
+
+/* quick-fact chips inside a section */
+.msh-facts { display: flex; flex-wrap: wrap; gap: 10px; margin: 6px 0 18px; }
+.msh-factchip {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--cream-d); border: 1px solid rgba(123,24,24,0.1);
+  border-radius: 30px; padding: 7px 16px; font-size: 0.82rem; font-weight: 600; color: var(--maroon-d);
+}
+
+.msh-contact {
+  margin-top: 48px;
+  background: linear-gradient(135deg, var(--maroon-d) 0%, var(--maroon) 60%, #B04010 100%);
+  border-radius: 22px; padding: 40px 38px; position: relative; overflow: hidden;
+}
+.msh-contact::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 28px 28px; pointer-events: none;
+}
+.msh-contact-h { font-family: 'Fraunces', serif; font-weight: 900; font-size: 1.5rem; color: var(--white); margin-bottom: 10px; position: relative; }
+.msh-contact-p { color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.7; margin-bottom: 22px; position: relative; }
+.msh-contact-rows { position: relative; display: flex; flex-direction: column; gap: 12px; }
+.msh-contact-row { display: flex; align-items: center; gap: 12px; font-size: 0.95rem; color: var(--white); }
+.msh-contact-row .ci {
+  width: 38px; height: 38px; border-radius: 10px; background: rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;
+}
+.msh-contact-row a { color: var(--saff-l); text-decoration: none; font-weight: 600; }
+.msh-contact-row a:hover { text-decoration: underline; }
+
+@media (max-width: 880px) {
+  .msh-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 820px) {
+  .msh-hero { padding: 66px 22px 52px; }
+  .msh-tiers { padding: 52px 20px 24px; }
+  .msh-body { padding: 36px 20px 70px; }
+  .msh-wrap { grid-template-columns: 1fr; gap: 28px; }
+  .msh-toc { position: static; }
+  .msh-contact { padding: 30px 24px; }
+}
+@media (max-width: 520px) {
+  .msh-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="msh">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="msh-hero">
+    <span class="msh-hero-eyebrow">From Our Kitchen to Your Doorstep</span>
+    <h1 class="msh-hero-title">Shipping <em>Policy</em></h1>
+    <p class="msh-hero-meta">Mithaas Sweets and Restaurant Pvt. Ltd. &nbsp;·&nbsp; Last updated: <strong>[Month, Year]</strong></p>
+  </section>
+
+  <!-- ═══ FOUR SHIPMENT TYPES ═══ -->
+  <section class="msh-tiers">
+    <div class="msh-tiers-inner">
+      <div class="msh-tiers-head">
+        <span class="msh-tiers-eyebrow">How We Deliver</span>
+        <h2 class="msh-tiers-title">Four Ways We Bring <em>Mithaas to You</em></h2>
+      </div>
+      <div class="msh-grid">
+
+        <div class="msh-card">
+          <span class="msh-card-num">01</span>
+          <div class="msh-card-ic">🛵</div>
+          <span class="msh-card-tag">Same Day</span>
+          <h3 class="msh-card-h">Hyperlocal Delivery</h3>
+          <p class="msh-card-p">Quick doorstep delivery within a few kilometres of an outlet — perfect for fresh sweets, snacks, and meals delivered within hours.</p>
+        </div>
+
+        <div class="msh-card">
+          <span class="msh-card-num">02</span>
+          <div class="msh-card-ic">🏙️</div>
+          <span class="msh-card-tag">City &amp; NCR</span>
+          <h3 class="msh-card-h">Local Shipment</h3>
+          <p class="msh-card-p">Delivery across the wider city and NCR region for larger orders, hampers, and bulk requests handled by our own logistics or trusted partners.</p>
+        </div>
+
+        <div class="msh-card">
+          <span class="msh-card-num">03</span>
+          <div class="msh-card-ic">📦</div>
+          <span class="msh-card-tag">All India</span>
+          <h3 class="msh-card-h">Pan-India Shipping</h3>
+          <p class="msh-card-p">Select long-shelf-life and packaged products shipped across India through reputed courier partners with safe, sealed packaging.</p>
+        </div>
+
+        <div class="msh-card">
+          <span class="msh-card-num">04</span>
+          <div class="msh-card-ic">🚢</div>
+          <span class="msh-card-tag">Global Export</span>
+          <h3 class="msh-card-h">International Container</h3>
+          <p class="msh-card-p">Bulk export of frozen and packaged Mithaas products worldwide via container freight, fully compliant with export and customs regulations.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DETAIL BODY ═══ -->
+  <section class="msh-body">
+    <div class="msh-wrap">
+
+      <!-- TOC -->
+      <aside class="msh-toc">
+        <div class="msh-toc-h">On this page</div>
+        <a href="#msh-0">Overview</a>
+        <a href="#msh-1">1. Hyperlocal Delivery</a>
+        <a href="#msh-2">2. Local Shipment</a>
+        <a href="#msh-3">3. Pan-India Shipping</a>
+        <a href="#msh-4">4. International Container</a>
+        <a href="#msh-5">5. Packaging &amp; Freshness</a>
+        <a href="#msh-6">6. Charges &amp; Timelines</a>
+        <a href="#msh-7">7. Delays &amp; Liability</a>
+        <a href="#msh-contact">Contact Us</a>
+      </aside>
+
+      <!-- CONTENT -->
+      <div class="msh-content">
+
+        <div class="msh-sec" id="msh-0" style="padding-top:0;">
+          <p class="msh-intro">
+            At <strong>Mithaas Sweets and Restaurant Pvt. Ltd.</strong>, we are committed to delivering our sweets, snacks, and products as fresh as the moment they're made. Because we work with both perishable and packaged food items, our shipping methods are tailored to the type of product and your location — ranging from <strong>same-day hyperlocal delivery to international container exports</strong>. This policy explains each of our four shipping options.
+          </p>
+        </div>
+
+        <div class="msh-note">
+          <p>📌 <strong>Note:</strong> Availability of each shipping method depends on the product type, your delivery location, and order size. Perishable items are limited to local and hyperlocal delivery, while packaged and frozen products can travel further.</p>
+        </div>
+
+        <!-- 1. HYPERLOCAL -->
+        <div class="msh-sec" id="msh-1">
+          <span class="msh-sec-num">SECTION 01</span>
+          <h2 class="msh-sec-h">Hyperlocal Delivery</h2>
+          <span class="msh-sec-sub">🛵 Same-Day · Within Outlet Radius</span>
+          <p>Our fastest option. Hyperlocal delivery brings <strong>freshly prepared sweets, namkeens, chaat, bakery items, and restaurant meals</strong> directly from your nearest Mithaas outlet to your doorstep, usually within a few hours.</p>
+          <ul>
+            <li><strong>Coverage:</strong> Within approximately <span class="msh-fill">[X km]</span> of a Mithaas outlet.</li>
+            <li><strong>How to order:</strong> Through the outlet directly, our website, or partnered food-delivery apps.</li>
+            <li><strong>Delivery time:</strong> Typically <span class="msh-fill">[30–90 minutes]</span>, depending on distance and order size.</li>
+            <li><strong>Best for:</strong> Fresh, perishable items meant to be enjoyed the same day.</li>
+          </ul>
+          <div class="msh-facts">
+            <span class="msh-factchip">⚡ Fastest</span>
+            <span class="msh-factchip">🍮 Fresh Perishables</span>
+            <span class="msh-factchip">📍 Outlet-Based</span>
+          </div>
+        </div>
+
+        <!-- 2. LOCAL -->
+        <div class="msh-sec" id="msh-2">
+          <span class="msh-sec-num">SECTION 02</span>
+          <h2 class="msh-sec-h">Local Shipment</h2>
+          <span class="msh-sec-sub">🏙️ City-Wide &amp; NCR</span>
+          <p>For deliveries across the wider city and the <strong>NCR region</strong> — including larger orders, gift hampers, and bulk/corporate requests — we use our own delivery logistics and trusted local courier partners to ensure your order arrives safely and on time.</p>
+          <ul>
+            <li><strong>Coverage:</strong> Across <span class="msh-fill">[Noida, Greater Noida, Ghaziabad, Faridabad, Delhi]</span> and surrounding NCR areas.</li>
+            <li><strong>Delivery time:</strong> Same-day or next-day, depending on location and order. <span class="msh-fill">[Confirm windows]</span></li>
+            <li><strong>Best for:</strong> Festive orders, corporate gifting, and larger quantities within the region.</li>
+            <li>Scheduled / advance delivery slots may be available for special occasions.</li>
+          </ul>
+          <div class="msh-facts">
+            <span class="msh-factchip">🎁 Hampers &amp; Bulk</span>
+            <span class="msh-factchip">🗓️ Scheduled Slots</span>
+            <span class="msh-factchip">🚐 Own Logistics</span>
+          </div>
+        </div>
+
+        <!-- 3. PAN-INDIA -->
+        <div class="msh-sec" id="msh-3">
+          <span class="msh-sec-num">SECTION 03</span>
+          <h2 class="msh-sec-h">Pan-India Shipping</h2>
+          <span class="msh-sec-sub">📦 Across India · Courier Partners</span>
+          <p>We ship <strong>select packaged and longer-shelf-life products</strong> — such as dry sweets, namkeens, cookies, gift hampers, and frozen items where supported — to destinations across India through reputed courier and logistics partners.</p>
+          <ul>
+            <li><strong>Coverage:</strong> Most serviceable pin codes across India. <span class="msh-fill">[Confirm serviceable areas]</span></li>
+            <li><strong>Eligible products:</strong> Only items suited for transit — perishable fresh sweets are generally <strong>not</strong> available for pan-India shipping.</li>
+            <li><strong>Delivery time:</strong> Typically <span class="msh-fill">[3–7 business days]</span> after dispatch, depending on destination.</li>
+            <li><strong>Tracking:</strong> A tracking link/number is shared once your order is dispatched. <span class="msh-fill">[Confirm if tracking is provided]</span></li>
+            <li><strong>Packaging:</strong> Vacuum-sealed / tamper-proof / insulated packaging used as appropriate to preserve freshness.</li>
+          </ul>
+          <div class="msh-facts">
+            <span class="msh-factchip">🇮🇳 All India</span>
+            <span class="msh-factchip">📋 Tracked</span>
+            <span class="msh-factchip">🧊 Sealed Packaging</span>
+          </div>
+        </div>
+
+        <!-- 4. INTERNATIONAL -->
+        <div class="msh-sec" id="msh-4">
+          <span class="msh-sec-num">SECTION 04</span>
+          <h2 class="msh-sec-h">International Container Shipment</h2>
+          <span class="msh-sec-sub">🚢 Global Export · Bulk Freight</span>
+          <p>As part of our growing <strong>frozen and export business</strong>, Mithaas ships products internationally through <strong>container freight</strong> for bulk and wholesale orders — bringing authentic Indian sweets to NRI communities, distributors, and retailers across the world.</p>
+          <ul>
+            <li><strong>Mode:</strong> Sea / container freight (and air freight where applicable) for bulk and wholesale quantities.</li>
+            <li><strong>Eligible products:</strong> Frozen and packaged products manufactured to meet export and shelf-life standards.</li>
+            <li><strong>Compliance:</strong> All international shipments comply with applicable <strong>FSSAI, export, customs, and destination-country food-import regulations</strong>.</li>
+            <li><strong>Documentation:</strong> Export documentation, certificates, and labelling are handled as per destination requirements.</li>
+            <li><strong>Lead time:</strong> Container shipments are planned in advance; timelines depend on destination, volume, and customs clearance. <span class="msh-fill">[Confirm typical lead times]</span></li>
+            <li><strong>Enquiries:</strong> For export, distribution, or container orders, please contact our <strong>Production &amp; Export team</strong> directly.</li>
+          </ul>
+          <div class="msh-note">
+            <p>🌍 <strong>Export enquiries:</strong> International container shipments are handled as B2B / bulk orders. Reach out to our export team at <span class="msh-fill">[export@mithaas.com / +91 XXXXX XXXXX]</span> to discuss requirements, minimum order quantities, and freight terms.</p>
+          </div>
+          <div class="msh-facts">
+            <span class="msh-factchip">🌐 Worldwide</span>
+            <span class="msh-factchip">❄️ Frozen &amp; Packaged</span>
+            <span class="msh-factchip">📜 Export-Compliant</span>
+          </div>
+        </div>
+
+        <!-- 5. PACKAGING -->
+        <div class="msh-sec" id="msh-5">
+          <span class="msh-sec-num">SECTION 05</span>
+          <h2 class="msh-sec-h">Packaging &amp; Freshness</h2>
+          <p>Freshness and food safety are at the heart of everything we do. Depending on the product and shipping method, we use appropriate <strong>food-grade, sealed, insulated, or tamper-evident packaging</strong> to protect quality during transit.</p>
+          <ul>
+            <li>Perishable items are packed for short transit and intended for prompt consumption.</li>
+            <li>Frozen products are packed to maintain the cold chain where supported.</li>
+            <li>We recommend refrigerating perishable items promptly upon delivery and consuming within the indicated shelf life.</li>
+          </ul>
+        </div>
+
+        <!-- 6. CHARGES -->
+        <div class="msh-sec" id="msh-6">
+          <span class="msh-sec-num">SECTION 06</span>
+          <h2 class="msh-sec-h">Shipping Charges &amp; Timelines</h2>
+          <ul>
+            <li>Shipping charges vary by <strong>method, distance, weight, and order value</strong>, and are shown at checkout or quoted at the time of order.</li>
+            <li><span class="msh-fill">[Free delivery may apply above a minimum order value — confirm threshold]</span></li>
+            <li>International freight charges, duties, and taxes are calculated separately and communicated before confirmation.</li>
+            <li>Delivery timelines are estimates and may vary due to location, weather, festivals, or courier/customs factors.</li>
+          </ul>
+        </div>
+
+        <!-- 7. DELAYS -->
+        <div class="msh-sec" id="msh-7">
+          <span class="msh-sec-num">SECTION 07</span>
+          <h2 class="msh-sec-h">Delays &amp; Liability</h2>
+          <p>While we make every effort to deliver on time, Mithaas is not responsible for delays caused by factors beyond our control — including incorrect delivery details, courier/freight delays, customs clearance, weather, or other unforeseen events. For issues with a delivered order, please refer to our <a href="[/refund-policy]" style="color:var(--saffron);font-weight:600;">Cancellation &amp; Refund Policy</a> and contact us promptly.</p>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="msh-contact" id="msh-contact">
+          <h3 class="msh-contact-h">Questions About Shipping?</h3>
+          <p class="msh-contact-p">For delivery, shipping, or export enquiries, our team is here to help:</p>
+          <div class="msh-contact-rows">
+            <div class="msh-contact-row">
+              <span class="ci">🏢</span>
+              <span>Mithaas Sweets and Restaurant Pvt. Ltd.<br><span style="color:rgba(255,255,255,0.5);font-size:0.86rem;">[Registered office address]</span></span>
+            </div>
+            <div class="msh-contact-row">
+              <span class="ci">📧</span>
+              <span>General: <a href="mailto:[support@mithaas.com]">[support@mithaas.com]</a></span>
+            </div>
+            <div class="msh-contact-row">
+              <span class="ci">🌍</span>
+              <span>Export: <a href="mailto:[export@mithaas.com]">[export@mithaas.com]</a></span>
+            </div>
+            <div class="msh-contact-row">
+              <span class="ci">📞</span>
+              <span>Phone: <a href="tel:[+91XXXXXXXXXX]">[+91 XXXXX XXXXX]</a></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  var root = document.querySelector('.msh');
+  if (!root) return;
+  root.querySelectorAll('.msh-toc a').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href');
+      if (id.charAt(0) !== '#') return;
+      var target = root.querySelector(id);
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior:'smooth', block:'start' }); }
+    });
+  });
+})();
+</script>

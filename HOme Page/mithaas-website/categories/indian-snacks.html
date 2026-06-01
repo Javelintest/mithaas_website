@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Indian Snacks — Mithaas Exports</title>
+<meta name="description" content="Indian Snacks from Mithaas Exports — 12 frozen Indian indian snacks, FSSC 22000 & USFDA certified." />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Manrope:wght@300;400;500;600;700;800&family=Caveat:wght@400..700&family=Allura&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --maroon:        #4A0E1C;
+  --maroon-deep:   #2E0812;
+  --crimson:       #C3122E;
+  --saffron:       #F2A93B;
+  --turmeric:      #E37C1F;
+  --cream:         #FBF4E8;
+  --cream-warm:    #F4E9D2;
+  --ivory:         #FFFDF7;
+  --ink:           #1A0A0E;
+  --rose:          #E89BA7;
+  --leaf:          #4A6B3A;
+  --gold:          #C49A3F;
+  --font-display:  'Fraunces', 'Times New Roman', serif;
+  --font-body:     'Manrope', system-ui, -apple-system, sans-serif;
+  --font-hand:     'Caveat', cursive;
+  --font-script:   'Allura', 'Caveat', cursive;
+  --container:     1280px;
+  --r-sm: 6px;
+  --r-md: 14px;
+  --r-lg: 28px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body{
+  margin:0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--ivory);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body::before{
+  content:""; position: fixed; inset:0; pointer-events:none;
+  background-image: radial-gradient(rgba(74,14,28,.025) 1px, transparent 1px);
+  background-size: 3px 3px; mix-blend-mode: multiply; z-index: 1; opacity:.5;
+}
+img { max-width:100%; display:block; }
+a { color: inherit; text-decoration: none; }
+.container{
+  max-width: var(--container);
+  margin: 0 auto; padding: 0 32px; position: relative; z-index: 2;
+}
+@media (max-width: 640px){ .container{ padding: 0 20px; } }
+
+/* --- Breadcrumb nav --- */
+.crumbs{
+  background: var(--maroon-deep);
+  color: rgba(251,244,232,.7);
+  padding: 16px 0;
+  font-size: 13px;
+  letter-spacing: .04em;
+  position: relative;
+  z-index: 5;
+}
+.crumbs__inner{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.crumbs a{
+  color: rgba(251,244,232,.7);
+  transition: color .2s;
+}
+.crumbs a:hover{ color: var(--saffron); }
+.crumbs .sep{ opacity: .5; }
+.crumbs .here{ color: var(--cream); }
+
+/* --- Hero --- */
+.cat-hero{
+  position: relative;
+  min-height: 78vh;
+  overflow: hidden;
+  background: var(--maroon-deep);
+  color: var(--cream);
+  isolation: isolate;
+}
+.cat-hero__bg{
+  position: absolute; inset:0; z-index: 0;
+  background-size: cover; background-position: center;
+  filter: saturate(1.1) brightness(.78);
+}
+.cat-hero__bg::after{
+  content:""; position:absolute; inset:0;
+  background:
+    radial-gradient(70% 80% at 30% 50%, rgba(46,8,18,.78), rgba(46,8,18,.2) 75%),
+    linear-gradient(180deg, rgba(46,8,18,.55) 0%, rgba(46,8,18,.2) 40%, rgba(46,8,18,.85) 100%);
+}
+.cat-hero__inner{
+  position: relative; z-index: 2;
+  min-height: 78vh;
+  display: grid; align-content: center;
+  padding: 110px 0 80px;
+}
+.cat-hero__tag{
+  display: inline-flex; align-items:center; gap: 14px;
+  font-size: 12px; letter-spacing: .35em; font-weight: 700;
+  text-transform: uppercase; color: var(--saffron);
+  margin-bottom: 24px;
+}
+.cat-hero__tag::before, .cat-hero__tag::after{
+  content:""; width: 28px; height: 1px; background: var(--saffron); opacity:.7;
+}
+.cat-hero__title{
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(44px, 7.2vw, 108px);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  margin: 0 0 28px;
+  max-width: 16ch;
+  font-variation-settings: "opsz" 120, "SOFT" 50;
+}
+.cat-hero__title em{
+  font-style: italic;
+  color: var(--saffron);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.cat-hero__sub{
+  font-family: var(--font-hand);
+  font-size: clamp(26px, 3.2vw, 38px);
+  color: var(--rose);
+  margin: 0 0 28px;
+  transform: rotate(-1.5deg);
+  display: inline-block;
+}
+.cat-hero__intro{
+  font-size: 18px; line-height: 1.6;
+  max-width: 60ch;
+  color: rgba(251,244,232,.85);
+  margin: 0 0 40px;
+}
+.cat-hero__meta{
+  display: flex; flex-wrap: wrap; gap: 32px 50px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(242,169,59,.3);
+  max-width: 760px;
+}
+.meta-item{
+  font-size: 13px;
+  line-height: 1.5;
+}
+.meta-item__label{
+  font-size: 10.5px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 6px;
+}
+.meta-item__val{
+  color: var(--cream);
+  font-weight: 500;
+}
+
+/* --- Products section --- */
+.cat-products{
+  padding: 120px 0;
+  background: var(--ivory);
+  position: relative;
+}
+@media (max-width: 760px){ .cat-products{ padding: 70px 0; } }
+
+.cat-products__header{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: end;
+  margin-bottom: 70px;
+}
+@media (max-width: 900px){
+  .cat-products__header{ grid-template-columns: 1fr; gap: 22px; }
+}
+.eyebrow{
+  display: inline-flex; align-items: center; gap: 12px;
+  font-size: 12px; letter-spacing: .35em; font-weight: 700;
+  text-transform: uppercase; color: var(--crimson);
+  margin-bottom: 18px;
+}
+.eyebrow::before{ content:""; width:36px; height:1px; background: var(--crimson); }
+.h-display{
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.03;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--maroon);
+  font-variation-settings: "opsz" 120, "SOFT" 30;
+}
+.h-display em{
+  font-style: italic;
+  color: var(--turmeric);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.lede{
+  font-size: 17px; line-height: 1.65;
+  color: rgba(26,10,14,.7);
+  margin: 0;
+  max-width: 50ch;
+}
+
+/* --- Product grid --- */
+.prod-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+}
+@media (max-width: 1100px){
+  .prod-grid{ grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 780px){
+  .prod-grid{ grid-template-columns: repeat(2, 1fr); gap: 18px; }
+}
+@media (max-width: 440px){
+  .prod-grid{ grid-template-columns: 1fr; }
+}
+.prod{
+  background: var(--ivory);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  position: relative;
+  transition: transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s;
+  border: 1px solid rgba(74,14,28,.08);
+  display: flex; flex-direction: column;
+}
+.prod:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px -16px rgba(74,14,28,.22);
+}
+.prod__media{
+  position: relative;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  background: var(--cream-warm);
+}
+.prod__media img{
+  width:100%; height:100%; object-fit: cover;
+  transition: transform 1s cubic-bezier(.2,.7,.2,1);
+}
+.prod:hover .prod__media img{ transform: scale(1.08); }
+.prod__num{
+  position: absolute;
+  top: 14px; left: 14px;
+  background: rgba(255,253,247,.92);
+  color: var(--maroon);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  letter-spacing: .04em;
+  backdrop-filter: blur(6px);
+}
+.prod__body{
+  padding: 22px 22px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.prod__name{
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: -.01em;
+  color: var(--maroon);
+  margin: 0 0 10px;
+  font-variation-settings: "opsz" 36;
+}
+.prod__desc{
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: rgba(26,10,14,.7);
+  margin: 0 0 14px;
+  flex: 1;
+}
+.prod__veg{
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: var(--leaf);
+  text-transform: uppercase;
+  margin-top: auto;
+}
+.prod__veg::before{
+  content:"";
+  width: 12px; height: 12px;
+  border: 1.5px solid var(--leaf);
+  border-radius: 2px;
+  position: relative;
+  flex-shrink: 0;
+  background-image: radial-gradient(circle, var(--leaf) 3px, transparent 3.5px);
+  background-position: center;
+}
+
+/* --- How-to-cook strip --- */
+.cook-strip{
+  background: var(--maroon);
+  color: var(--cream);
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+.cook-strip::before{
+  content:""; position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 15% 50%, rgba(242,169,59,.13), transparent 38%),
+    radial-gradient(circle at 85% 50%, rgba(227,124,31,.12), transparent 40%);
+  pointer-events: none;
+}
+.cook-strip__grid{
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 60px;
+  align-items: center;
+  position: relative; z-index: 2;
+}
+@media (max-width: 840px){
+  .cook-strip__grid{ grid-template-columns: 1fr; gap: 28px; }
+}
+.cook-strip__h{
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(28px, 3.6vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  margin: 14px 0 0;
+  color: var(--cream);
+  font-variation-settings: "opsz" 120, "SOFT" 30;
+}
+.cook-strip__h em{
+  font-style: italic; color: var(--saffron);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.cook-strip__p{
+  font-size: 17px; line-height: 1.65;
+  color: rgba(251,244,232,.82);
+  margin: 0;
+}
+
+/* --- Adjacent / Footer CTA --- */
+.adjacent{
+  background: var(--cream);
+  padding: 110px 0;
+}
+.adjacent__title{
+  text-align: center;
+  margin-bottom: 50px;
+}
+.adjacent__title .eyebrow{ justify-content: center; }
+.adjacent__title .eyebrow{ display: inline-flex; }
+.adjacent__grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+}
+@media (max-width: 760px){
+  .adjacent__grid{ grid-template-columns: 1fr; }
+}
+.adj-card{
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 26px 28px;
+  background: var(--ivory);
+  border-radius: var(--r-md);
+  border: 1px solid rgba(74,14,28,.08);
+  transition: transform .35s, box-shadow .35s;
+  overflow: hidden;
+}
+.adj-card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px -14px rgba(74,14,28,.18);
+}
+.adj-card__img{
+  flex-shrink: 0;
+  width: 92px; height: 92px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--cream-warm);
+}
+.adj-card__img img{ width:100%; height:100%; object-fit:cover; }
+.adj-card__text{ flex: 1; }
+.adj-card__dir{
+  font-size: 10.5px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.adj-card__name{
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--maroon);
+  margin: 0;
+  line-height: 1.15;
+  letter-spacing: -.01em;
+}
+.adj-card__arrow{
+  flex-shrink: 0;
+  width: 32px; height: 32px;
+  border: 1px solid rgba(74,14,28,.3);
+  border-radius: 50%;
+  display: grid; place-items: center;
+  color: var(--maroon);
+  transition: background .25s, color .25s, transform .35s;
+}
+.adj-card__arrow svg{ width: 14px; height: 14px; }
+.adj-card:hover .adj-card__arrow{
+  background: var(--maroon);
+  color: var(--cream);
+  transform: translateX(4px);
+}
+.adj-card.prev .adj-card__arrow svg{ transform: scaleX(-1); }
+.adj-card.prev{ flex-direction: row; }
+
+.back-all{
+  text-align: center;
+  margin-top: 48px;
+}
+.back-all a{
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  background: var(--maroon);
+  color: var(--cream);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: .04em;
+  transition: background .25s, transform .3s;
+}
+.back-all a:hover{
+  background: var(--maroon-deep);
+  transform: translateY(-2px);
+}
+.back-all a svg{ width: 16px; height: 16px; transform: scaleX(-1); }
+
+/* --- Footer (lite, matches main page) --- */
+.foot{
+  padding: 36px 0;
+  background: var(--maroon-deep);
+  color: rgba(251,244,232,.5);
+  font-size: 13px;
+  text-align: center;
+  border-top: 1px solid rgba(242,169,59,.15);
+}
+.foot a{ color: rgba(251,244,232,.7); }
+.foot a:hover{ color: var(--saffron); }
+
+/* --- Reveal animations --- */
+[data-reveal]{
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1);
+}
+[data-reveal].in{ opacity: 1; transform: translateY(0); }
+[data-reveal-delay="1"]{ transition-delay: .06s; }
+[data-reveal-delay="2"]{ transition-delay: .12s; }
+[data-reveal-delay="3"]{ transition-delay: .18s; }
+[data-reveal-delay="4"]{ transition-delay: .24s; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+.cat-hero__tag, .cat-hero__title, .cat-hero__sub, .cat-hero__intro, .cat-hero__meta {
+  animation: fadeUp .9s cubic-bezier(.2,.7,.2,1) both;
+}
+.cat-hero__tag{ animation-delay: .05s; }
+.cat-hero__title{ animation-delay: .15s; }
+.cat-hero__sub{ animation-delay: .28s; }
+.cat-hero__intro{ animation-delay: .38s; }
+.cat-hero__meta{ animation-delay: .50s; }
+
+</style>
+</head>
+<body>
+
+<!-- Breadcrumb -->
+<nav class="crumbs">
+  <div class="container crumbs__inner">
+    <a href="../export.html">Mithaas Exports</a>
+    <span class="sep">/</span>
+    <a href="../export.html#products">Catalogue</a>
+    <span class="sep">/</span>
+    <span class="here">Indian Snacks</span>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="cat-hero">
+  <div class="cat-hero__bg" style="background-image: url('../images/samosa.jpg');"></div>
+  <div class="container">
+    <div class="cat-hero__inner">
+      <span class="cat-hero__tag">Category 05 · Savouries</span>
+      <h1 class="cat-hero__title">Indian <em>Snacks</em></h1>
+      <span class="cat-hero__sub">fry, air-fry, devour</span>
+      <p class="cat-hero__intro">Tea-time and chaat-shop staples — hand-folded, IQF frozen, ready to drop straight into hot oil or an air fryer. Crisp shell, hot stuffing, every single time.</p>
+
+      <div class="cat-hero__meta">
+        <div class="meta-item">
+          <span class="meta-item__label">SKUs</span>
+          <span class="meta-item__val">12 products</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Pack sizes</span>
+          <span class="meta-item__val">2–5 kg bulk cartons (multiple SKU weights)</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Shelf life</span>
+          <span class="meta-item__val">12 months at −18°C</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Diet</span>
+          <span class="meta-item__val">100% Vegetarian</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Products -->
+<section class="cat-products">
+  <div class="container">
+    <div class="cat-products__header">
+      <div data-reveal>
+        <span class="eyebrow">The full range</span>
+        <h2 class="h-display">12 indian <em>snacks</em></h2>
+      </div>
+      <p class="lede" data-reveal data-reveal-delay="1">
+        Every product below is available for export in our standard packaging.
+        Need a private-label, co-branded or custom-pack variant? Talk to our team.
+      </p>
+    </div>
+
+    <div class="prod-grid">
+        <article class="prod" data-reveal data-reveal-delay="1">
+          <div class="prod__media">
+            <img src="../images/products/aloo-samosa.jpg" alt="Aloo Samosa 70 g" loading="lazy" />
+            <span class="prod__num">01</span>
+          </div>
+          <div class="prod__body">
+            <h3 class="prod__name">Aloo Samosa 70 g</h3>
+            <p class="prod__desc">Mini party-size aloo samosas, perfectly bite-sized.</p>
+            <span class="prod__veg" title="100% Vegetarian">100% Vegetarian</span>
+          </div>
+        </article>
+
+        <article class="prod" data-reveal data-reveal-delay="2">
+          <div class="prod__media">
+            <img src="../images/products/aloo-samosa.jpg" alt="Aloo Samosa 120 g" loading="lazy" />
+            <span class="prod__num">02</span>
+          </div>
+          <div class="prod__body">
+            <h3 class="prod__name">Aloo Samosa 120 g</h3>
+            <p class="prod__desc">Café-style mid-size aloo samosas.</p>
+            <span class="prod__veg" title="100% Vegetarian">100% Vegetarian</span>
+          </div>
+        </article>
+
+        <article class="prod" data-reveal data-reveal-delay="3">
+          <div class="prod__media">
+            <img src="../images/products/aloo-samosa.jpg" alt="Aloo Samosa 160 g" loading="lazy" />
+            <span class="prod__num">03</span>
+          </div>
+          <div class="prod__body">
+            <h3 class="prod__name">Aloo Samosa 160 g</h3>
+            <p class="prod__desc">Jumbo halwai-style samosas — a meal in themselves.</p>
+            <span class="prod__veg" title="100% Vegetarian">100% Vegetarian</span>
+          </div>
+        </article>
+
+        <article class="prod" data-reveal data-reveal-delay="4">
+          <div class="prod__media">
+            <img src="../images/products/paneer-samosa.jpg" alt="Paneer Samosa" loading="lazy" />
+            <span class="prod__num">04</span>
+          </div>
+          <div class="prod__body">
+            <h3 class="prod__name">Paneer Samosa</h3>
+            <p class="prod__desc">Spiced paneer &amp; pea stuffing in a crisp shell.</p>
+            <span class="prod__veg" title="100% Vegetarian">100% Vegetarian</span>
+          </div>
+        </article>
+
+        <article class="prod" data-reveal data-reveal-delay="1">
+          <div class="prod__media">
+            <img src="../images/products/gobhi-samosa.jpg" alt="Gobhi Samosa" loading="lazy" />
+            <span class="prod__num">05</span>
+          </div>
+          <div class="prod__body">
+            <h3 class="prod__name">Gobhi Samosa</h3>
+            <p class="prod__desc">Roasted cauliflower &amp; masala in flaky pastry.</p>
+            <span class="prod__veg" title="100% Vegetarian">100% Vegetarian</span>
+          </div>
+        </article>
+
+        <article class="prod" data-reveal data-reveal-delay="2">
+          <div class="prod__media">
+            <img src="../images/products/paneer-pakoda.jpg" alt="Paneer Pakoda" loading="lazy" />
+            <span class="prod__num">06</span>
+          </div>
+          <div class="prod__body">
+            <h3 class="prod__name">Paneer Pakoda</h3>
+            <p class="prod__desc">Cottage-cheese fritters in besan batter.</p>
+            <span class="prod__veg" title="100% Vegetarian">100% Vegetarian</span>
+          </div>
+        </article>
+
+        <article class="prod" data-reveal data-reveal-delay="3">
+          <div class="prod__media">
+            <img src="../images/products/bread-pakoda.jpg" alt="Bread Pakoda" loading="lazy" />
+            <span class="prod__num">07</span>
+          </div>
+          <div class="prod__body">
+            <h3 class="prod__name">Bread Pakoda</h3>
+            <p class="prod__desc">Sandwich-stuffed bread, dipped in besan, fried gold.</p>
+            <span class="prod__veg" title="100% Vegetarian">100% Vegetarian</span>
+          </div>
+        </article>
+
+        <article class="prod" data-reveal data-reveal-delay="4">
+          <div class="prod__media">
+            <img src="../images/products/bread-cutlet.jpg" alt="Bread Cutlet" loading="lazy" />
+            <span class="prod__num">08</span>
+          </div>
+          <div class="prod__body">
+            <h3 class="prod__name">Bread Cutlet</h3>
+            <p class="prod__desc">Coated bread rolls with a spiced potato heart.</p>
+            <span class="prod__veg" title="100% Vegetarian">100% Vegetarian</span>
+          </div>
+        </article>
+
+        <article class="prod" data-reveal data-reveal-delay="1">
+          <div class="prod__media">
+            <img src="../images/products/matar-kachori.jpg" alt="Matar Kachori" loading="lazy" />
+            <span class="prod__num">09</span>
+          </div>
+          <div class="prod__body">
+            <h3 class="prod__name">Matar Kachori</h3>
+            <p class="prod__desc">Crackly Marwari kachori with a spiced pea filling.</p>
+            <span class="prod__veg" title="100% Vegetarian">100% Vegetarian</span>
+          </div>
+        </article>
+
+        <article class="prod" data-reveal data-reveal-delay="2">
+          <div class="prod__media">
+            <img src="../images/products/dry-fruit-kachori.jpg" alt="Dry Fruit Kachori" loading="lazy" />
+            <span class="prod__num">10</span>
+          </div>
+          <div class="prod__body">
+            <h3 class="prod__name">Dry Fruit Kachori</h3>
+            <p class="prod__desc">Festive kachori with sweetened khoya &amp; nuts.</p>
+            <span class="prod__veg" title="100% Vegetarian">100% Vegetarian</span>
+          </div>
+        </article>
+
+        <article class="prod" data-reveal data-reveal-delay="3">
+          <div class="prod__media">
+            <img src="../images/products/onion-spinach-pakoda.jpg" alt="Onion Spinach Pakoda" loading="lazy" />
+            <span class="prod__num">11</span>
+          </div>
+          <div class="prod__body">
+            <h3 class="prod__name">Onion Spinach Pakoda</h3>
+            <p class="prod__desc">Spinach &amp; onion fritters, lacy and light.</p>
+            <span class="prod__veg" title="100% Vegetarian">100% Vegetarian</span>
+          </div>
+        </article>
+
+        <article class="prod" data-reveal data-reveal-delay="4">
+          <div class="prod__media">
+            <img src="../images/products/mirch-pakoda.jpg" alt="Mirch Pakoda" loading="lazy" />
+            <span class="prod__num">12</span>
+          </div>
+          <div class="prod__body">
+            <h3 class="prod__name">Mirch Pakoda</h3>
+            <p class="prod__desc">Whole stuffed green chillies, batter-fried.</p>
+            <span class="prod__veg" title="100% Vegetarian">100% Vegetarian</span>
+          </div>
+        </article>
+    </div>
+  </div>
+</section>
+
+<!-- How to cook -->
+<section class="cook-strip">
+  <div class="container">
+    <div class="cook-strip__grid">
+      <div data-reveal>
+        <span class="eyebrow" style="color: var(--saffron);"><span style="background: var(--saffron); width:36px; height:1px; display:inline-block;"></span>&nbsp;&nbsp;HEAT &amp; EAT</span>
+        <h3 class="cook-strip__h">How to <em>serve.</em></h3>
+      </div>
+      <p class="cook-strip__p" data-reveal data-reveal-delay="1">Deep-fry from frozen at 170°C until golden, or air-fry 180°C for 12–14 mins.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Adjacent categories -->
+<section class="adjacent">
+  <div class="container">
+    <div class="adjacent__title" data-reveal>
+      <span class="eyebrow">More categories</span>
+      <h2 class="h-display" style="text-align: center;">Explore the rest of the <em>catalogue.</em></h2>
+    </div>
+
+    <div class="adjacent__grid">
+      <a class="adj-card prev" href="ready-gravies.html" data-reveal data-reveal-delay="1">
+        <div class="adj-card__arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+        <div class="adj-card__text">
+          <div class="adj-card__dir">Previous</div>
+          <h4 class="adj-card__name">Ready Indian Gravies</h4>
+        </div>
+        <div class="adj-card__img"><img src="../images/palak-paneer.jpg" alt="Ready Indian Gravies" /></div>
+      </a>
+
+      <a class="adj-card" href="indian-breads.html" data-reveal data-reveal-delay="2">
+        <div class="adj-card__img"><img src="../images/paratha.jpg" alt="Indian Breads" /></div>
+        <div class="adj-card__text">
+          <div class="adj-card__dir">Next</div>
+          <h4 class="adj-card__name">Indian Breads</h4>
+        </div>
+        <div class="adj-card__arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </a>
+    </div>
+
+    <div class="back-all">
+      <a href="../export.html#products">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        Back to all categories
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  © 2025 Mithaas · Making traditions trendy · <a href="mailto:export@themithaas.com">export@themithaas.com</a> · <a href="tel:+918448492344">+91 84484 92344</a>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,544 @@
+<!--
+  MITHAAS — FAQ PAGE
+  Standalone embed | paste into CMS custom HTML block
+  Style: Fraunces + Manrope + Caveat | maroon #4E0E0E · saffron #E8871A · cream #FDF6EC · ink #1A0A0A
+  Features: live search, category filter, accordion expand/collapse
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Manrope:wght@300;400;500;600;700;800&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+.mfaq * { box-sizing: border-box; margin: 0; padding: 0; }
+.mfaq {
+  --maroon:   #7B1818;
+  --maroon-d: #4E0E0E;
+  --saffron:  #E8871A;
+  --saff-l:   #F5A83A;
+  --cream:    #FDF6EC;
+  --cream-d:  #F5E8D0;
+  --ink:      #1A0A0A;
+  --gold:     #C9942A;
+  --gold-l:   #F2C96E;
+  --white:    #FFFFFF;
+  --muted:    #7A5E4A;
+  font-family: 'Manrope', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ═══ HERO ═══ */
+.mfaq-hero {
+  background: var(--maroon-d);
+  position: relative;
+  overflow: hidden;
+  padding: 90px 40px 70px;
+  text-align: center;
+}
+.mfaq-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 40%, rgba(232,135,26,0.16) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 60%, rgba(200,80,20,0.2) 0%, transparent 55%);
+  pointer-events: none;
+}
+.mfaq-hero::after {
+  content: '?';
+  position: absolute;
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 360px;
+  color: rgba(255,255,255,0.03);
+  right: 4%; top: 50%;
+  transform: translateY(-50%);
+  line-height: 1;
+  pointer-events: none;
+}
+.mfaq-hero-eyebrow {
+  font-family: 'Caveat', cursive;
+  font-size: 1.4rem;
+  color: var(--gold-l);
+  display: block;
+  margin-bottom: 12px;
+  position: relative;
+}
+.mfaq-hero-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  color: var(--white);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  position: relative;
+}
+.mfaq-hero-title em { font-style: italic; color: var(--gold-l); }
+.mfaq-hero-sub {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.6);
+  max-width: 520px;
+  margin: 20px auto 0;
+  line-height: 1.65;
+  position: relative;
+}
+
+/* search box */
+.mfaq-search-wrap {
+  max-width: 540px;
+  margin: 36px auto 0;
+  position: relative;
+}
+.mfaq-search {
+  width: 100%;
+  padding: 17px 24px 17px 54px;
+  border-radius: 50px;
+  border: none;
+  background: rgba(255,255,255,0.95);
+  font-family: 'Manrope', sans-serif;
+  font-size: 1rem;
+  color: var(--ink);
+  outline: none;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  transition: box-shadow 0.2s;
+}
+.mfaq-search:focus { box-shadow: 0 8px 36px rgba(232,135,26,0.4); }
+.mfaq-search::placeholder { color: #A89580; }
+.mfaq-search-icon {
+  position: absolute;
+  left: 22px; top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.15rem;
+  color: var(--saffron);
+  pointer-events: none;
+}
+
+/* ═══ MAIN BODY ═══ */
+.mfaq-body { padding: 64px 40px 80px; }
+.mfaq-inner { max-width: 860px; margin: 0 auto; }
+
+/* category filter chips */
+.mfaq-cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+.mfaq-chip {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 9px 20px;
+  border-radius: 40px;
+  border: 1.5px solid rgba(123,24,24,0.18);
+  background: var(--white);
+  color: var(--maroon-d);
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.mfaq-chip:hover { border-color: var(--saffron); }
+.mfaq-chip.active {
+  background: var(--maroon-d);
+  border-color: var(--maroon-d);
+  color: var(--white);
+}
+
+/* category group label */
+.mfaq-group-label {
+  font-family: 'Caveat', cursive;
+  font-size: 1.4rem;
+  color: var(--saffron);
+  margin: 40px 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.mfaq-group-label:first-child { margin-top: 0; }
+.mfaq-group-label .gi { font-size: 1.3rem; }
+
+/* accordion item */
+.mfaq-item {
+  background: var(--white);
+  border: 1px solid rgba(123,24,24,0.08);
+  border-radius: 16px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  transition: box-shadow 0.25s, border-color 0.25s;
+}
+.mfaq-item.open {
+  box-shadow: 0 8px 30px rgba(123,24,24,0.1);
+  border-color: rgba(232,135,26,0.35);
+}
+.mfaq-q {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 22px 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  cursor: pointer;
+  font-family: 'Manrope', sans-serif;
+}
+.mfaq-q-text {
+  font-size: 1.04rem;
+  font-weight: 700;
+  color: var(--maroon-d);
+  line-height: 1.4;
+}
+.mfaq-toggle {
+  flex-shrink: 0;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--cream-d);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+  color: var(--saffron);
+  transition: background 0.25s, transform 0.3s;
+  font-weight: 400;
+  line-height: 1;
+}
+.mfaq-item.open .mfaq-toggle {
+  background: var(--saffron);
+  color: var(--white);
+  transform: rotate(45deg);
+}
+.mfaq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.mfaq-a-inner {
+  padding: 0 26px 24px;
+  font-size: 0.96rem;
+  color: var(--muted);
+  line-height: 1.75;
+}
+.mfaq-a-inner strong { color: var(--maroon-d); font-weight: 700; }
+.mfaq-a-inner a { color: var(--saffron); text-decoration: none; font-weight: 600; }
+.mfaq-a-inner a:hover { text-decoration: underline; }
+
+/* no results */
+.mfaq-empty {
+  text-align: center;
+  padding: 60px 20px;
+  display: none;
+}
+.mfaq-empty.show { display: block; }
+.mfaq-empty-icon { font-size: 3rem; margin-bottom: 14px; opacity: 0.4; }
+.mfaq-empty-text { color: var(--muted); font-size: 1rem; }
+
+/* hidden state for filtering */
+.mfaq-item.hidden, .mfaq-group.hidden { display: none; }
+
+/* ═══ CONTACT CTA ═══ */
+.mfaq-cta {
+  background: linear-gradient(135deg, var(--maroon-d) 0%, var(--maroon) 55%, #C04500 100%);
+  padding: 70px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.mfaq-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+.mfaq-cta-h {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: var(--white);
+  margin-bottom: 14px;
+  position: relative;
+}
+.mfaq-cta-h em { font-style: italic; color: var(--gold-l); }
+.mfaq-cta-p {
+  color: rgba(255,255,255,0.6);
+  font-size: 1rem;
+  max-width: 460px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+  position: relative;
+}
+.mfaq-cta-btns {
+  display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+  position: relative;
+}
+.mfaq-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 30px;
+  border-radius: 40px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.mfaq-btn-p {
+  background: var(--saffron); color: var(--maroon-d);
+  box-shadow: 0 6px 22px rgba(232,135,26,0.4);
+}
+.mfaq-btn-p:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(232,135,26,0.55); }
+.mfaq-btn-g {
+  background: transparent; color: var(--white);
+  border: 1.5px solid rgba(255,255,255,0.3);
+}
+.mfaq-btn-g:hover { border-color: var(--saff-l); color: var(--saff-l); }
+
+@media (max-width: 700px) {
+  .mfaq-hero { padding: 70px 22px 56px; }
+  .mfaq-body { padding: 48px 20px 64px; }
+  .mfaq-q { padding: 18px 20px; }
+  .mfaq-a-inner { padding: 0 20px 20px; }
+  .mfaq-cta { padding: 56px 22px; }
+}
+</style>
+
+<div class="mfaq">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="mfaq-hero">
+    <span class="mfaq-hero-eyebrow">We're Here to Help</span>
+    <h1 class="mfaq-hero-title">Frequently Asked <em>Questions</em></h1>
+    <p class="mfaq-hero-sub">Everything you need to know about Mithaas — our sweets, orders, outlets, and more.</p>
+    <div class="mfaq-search-wrap">
+      <span class="mfaq-search-icon">🔍</span>
+      <input type="text" class="mfaq-search" id="mfaqSearch" placeholder="Search your question...">
+    </div>
+  </section>
+
+  <!-- ═══ BODY ═══ -->
+  <section class="mfaq-body">
+    <div class="mfaq-inner">
+
+      <!-- category chips -->
+      <div class="mfaq-cats" id="mfaqCats">
+        <button class="mfaq-chip active" data-cat="all">All</button>
+        <button class="mfaq-chip" data-cat="orders">Orders &amp; Delivery</button>
+        <button class="mfaq-chip" data-cat="products">Products &amp; Quality</button>
+        <button class="mfaq-chip" data-cat="outlets">Outlets &amp; Dining</button>
+        <button class="mfaq-chip" data-cat="bulk">Bulk &amp; Corporate</button>
+        <button class="mfaq-chip" data-cat="general">General</button>
+      </div>
+
+      <!-- accordion list -->
+      <div id="mfaqList">
+
+        <!-- ─ ORDERS ─ -->
+        <div class="mfaq-group" data-group="orders">
+          <div class="mfaq-group-label"><span class="gi">🚚</span> Orders &amp; Delivery</div>
+
+          <div class="mfaq-item" data-cat="orders">
+            <button class="mfaq-q"><span class="mfaq-q-text">Does Mithaas offer home delivery?</span><span class="mfaq-toggle">+</span></button>
+            <div class="mfaq-a"><div class="mfaq-a-inner">Yes! Mithaas offers <strong>home delivery and takeaway</strong> from our outlets. You can also order through popular food delivery platforms, or call your nearest outlet directly to place an order for pickup or delivery.</div></div>
+          </div>
+
+          <div class="mfaq-item" data-cat="orders">
+            <button class="mfaq-q"><span class="mfaq-q-text">How do I place a sweets order for a festival or occasion?</span><span class="mfaq-toggle">+</span></button>
+            <div class="mfaq-a"><div class="mfaq-a-inner">For festivals, weddings, and special occasions, we recommend <strong>placing your order a few days in advance</strong> to ensure availability — especially for premium dry-fruit and desi-ghee sweets. Visit any outlet or call ahead to reserve your order and discuss custom hampers.</div></div>
+          </div>
+
+          <div class="mfaq-item" data-cat="orders">
+            <button class="mfaq-q"><span class="mfaq-q-text">Can I order Mithaas products online for shipping?</span><span class="mfaq-toggle">+</span></button>
+            <div class="mfaq-a"><div class="mfaq-a-inner">Mithaas has expanded into <strong>frozen and export markets</strong>, making select products available beyond local delivery. For shipping and export enquiries, please reach out to us directly and our team will guide you on what's available for your region.</div></div>
+          </div>
+        </div>
+
+        <!-- ─ PRODUCTS ─ -->
+        <div class="mfaq-group" data-group="products">
+          <div class="mfaq-group-label"><span class="gi">🍮</span> Products &amp; Quality</div>
+
+          <div class="mfaq-item" data-cat="products">
+            <button class="mfaq-q"><span class="mfaq-q-text">Is all Mithaas food 100% vegetarian?</span><span class="mfaq-toggle">+</span></button>
+            <div class="mfaq-a"><div class="mfaq-a-inner">Absolutely. Mithaas is a <strong>100% pure vegetarian</strong> multi-cuisine establishment. Every sweet, snack, and dish — from our North Indian curries to Chinese and Continental options — is completely vegetarian.</div></div>
+          </div>
+
+          <div class="mfaq-item" data-cat="products">
+            <button class="mfaq-q"><span class="mfaq-q-text">What kinds of sweets and products do you offer?</span><span class="mfaq-toggle">+</span></button>
+            <div class="mfaq-a"><div class="mfaq-a-inner">Our range includes <strong>Desi Ghee Sweets, Dry Fruit Sweets, Bengali Sweets</strong>, Indian snacks &amp; savories, bakery products (cakes, pastries, burgers, sandwiches), beverages, and a full restaurant menu. Favourites include Kaju Burfi, Rasmalai, Milk Cake, Kalakand, and more.</div></div>
+          </div>
+
+          <div class="mfaq-item" data-cat="products">
+            <button class="mfaq-q"><span class="mfaq-q-text">How do you ensure the quality and freshness of your sweets?</span><span class="mfaq-toggle">+</span></button>
+            <div class="mfaq-a"><div class="mfaq-a-inner">We operate our own <strong>in-house, automated factory in Noida</strong> with state-of-the-art facilities and strict hygiene protocols. Using pure desi ghee, the finest ingredients, and skilled halwais, we maintain consistent quality across every outlet. We're also an <strong>FSSAI-compliant</strong> establishment.</div></div>
+          </div>
+
+          <div class="mfaq-item" data-cat="products">
+            <button class="mfaq-q"><span class="mfaq-q-text">Do you have eggless bakery options?</span><span class="mfaq-toggle">+</span></button>
+            <div class="mfaq-a"><div class="mfaq-a-inner">As a 100% vegetarian brand, our bakery focuses on vegetarian-friendly options. For specific dietary needs regarding individual cakes and pastries, we recommend checking with your nearest outlet, as our team can guide you on the best choices available.</div></div>
+          </div>
+        </div>
+
+        <!-- ─ OUTLETS ─ -->
+        <div class="mfaq-group" data-group="outlets">
+          <div class="mfaq-group-label"><span class="gi">📍</span> Outlets &amp; Dining</div>
+
+          <div class="mfaq-item" data-cat="outlets">
+            <button class="mfaq-q"><span class="mfaq-q-text">Where are Mithaas outlets located?</span><span class="mfaq-toggle">+</span></button>
+            <div class="mfaq-a"><div class="mfaq-a-inner">Mithaas has <strong>25+ outlets across the NCR</strong> — including Noida, Greater Noida, Ghaziabad, Indirapuram, Faridabad, Delhi (Lajpat Nagar), and even Vaishno Devi, Jammu. Check our locations page to find the outlet nearest to you.</div></div>
+          </div>
+
+          <div class="mfaq-item" data-cat="outlets">
+            <button class="mfaq-q"><span class="mfaq-q-text">Do Mithaas outlets have dine-in seating?</span><span class="mfaq-toggle">+</span></button>
+            <div class="mfaq-a"><div class="mfaq-a-inner">Yes — Mithaas is both a sweet shop and a <strong>casual dining restaurant</strong>. Many of our outlets feature comfortable, modern, family-friendly dining spaces where you can enjoy our full multi-cuisine vegetarian menu.</div></div>
+          </div>
+
+          <div class="mfaq-item" data-cat="outlets">
+            <button class="mfaq-q"><span class="mfaq-q-text">What cuisines does the restaurant serve?</span><span class="mfaq-toggle">+</span></button>
+            <div class="mfaq-a"><div class="mfaq-a-inner">Our restaurant menu spans <strong>North Indian, South Indian, Chinese, and Continental</strong> — all vegetarian. From Dal Makhani and Shahi Paneer to Dosa, Noodles, and tandoor platters, there's something for every craving.</div></div>
+          </div>
+        </div>
+
+        <!-- ─ BULK ─ -->
+        <div class="mfaq-group" data-group="bulk">
+          <div class="mfaq-group-label"><span class="gi">🎁</span> Bulk &amp; Corporate</div>
+
+          <div class="mfaq-item" data-cat="bulk">
+            <button class="mfaq-q"><span class="mfaq-q-text">Do you take bulk orders for corporates and events?</span><span class="mfaq-toggle">+</span></button>
+            <div class="mfaq-a"><div class="mfaq-a-inner">Yes! Mithaas handles <strong>bulk orders for corporates</strong>, weddings, and large events. Whether it's festive hampers, gift boxes, or large-quantity sweets and snacks, our team can help you plan and customize your order.</div></div>
+          </div>
+
+          <div class="mfaq-item" data-cat="bulk">
+            <button class="mfaq-q"><span class="mfaq-q-text">Can I order custom gift hampers?</span><span class="mfaq-toggle">+</span></button>
+            <div class="mfaq-a"><div class="mfaq-a-inner">Definitely. We offer <strong>customized hampers</strong> perfect for Diwali, Raksha Bandhan, corporate gifting, and personal celebrations. Reach out to discuss combinations of sweets, dry fruits, namkeens, and bakery items.</div></div>
+          </div>
+
+          <div class="mfaq-item" data-cat="bulk">
+            <button class="mfaq-q"><span class="mfaq-q-text">How far in advance should bulk orders be placed?</span><span class="mfaq-toggle">+</span></button>
+            <div class="mfaq-a"><div class="mfaq-a-inner">For bulk and corporate orders, we recommend reaching out <strong>at least a few days in advance</strong> — and earlier during peak festival seasons — so we can guarantee freshness, quantity, and timely delivery.</div></div>
+          </div>
+        </div>
+
+        <!-- ─ GENERAL ─ -->
+        <div class="mfaq-group" data-group="general">
+          <div class="mfaq-group-label"><span class="gi">ℹ️</span> General</div>
+
+          <div class="mfaq-item" data-cat="general">
+            <button class="mfaq-q"><span class="mfaq-q-text">What does "Mithaas" mean?</span><span class="mfaq-toggle">+</span></button>
+            <div class="mfaq-a"><div class="mfaq-a-inner">"Mithaas" means <strong>sweetness</strong>. It reflects our heartfelt slogan — <em>"Gholey Rishton Mein Mithaas"</em> — spreading sweetness in every relationship. For us, food is a medium for connection, love, and shared joy.</div></div>
+          </div>
+
+          <div class="mfaq-item" data-cat="general">
+            <button class="mfaq-q"><span class="mfaq-q-text">When was Mithaas founded?</span><span class="mfaq-toggle">+</span></button>
+            <div class="mfaq-a"><div class="mfaq-a-inner">Mithaas was founded in <strong>2012</strong> by Mr. Pushpendra Sharma, starting with a single store in Ashirwad Complex, Sector 53, Noida. Today, it has grown to 25+ outlets and over 1000 employees.</div></div>
+          </div>
+
+          <div class="mfaq-item" data-cat="general">
+            <button class="mfaq-q"><span class="mfaq-q-text">Is Mithaas hiring? How can I join the team?</span><span class="mfaq-toggle">+</span></button>
+            <div class="mfaq-a"><div class="mfaq-a-inner">We're always growing and looking for passionate people! With 1000+ team members and a clear growth roadmap from Team Member to Area Manager, Mithaas offers real career opportunities. Connect with us on <a href="https://in.linkedin.com/company/mithaas" target="_blank" rel="noopener">LinkedIn</a> or reach out to our HR team for current openings.</div></div>
+          </div>
+
+          <div class="mfaq-item" data-cat="general">
+            <button class="mfaq-q"><span class="mfaq-q-text">Where can I follow Mithaas online?</span><span class="mfaq-toggle">+</span></button>
+            <div class="mfaq-a"><div class="mfaq-a-inner">Follow us on <a href="https://www.instagram.com/mithaasofficial/" target="_blank" rel="noopener">Instagram</a>, <a href="https://www.facebook.com/themithaas/" target="_blank" rel="noopener">Facebook</a>, and <a href="https://in.linkedin.com/company/mithaas" target="_blank" rel="noopener">LinkedIn</a> for the latest updates, new launches, and sweet inspiration.</div></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- no results -->
+      <div class="mfaq-empty" id="mfaqEmpty">
+        <div class="mfaq-empty-icon">🔍</div>
+        <p class="mfaq-empty-text">No questions match your search. Try a different keyword or browse all categories.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="mfaq-cta">
+    <h2 class="mfaq-cta-h">Still Have <em>Questions?</em></h2>
+    <p class="mfaq-cta-p">Our team is always happy to help. Reach out and we'll get back to you with a smile.</p>
+    <div class="mfaq-cta-btns">
+      <a class="mfaq-btn mfaq-btn-p" href="#contact">📞 Contact Us</a>
+      <a class="mfaq-btn mfaq-btn-g" href="#locations">📍 Find an Outlet</a>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  var root = document.querySelector('.mfaq');
+  if (!root) return;
+
+  // ── Accordion toggle ──
+  root.querySelectorAll('.mfaq-q').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.closest('.mfaq-item');
+      var ans  = item.querySelector('.mfaq-a');
+      var isOpen = item.classList.contains('open');
+
+      // close all others (optional: comment out for multi-open)
+      root.querySelectorAll('.mfaq-item.open').forEach(function(o){
+        if (o !== item) {
+          o.classList.remove('open');
+          o.querySelector('.mfaq-a').style.maxHeight = null;
+        }
+      });
+
+      if (isOpen) {
+        item.classList.remove('open');
+        ans.style.maxHeight = null;
+      } else {
+        item.classList.add('open');
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // ── Category filter ──
+  var chips = root.querySelectorAll('.mfaq-chip');
+  var groups = root.querySelectorAll('.mfaq-group');
+  var search = root.querySelector('#mfaqSearch');
+  var empty  = root.querySelector('#mfaqEmpty');
+
+  function applyFilters(){
+    var activeCat = root.querySelector('.mfaq-chip.active').getAttribute('data-cat');
+    var term = search.value.trim().toLowerCase();
+    var anyVisible = false;
+
+    groups.forEach(function(group){
+      var groupCat = group.getAttribute('data-group');
+      var items = group.querySelectorAll('.mfaq-item');
+      var groupHasVisible = false;
+
+      items.forEach(function(item){
+        var catMatch = (activeCat === 'all' || item.getAttribute('data-cat') === activeCat);
+        var text = item.querySelector('.mfaq-q-text').textContent.toLowerCase()
+                 + ' ' + item.querySelector('.mfaq-a-inner').textContent.toLowerCase();
+        var searchMatch = (term === '' || text.indexOf(term) !== -1);
+
+        if (catMatch && searchMatch) {
+          item.classList.remove('hidden');
+          groupHasVisible = true;
+          anyVisible = true;
+        } else {
+          item.classList.add('hidden');
+          // collapse hidden open items
+          item.classList.remove('open');
+          var a = item.querySelector('.mfaq-a'); if(a) a.style.maxHeight = null;
+        }
+      });
+
+      group.classList.toggle('hidden', !groupHasVisible);
+    });
+
+    empty.classList.toggle('show', !anyVisible);
+  }
+
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.classList.remove('active'); });
+      chip.classList.add('active');
+      applyFilters();
+    });
+  });
+
+  search.addEventListener('input', applyFilters);
+})();
+</script>

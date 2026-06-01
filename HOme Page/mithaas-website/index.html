@@ -1,0 +1,1414 @@
+<!--
+  =====================================================================
+  MITHAAS HOMEPAGE — EMBED CONTENT
+  Drop this entire file's <style> + body markup into your CMS page,
+  or use it as a standalone page (it inherits no header/footer).
+  Images live in /images/ relative to wherever you embed this.
+  =====================================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mithaas — Making Traditions Trendy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Manrope:wght@300;400;500;600;700;800&family=Caveat:wght@400..700&family=Allura&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   MITHAAS HOMEPAGE — shared design tokens with export page
+   Embed-only: NO header, NO footer, NO body chrome
+   ========================================================= */
+.mithaas-home, .mithaas-home *, .mithaas-home *::before, .mithaas-home *::after {
+  box-sizing: border-box;
+}
+.mithaas-home{
+  --maroon:        #4A0E1C;
+  --maroon-deep:   #2E0812;
+  --crimson:       #C3122E;
+  --saffron:       #F2A93B;
+  --turmeric:      #E37C1F;
+  --cream:         #FBF4E8;
+  --cream-warm:    #F4E9D2;
+  --ivory:         #FFFDF7;
+  --ink:           #1A0A0E;
+  --rose:          #E89BA7;
+  --leaf:          #4A6B3A;
+
+  --font-display:  'Fraunces', 'Times New Roman', serif;
+  --font-body:     'Manrope', system-ui, -apple-system, sans-serif;
+  --font-hand:     'Caveat', cursive;
+  --font-script:   'Allura', 'Caveat', cursive;
+
+  --container:     1280px;
+  --r-sm: 6px;
+  --r-md: 14px;
+  --r-lg: 28px;
+
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--ivory);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.mithaas-home img { max-width:100%; display:block; }
+.mithaas-home a { color: inherit; text-decoration: none; }
+
+.mh__container{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 640px){ .mh__container{ padding: 0 20px; } }
+
+/* shared bits */
+.mh__eyebrow{
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  letter-spacing: .35em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin-bottom: 22px;
+}
+.mh__eyebrow::before{
+  content:""; width:36px; height:1px; background: var(--crimson);
+}
+.mh__h-display{
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(38px, 5.4vw, 76px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin: 0 0 28px;
+  color: var(--maroon);
+  font-variation-settings: "opsz" 120, "SOFT" 30;
+}
+.mh__h-display em{
+  font-style: italic; color: var(--turmeric);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.mh__h-display .script{
+  font-family: var(--font-script);
+  font-style: normal; font-weight: 400;
+  color: var(--crimson);
+  display: inline-block; transform: rotate(-2deg);
+  font-size: 1.15em; line-height: .85; letter-spacing: .005em;
+}
+.mh__lede{
+  font-size: 19px; line-height: 1.55;
+  max-width: 58ch; color: rgba(26,10,14,.78); margin: 0;
+}
+
+/* =========== 1. HERO =========== */
+.mh-hero{
+  position: relative;
+  min-height: 88vh;
+  overflow: hidden;
+  background: var(--maroon-deep);
+  color: var(--cream);
+  isolation: isolate;
+}
+.mh-hero__bg{
+  position: absolute; inset:0; z-index: 0;
+  background-image: url('https://www.site.javelin.co.in/media/media_library/4babfee8-0c87-4323-a999-a890e2cff7af.jpg');
+  background-size: cover; background-position: center 60%;
+  filter: saturate(1.05) brightness(.78);
+}
+.mh-hero__bg::after{
+  content:""; position:absolute; inset:0;
+  background:
+    radial-gradient(60% 80% at 28% 50%, rgba(46,8,18,.8), rgba(46,8,18,.15) 70%),
+    linear-gradient(180deg, rgba(46,8,18,.7) 0%, rgba(46,8,18,.25) 40%, rgba(46,8,18,.85) 100%);
+}
+.mh-hero__inner{
+  position: relative; z-index: 2;
+  min-height: 88vh;
+  display: grid; align-content: center;
+  padding: 130px 0 110px;
+}
+.mh-hero__tag{
+  display: inline-flex; align-items:center; gap: 14px;
+  font-size: 13px; letter-spacing: .35em; font-weight: 600;
+  text-transform: uppercase; color: var(--saffron);
+  margin-bottom: 28px;
+}
+.mh-hero__tag::before, .mh-hero__tag::after{
+  content:""; width: 32px; height: 1px; background: var(--saffron); opacity:.7;
+}
+.mh-hero__title{
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(48px, 7.4vw, 116px);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  margin: 0 0 32px;
+  max-width: 17ch;
+  font-variation-settings: "opsz" 120, "SOFT" 50;
+}
+.mh-hero__title em{
+  font-style: italic; color: var(--saffron);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.mh-hero__title .script{
+  font-family: var(--font-script);
+  color: var(--rose);
+  font-style: normal; font-weight: 400;
+  font-size: 0.92em;
+  display: inline-block;
+  transform: rotate(-3deg) translateY(0.02em);
+  line-height: 0.85;
+  letter-spacing: .005em;
+  margin: 0.05em 0;
+}
+.mh-hero__sub{
+  font-size: 19px;
+  line-height: 1.55;
+  max-width: 54ch;
+  color: rgba(251,244,232,.85);
+  margin: 0 0 44px;
+}
+.mh-hero__actions{
+  display: flex; flex-wrap: wrap;
+  align-items: center; gap: 6px 18px;
+}
+.mh-btn{
+  display: inline-flex; align-items: center; gap: 14px;
+  padding: 18px 34px;
+  background: var(--crimson); color: #fff;
+  border-radius: 999px; font-weight: 600; font-size: 15px;
+  letter-spacing: .04em; cursor: pointer; border: none;
+  transition: transform .35s cubic-bezier(.2,.7,.2,1), background .25s;
+}
+.mh-btn:hover{ background: #d3193a; transform: translateY(-2px); }
+.mh-btn svg{ width: 18px; height: 18px; transition: transform .3s; }
+.mh-btn:hover svg{ transform: translateX(4px); }
+.mh-btn--ghost{
+  background: transparent;
+  color: var(--cream);
+  padding: 18px 24px;
+  border-bottom: 1px solid rgba(251,244,232,.4);
+  border-radius: 0;
+}
+.mh-btn--ghost:hover{ border-color: var(--saffron); background: transparent; transform: none; color: var(--saffron); }
+
+/* hero stats strip */
+.mh-hero__stats{
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 3;
+  background: linear-gradient(180deg, transparent, rgba(46,8,18,.95));
+  padding: 28px 0 22px;
+}
+.mh-hero__stats-grid{
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+  border-top: 1px solid rgba(242,169,59,.25); padding-top: 22px;
+}
+.mh-stat__num{
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.4vw, 44px);
+  font-weight: 400; color: var(--saffron);
+  line-height: 1; letter-spacing: -.02em;
+  font-variation-settings: "opsz" 144;
+}
+.mh-stat__label{
+  font-size: 11px; letter-spacing: .25em; text-transform: uppercase;
+  color: rgba(251,244,232,.7); margin-top: 8px; font-weight: 500;
+}
+@media (max-width:760px){
+  .mh-hero__stats-grid{ grid-template-columns: repeat(2, 1fr); gap: 18px 12px; }
+  .mh-hero__inner{ padding: 110px 0 200px; }
+}
+
+/* =========== Section base =========== */
+.mh-section{ padding: 130px 0; position: relative; z-index: 2; }
+@media (max-width:760px){ .mh-section{ padding: 80px 0; } }
+
+/* =========== 2. ABOUT =========== */
+.mh-about{
+  background: var(--cream);
+  position: relative; overflow: hidden;
+}
+.mh-about__deco{
+  position: absolute; top: -100px; right: -150px;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, var(--saffron), transparent 65%);
+  opacity: .22; z-index: 1;
+}
+.mh-about__grid{
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 90px;
+  align-items: center;
+  position: relative; z-index: 2;
+}
+@media (max-width: 900px){
+  .mh-about__grid{ grid-template-columns: 1fr; gap: 50px; }
+}
+.mh-about__content p{
+  font-size: 17.5px; line-height: 1.7;
+  color: rgba(26,10,14,.78); margin: 0 0 20px;
+}
+.mh-about__content p:first-of-type{
+  font-family: var(--font-display);
+  font-size: 24px; line-height: 1.4;
+  color: var(--maroon); font-weight: 400;
+  font-style: italic; font-variation-settings: "opsz" 36;
+}
+.mh-about__pullquote{
+  margin-top: 36px; padding: 24px 0 4px;
+  border-top: 1px solid rgba(74,14,28,.15);
+  font-family: var(--font-script);
+  font-size: 42px; line-height: 1.1; color: var(--crimson);
+  transform: rotate(-1deg); display: inline-block;
+}
+.mh-about__image{
+  position: relative;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  box-shadow: 0 30px 60px -20px rgba(74,14,28,.35);
+}
+.mh-about__image img{ width:100%; height:100%; object-fit:cover; }
+.mh-about__image::after{
+  content:""; position:absolute; inset:0;
+  background: linear-gradient(180deg, transparent 50%, rgba(74,14,28,.55));
+}
+.mh-about__image-label{
+  position: absolute; bottom: 24px; left: 24px; right: 24px;
+  z-index: 2; color: var(--cream);
+  font-family: var(--font-hand);
+  font-size: 30px; line-height: 1.1;
+  transform: rotate(-1.5deg);
+}
+.mh-about__badge{
+  position: absolute; top: 24px; right: 24px; z-index: 2;
+  background: var(--ivory); color: var(--maroon);
+  font-family: var(--font-display);
+  width: 96px; height: 96px; border-radius: 50%;
+  display: grid; place-items: center; text-align: center;
+  font-size: 13px; line-height: 1.15;
+  font-weight: 500; letter-spacing: .04em;
+  box-shadow: 0 8px 24px rgba(74,14,28,.2);
+  transform: rotate(8deg);
+}
+.mh-about__badge strong{
+  font-size: 22px; display: block;
+  color: var(--crimson); font-weight: 600;
+}
+
+/* =========== 3. CATEGORIES (bento) =========== */
+.mh-cats{
+  background: var(--cream-warm);
+}
+.mh-cats__header{
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 80px; align-items: end;
+  margin-bottom: 70px;
+}
+@media (max-width: 900px){
+  .mh-cats__header{ grid-template-columns: 1fr; gap: 24px; }
+}
+.mh-cat-grid{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 28px;
+}
+.mh-cat{
+  position: relative;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--maroon-deep);
+  color: var(--cream);
+  min-height: 480px;
+  display: flex; flex-direction: column;
+  justify-content: flex-end;
+  isolation: isolate;
+  cursor: pointer;
+  transition: transform .5s cubic-bezier(.2,.7,.2,1);
+  text-decoration: none;
+}
+.mh-cat:hover{ transform: translateY(-4px); }
+.mh-cat__media{ position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.mh-cat__media img{
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 1.2s cubic-bezier(.2,.7,.2,1);
+}
+.mh-cat:hover .mh-cat__media img{ transform: scale(1.06); }
+.mh-cat__media::after{
+  content:""; position: absolute; inset:0;
+  background: linear-gradient(180deg, rgba(46,8,18,.15) 0%, rgba(46,8,18,.1) 35%, rgba(46,8,18,.55) 60%, rgba(46,8,18,.95) 100%);
+}
+.mh-cat__tag{
+  display: inline-block;
+  font-size: 10.5px; letter-spacing: .3em;
+  font-weight: 600; text-transform: uppercase;
+  color: var(--saffron);
+  margin-bottom: 14px;
+  padding: 6px 12px;
+  border: 1px solid rgba(242,169,59,.5);
+  border-radius: 999px;
+}
+.mh-cat__title{
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.05;
+  letter-spacing: -.01em;
+  margin: 0 0 14px;
+  font-variation-settings: "opsz" 72, "SOFT" 50;
+  text-shadow: 0 2px 20px rgba(0,0,0,.55), 0 1px 4px rgba(0,0,0,.6);
+}
+.mh-cat__body{ position: relative; z-index: 2; padding: 36px 28px 30px; }
+.mh-cat__body::before{
+  content:""; position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 320px;
+  background: linear-gradient(180deg, transparent 0%, rgba(35,6,14,.72) 38%, rgba(35,6,14,.94) 100%);
+  z-index: -1;
+  pointer-events: none;
+}
+.mh-cat__title em{
+  font-style: italic; color: var(--saffron);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.mh-cat__meta{
+  font-size: 13.5px; letter-spacing: .02em;
+  color: rgba(251,244,232,.78); margin: 0 0 16px;
+  line-height: 1.5;
+}
+.mh-cat__cta{
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 600; letter-spacing: .04em;
+  color: var(--saffron);
+  margin-top: 10px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(242,169,59,.3);
+  transition: gap .3s;
+}
+.mh-cat__cta svg{ width: 14px; height: 14px; transition: transform .3s; }
+.mh-cat:hover .mh-cat__cta{ gap: 12px; }
+.mh-cat:hover .mh-cat__cta svg{ transform: translateX(4px); }
+.mh-cat--lg{ grid-column: span 8; min-height: 540px; }
+.mh-cat--md{ grid-column: span 4; min-height: 540px; }
+.mh-cat--sm{ grid-column: span 4; min-height: 460px; }
+.mh-cat--wide{ grid-column: span 8; min-height: 460px; }
+.mh-cat--lg .mh-cat__title{ font-size: 44px; }
+
+@media (max-width: 1100px){
+  .mh-cat--lg, .mh-cat--md, .mh-cat--sm, .mh-cat--wide{ grid-column: span 6; min-height: 440px; }
+}
+@media (max-width: 640px){
+  .mh-cat-grid{ gap: 18px; }
+  .mh-cat--lg, .mh-cat--md, .mh-cat--sm, .mh-cat--wide{ grid-column: span 12; min-height: 380px; }
+  .mh-cat__title, .mh-cat--lg .mh-cat__title{ font-size: 30px; }
+}
+
+/* =========== 4. SIGNATURE SWEETS marquee =========== */
+.mh-signature{
+  background: var(--maroon);
+  color: var(--cream);
+  position: relative; overflow: hidden;
+}
+.mh-signature::before{
+  content:""; position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 12% 88%, rgba(242,169,59,.18), transparent 38%),
+    radial-gradient(circle at 88% 12%, rgba(227,124,31,.15), transparent 40%);
+  pointer-events: none;
+}
+.mh-signature .mh__h-display{ color: var(--cream); }
+.mh-signature .mh__h-display em{ color: var(--saffron); }
+.mh-signature .mh__lede{ color: rgba(251,244,232,.78); }
+.mh-signature .mh__eyebrow{ color: var(--saffron); }
+.mh-signature .mh__eyebrow::before{ background: var(--saffron); }
+.mh-signature__header{
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 60px; align-items: end;
+  margin-bottom: 70px;
+}
+@media (max-width: 840px){
+  .mh-signature__header{ grid-template-columns: 1fr; gap: 24px; }
+}
+.mh-sweets-grid{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+}
+@media (max-width: 1000px){ .mh-sweets-grid{ grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 560px){ .mh-sweets-grid{ grid-template-columns: repeat(2, 1fr); } }
+.mh-sweet{
+  position: relative;
+  aspect-ratio: 1/1;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  cursor: pointer;
+  isolation: isolate;
+}
+.mh-sweet img{
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 1s cubic-bezier(.2,.7,.2,1);
+}
+.mh-sweet:hover img{ transform: scale(1.08); }
+.mh-sweet::after{
+  content:""; position: absolute; inset:0;
+  background: linear-gradient(180deg, transparent 40%, rgba(46,8,18,.85));
+  z-index: 1;
+}
+.mh-sweet__name{
+  position: absolute; bottom: 14px; left: 14px; right: 14px;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-size: 17px; font-weight: 500;
+  color: var(--cream); margin: 0;
+  letter-spacing: -.005em;
+  line-height: 1.2;
+  text-shadow: 0 2px 12px rgba(0,0,0,.6);
+}
+
+/* =========== 5. RESTAURANT teaser =========== */
+.mh-restaurant{
+  background: var(--ivory);
+  position: relative;
+}
+.mh-restaurant__grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+@media (max-width: 900px){
+  .mh-restaurant__grid{ grid-template-columns: 1fr; gap: 50px; }
+}
+.mh-restaurant__image{
+  position: relative;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  aspect-ratio: 5/6;
+  box-shadow: 0 30px 60px -20px rgba(74,14,28,.32);
+}
+.mh-restaurant__image img{ width:100%; height:100%; object-fit:cover; }
+.mh-cuisines{
+  display: flex; flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 32px;
+}
+.mh-cuisine{
+  padding: 10px 18px;
+  background: var(--cream-warm);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--maroon);
+  letter-spacing: .02em;
+}
+.mh-cuisine span{
+  color: var(--turmeric);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  margin-right: 6px;
+}
+
+/* =========== 6. ORDER ONLINE (Swiggy / Zomato) =========== */
+.mh-order{
+  background: var(--ivory);
+  padding-bottom: 130px;
+}
+.mh-order__inner{
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  background: linear-gradient(135deg, #FFF6E8 0%, #FFEAD3 100%);
+  border-radius: var(--r-lg);
+  padding: 80px;
+  position: relative;
+  overflow: hidden;
+}
+@media (max-width: 900px){
+  .mh-order__inner{ grid-template-columns: 1fr; padding: 50px 32px; gap: 36px; }
+}
+.mh-order__arrow{
+  position: absolute;
+  top: 50px; right: 38%;
+  width: 80px; height: 80px;
+  color: var(--maroon);
+  opacity: .8;
+  transform: rotate(20deg);
+}
+@media (max-width: 900px){ .mh-order__arrow{ display: none; } }
+.mh-order__title{
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(34px, 4.5vw, 58px);
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  margin: 0 0 22px;
+  color: var(--maroon);
+  font-variation-settings: "opsz" 120, "SOFT" 30;
+}
+.mh-order__title em{
+  font-style: italic; color: var(--turmeric);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.mh-order__p{
+  font-size: 17.5px; line-height: 1.6;
+  color: rgba(26,10,14,.7); margin: 0 0 28px;
+  max-width: 48ch;
+}
+.mh-order__divider{
+  border: none;
+  border-top: 1px solid rgba(74,14,28,.15);
+  margin: 0 0 28px;
+}
+.mh-order__label{
+  font-size: 13px; font-weight: 700;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: var(--maroon);
+  margin-bottom: 18px;
+}
+.mh-order__btns{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 480px){
+  .mh-order__btns{ grid-template-columns: 1fr; }
+}
+.mh-order__btn{
+  display: flex; align-items: center; justify-content: center;
+  padding: 22px 24px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: .04em;
+  color: #fff;
+  transition: transform .3s, box-shadow .3s;
+  position: relative;
+}
+.mh-order__btn:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px -10px rgba(0,0,0,.25);
+}
+.mh-order__btn--swiggy{ background: #FC8019; }
+.mh-order__btn--zomato{ background: #E23744; }
+.mh-order__btn svg{ width: 22px; height: 22px; margin-right: 10px; flex-shrink: 0; }
+.mh-order__btn-text{
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: -.005em;
+}
+
+/* delivery man visual */
+.mh-order__visual{
+  position: relative;
+  aspect-ratio: 4/5;
+  display: flex; align-items: center; justify-content: center;
+}
+.mh-order__oval{
+  position: absolute; inset: 4%;
+  background: linear-gradient(180deg, #F8B7BD 0%, #ED9098 100%);
+  border-radius: 50%;
+  z-index: 0;
+}
+.mh-order__oval-ring{
+  position: absolute; inset: 0;
+  border: 1.5px solid var(--rose);
+  border-radius: 50%;
+  z-index: 1;
+}
+.mh-order__visual::before, .mh-order__visual::after{
+  content:""; position: absolute;
+  width: 16px; height: 16px;
+  background: var(--crimson);
+  z-index: 2;
+  clip-path: polygon(50% 0%, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0% 50%, 40% 40%);
+}
+.mh-order__visual::before{ top: 18%; left: -4%; }
+.mh-order__visual::after{ bottom: 18%; right: -4%; }
+.mh-order__photo{
+  position: relative; z-index: 3;
+  width: 80%; height: 92%;
+  border-radius: 0 0 200px 200px / 0 0 60px 60px;
+  overflow: hidden;
+  display: flex; align-items: flex-end;
+}
+.mh-order__photo img{
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+}
+
+/* =========== 7. CATERING / OCCASIONS =========== */
+.mh-catering{
+  background: var(--cream);
+}
+.mh-catering__head{
+  text-align: center;
+  margin-bottom: 60px;
+}
+.mh-catering__head .mh__eyebrow{ display: inline-flex; }
+.mh-catering__grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+@media (max-width: 900px){
+  .mh-catering__grid{ grid-template-columns: 1fr; }
+}
+.mh-occ{
+  background: var(--ivory);
+  border-radius: var(--r-md);
+  padding: 38px 32px 36px;
+  border: 1px solid rgba(74,14,28,.08);
+  position: relative;
+  transition: transform .3s, box-shadow .3s;
+}
+.mh-occ:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px -16px rgba(74,14,28,.18);
+}
+.mh-occ__icon{
+  font-size: 38px;
+  margin-bottom: 18px;
+  display: block;
+  line-height: 1;
+}
+.mh-occ__name{
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--maroon);
+  margin: 0 0 12px;
+  letter-spacing: -.01em;
+  font-variation-settings: "opsz" 48;
+}
+.mh-occ__desc{
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: rgba(26,10,14,.7);
+  margin: 0;
+}
+
+/* =========== 8. STORES =========== */
+.mh-stores{
+  background: var(--maroon-deep);
+  color: var(--cream);
+  position: relative; overflow: hidden;
+}
+.mh-stores::before{
+  content:""; position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 80% 30%, rgba(242,169,59,.16), transparent 40%),
+    radial-gradient(circle at 20% 80%, rgba(227,124,31,.13), transparent 38%);
+  pointer-events: none;
+}
+.mh-stores__inner{
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: center;
+  position: relative; z-index: 2;
+}
+@media (max-width: 900px){
+  .mh-stores__inner{ grid-template-columns: 1fr; gap: 40px; }
+}
+.mh-stores .mh__h-display{ color: var(--cream); }
+.mh-stores .mh__h-display em{ color: var(--saffron); }
+.mh-stores .mh__lede{ color: rgba(251,244,232,.78); }
+.mh-stores .mh__eyebrow{ color: var(--saffron); }
+.mh-stores .mh__eyebrow::before{ background: var(--saffron); }
+.mh-locations{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+@media (max-width: 600px){ .mh-locations{ grid-template-columns: 1fr; } }
+.mh-loc{
+  padding: 22px 24px;
+  background: rgba(251,244,232,.05);
+  border: 1px solid rgba(242,169,59,.2);
+  border-radius: var(--r-md);
+  transition: background .3s, transform .3s;
+}
+.mh-loc:hover{ background: rgba(251,244,232,.1); transform: translateY(-2px); }
+.mh-loc__city{
+  font-size: 11px; letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.mh-loc__name{
+  font-family: var(--font-display);
+  font-size: 20px; font-weight: 500;
+  color: var(--cream);
+  margin: 0 0 4px;
+  letter-spacing: -.005em;
+}
+.mh-loc__addr{
+  font-size: 13.5px;
+  color: rgba(251,244,232,.65);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* =========== 9. TESTIMONIALS =========== */
+.mh-quotes{
+  background: var(--ivory);
+}
+.mh-quotes__head{
+  text-align: center; margin-bottom: 60px;
+}
+.mh-quotes__head .mh__eyebrow{ display: inline-flex; }
+.mh-quotes__grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+@media (max-width: 900px){
+  .mh-quotes__grid{ grid-template-columns: 1fr; }
+}
+.mh-quote{
+  background: var(--cream);
+  padding: 36px 32px 30px;
+  border-radius: var(--r-md);
+  position: relative;
+}
+.mh-quote::before{
+  content:"❝";
+  display: block;
+  font-family: var(--font-display);
+  font-size: 60px; color: var(--saffron);
+  line-height: .5; margin-bottom: 16px;
+}
+.mh-quote__text{
+  font-family: var(--font-display);
+  font-size: 19px; line-height: 1.55;
+  color: var(--maroon);
+  margin: 0 0 22px;
+  font-style: italic;
+  font-variation-settings: "opsz" 36;
+}
+.mh-quote__by{
+  font-size: 14px;
+  color: rgba(26,10,14,.65);
+  font-weight: 500;
+}
+.mh-quote__by strong{
+  color: var(--ink); font-weight: 700; display: block;
+  font-family: var(--font-body); font-size: 15px;
+  margin-bottom: 2px;
+}
+
+/* =========== 10. CTA =========== */
+.mh-cta{
+  background: var(--maroon-deep);
+  color: var(--cream);
+  padding: 140px 0;
+  position: relative; overflow: hidden;
+}
+.mh-cta::before{
+  content:""; position: absolute; inset:0;
+  background-image: url('images/chole-bhature.jpg');
+  background-size: cover; background-position: center;
+  opacity: .22; filter: blur(2px);
+}
+.mh-cta::after{
+  content:""; position:absolute; inset:0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(46,8,18,.5), rgba(46,8,18,.95));
+}
+.mh-cta__inner{
+  position: relative; z-index: 2;
+  text-align: center;
+  max-width: 780px; margin: 0 auto;
+}
+.mh-cta__pre{
+  font-family: var(--font-hand);
+  font-size: 32px;
+  color: var(--saffron);
+  display: block;
+  margin-bottom: 12px;
+  transform: rotate(-2deg);
+}
+.mh-cta__h{
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(36px, 5.4vw, 68px);
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  margin: 0 0 28px;
+  color: var(--cream);
+  font-variation-settings: "opsz" 120, "SOFT" 40;
+}
+.mh-cta__h em{
+  font-style: italic; color: var(--saffron);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.mh-cta__p{
+  font-size: 18px; line-height: 1.6;
+  color: rgba(251,244,232,.8);
+  max-width: 56ch; margin: 0 auto 36px;
+}
+.mh-cta__btn{
+  display: inline-flex; align-items: center; gap: 14px;
+  padding: 20px 38px;
+  background: var(--saffron); color: var(--maroon-deep);
+  border-radius: 999px;
+  font-weight: 700; font-size: 15px; letter-spacing: .04em;
+  transition: transform .3s, background .25s;
+}
+.mh-cta__btn:hover{ background: #ffba47; transform: translateY(-2px); }
+.mh-cta__btn svg{ width: 18px; height: 18px; transition: transform .3s; }
+.mh-cta__btn:hover svg{ transform: translateX(4px); }
+
+/* =========== Reveal animations =========== */
+.mithaas-home [data-mh-reveal]{
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1);
+}
+.mithaas-home [data-mh-reveal].in{ opacity: 1; transform: translateY(0); }
+.mithaas-home [data-mh-reveal-delay="1"]{ transition-delay: .08s; }
+.mithaas-home [data-mh-reveal-delay="2"]{ transition-delay: .18s; }
+.mithaas-home [data-mh-reveal-delay="3"]{ transition-delay: .28s; }
+.mithaas-home [data-mh-reveal-delay="4"]{ transition-delay: .38s; }
+
+@keyframes mhFadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+.mh-hero__tag, .mh-hero__title, .mh-hero__sub, .mh-hero__actions, .mh-hero__stats{
+  animation: mhFadeUp 1s cubic-bezier(.2,.7,.2,1) both;
+}
+.mh-hero__tag{ animation-delay: .05s; }
+.mh-hero__title{ animation-delay: .18s; }
+.mh-hero__sub{ animation-delay: .35s; }
+.mh-hero__actions{ animation-delay: .50s; }
+.mh-hero__stats{ animation-delay: .65s; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     EMBED START — wrap everything in .mithaas-home
+     ============================================================ -->
+<div class="mithaas-home">
+
+<!-- ============= 1. HERO ============= -->
+<section class="mh-hero">
+  <div class="mh-hero__bg" aria-hidden="true"></div>
+
+  <div class="mh__container">
+    <div class="mh-hero__inner">
+      <span class="mh-hero__tag">Mithaas Sweets &amp; Restaurant · Since 2012</span>
+
+      <h1 class="mh-hero__title">
+        Making <em>traditions</em><br>
+        <span class="script">trendy,</span><br>
+        one bite at a time.
+      </h1>
+
+      <p class="mh-hero__sub">
+        From hand-rolled mithai to slow-cooked Indian, South Indian &amp; Chinese vegetarian
+        favourites — Mithaas brings together a beloved sweet shop and a multi-cuisine restaurant
+        under one roof, across the NCR.
+      </p>
+
+      <div class="mh-hero__actions">
+        <a class="mh-btn" href="#categories">
+          Explore our menu
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a class="mh-btn mh-btn--ghost" href="#order">Order online →</a>
+      </div>
+    </div>
+
+    <div class="mh-hero__stats">
+      <div class="mh-hero__stats-grid">
+        <div>
+          <div class="mh-stat__num">2012</div>
+          <div class="mh-stat__label">Founded</div>
+        </div>
+        <div>
+          <div class="mh-stat__num">22+</div>
+          <div class="mh-stat__label">NCR Stores</div>
+        </div>
+        <div>
+          <div class="mh-stat__num">100%</div>
+          <div class="mh-stat__label">Vegetarian</div>
+        </div>
+        <div>
+          <div class="mh-stat__num">₹450</div>
+          <div class="mh-stat__label">Avg. for Two</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= 2. ABOUT ============= -->
+<section class="mh-section mh-about">
+  <div class="mh-about__deco"></div>
+  <div class="mh__container">
+    <div class="mh-about__grid">
+      <div class="mh-about__content" data-mh-reveal>
+        <span class="mh__eyebrow">Our Story</span>
+        <h2 class="mh__h-display">
+          A <em>sweet idea</em><br>
+          that grew into <span class="script">a family.</span>
+        </h2>
+        <p>
+          Mithaas began in 2012 as a single sweet shop with a quiet promise — that every
+          ladoo, every barfi, every plate of chaat would taste of home.
+        </p>
+        <p>
+          Today, that promise lives on across <strong>16+ outlets in the NCR</strong> — a chain
+          of traditional sweet shops, namkeen counters and multi-cuisine vegetarian restaurants
+          that serve North Indian thalis, South Indian dosas, Chinese favourites, and our
+          signature desi ghee mithai, all under one warm, welcoming roof.
+        </p>
+        <p>
+          Headquartered in Noida, Uttar Pradesh, we're proudly 100% vegetarian — and proudly
+          part of your festivals, your everyday cravings, and every occasion in between.
+        </p>
+        <div class="mh-about__pullquote">
+          Where every bite feels like home.
+        </div>
+      </div>
+
+      <div class="mh-about__image" data-mh-reveal data-mh-reveal-delay="1">
+        <img src="https://www.site.javelin.co.in/media/media_library/1a7ffc61-9869-4bca-a2f9-65b9e7587fbe.jpg" alt="Mithaas signature gulab jamun" />
+        <div class="mh-about__badge">
+          <div>
+            <strong>13</strong>
+            years strong
+          </div>
+        </div>
+        <div class="mh-about__image-label">crafted with ghee &amp; soul</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= 3. EXPLORE OUR CATEGORIES ============= -->
+<section class="mh-section mh-cats" id="categories">
+  <div class="mh__container">
+    <div class="mh-cats__header">
+      <div data-mh-reveal>
+        <span class="mh__eyebrow">Explore</span>
+        <h2 class="mh__h-display">
+          Explore our<br>
+          <em>categories,</em><br>
+          <span class="script">find your favourite.</span>
+        </h2>
+      </div>
+      <p class="mh__lede" data-mh-reveal data-mh-reveal-delay="1">
+        Six worlds of flavour under one roof — sweets, savouries, chaat, restaurant meals,
+        festive hampers and frozen exports. Tap any card to explore.
+      </p>
+    </div>
+
+    <div class="mh-cat-grid">
+      <!-- Sweets -->
+      <a class="mh-cat mh-cat--lg" href="#" data-mh-reveal>
+        <div class="mh-cat__media"><img src="https://www.site.javelin.co.in/media/media_library/c858dd97-4dcc-44ff-bdc7-06ddb4a20714.jpg" alt="Mithaas Sweets" /></div>
+        <div class="mh-cat__body">
+          <span class="mh-cat__tag">Category 01 · Mithai</span>
+          <h3 class="mh-cat__title">Indian <em>Sweets</em></h3>
+          <p class="mh-cat__meta">Desi ghee mithai · Bengali sweets · Kaju &amp; dry-fruit specials · Halwa &amp; ladoos</p>
+          <span class="mh-cat__cta">Browse the sweet counter <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+      <!-- Namkeen -->
+      <a class="mh-cat mh-cat--md" href="#" data-mh-reveal data-mh-reveal-delay="1">
+        <div class="mh-cat__media"><img src="https://www.site.javelin.co.in/media/media_library/0065786f-fe5e-4e80-957d-377a072ddbf0.jpg" alt="Mithaas Namkeen" /></div>
+        <div class="mh-cat__body">
+          <span class="mh-cat__tag">Category 02 · Savouries</span>
+          <h3 class="mh-cat__title">Namkeen &amp; <em>Snacks</em></h3>
+          <p class="mh-cat__meta">Daily-fresh sev, bhujia, mathri, kachori &amp; mixtures</p>
+          <span class="mh-cat__cta">See the savoury range <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+      <!-- Chaat -->
+      <a class="mh-cat mh-cat--sm" href="#" data-mh-reveal>
+        <div class="mh-cat__media"><img src="https://www.site.javelin.co.in/media/media_library/d72bd117-9d28-4e58-a5df-de658686d2f5.jpg" alt="Mithaas Chaat" /></div>
+        <div class="mh-cat__body">
+          <span class="mh-cat__tag">Category 03 · Street</span>
+          <h3 class="mh-cat__title">Chaat <em>Corner</em></h3>
+          <p class="mh-cat__meta">Pani puri, dahi bhalla, raj kachori &amp; more</p>
+          <span class="mh-cat__cta">Discover chaat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+      <!-- Restaurant -->
+      <a class="mh-cat mh-cat--wide" href="#" data-mh-reveal data-mh-reveal-delay="1">
+        <div class="mh-cat__media"><img src="https://www.site.javelin.co.in/media/media_library/2f54316f-334a-4307-a651-d57b05d858a2.jpg" alt="Mithaas Restaurant" /></div>
+        <div class="mh-cat__body">
+          <span class="mh-cat__tag">Category 04 · Restaurant</span>
+          <h3 class="mh-cat__title">The <em>Restaurant</em></h3>
+          <p class="mh-cat__meta">North Indian · South Indian · Chinese · 100% vegetarian, full-service dining</p>
+          <span class="mh-cat__cta">View the full menu <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+      <!-- Catering -->
+      <a class="mh-cat mh-cat--sm" href="#" data-mh-reveal>
+        <div class="mh-cat__media"><img src="https://www.site.javelin.co.in/media/media_library/96c86ba0-228a-4356-9861-f4ea0bcb6f08.webp" alt="Mithaas Catering" /></div>
+        <div class="mh-cat__body">
+          <span class="mh-cat__tag">Category 05 · Bespoke</span>
+          <h3 class="mh-cat__title">Festive <em>Hampers</em></h3>
+          <p class="mh-cat__meta">Weddings · Diwali · Baby showers &amp; bulk orders</p>
+          <span class="mh-cat__cta">Plan an occasion <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+      <!-- Exports -->
+      <a class="mh-cat mh-cat--md" href="export.html" data-mh-reveal data-mh-reveal-delay="1">
+        <div class="mh-cat__media"><img src="https://www.site.javelin.co.in/media/media_library/26349d96-1f70-4234-a9ea-e91ec0c1006b.jpg" alt="Mithaas Exports" /></div>
+        <div class="mh-cat__body">
+          <span class="mh-cat__tag">Category 06 · Worldwide</span>
+          <h3 class="mh-cat__title">Mithaas <em>Exports</em></h3>
+          <p class="mh-cat__meta">Frozen Indian sweets, snacks &amp; gravies — FSSC 22000 &amp; USFDA certified</p>
+          <span class="mh-cat__cta">For global partners <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============= 4. SIGNATURE SWEETS ============= -->
+<section class="mh-section mh-signature">
+  <div class="mh__container">
+    <div class="mh-signature__header">
+      <div data-mh-reveal>
+        <span class="mh__eyebrow">Bestsellers</span>
+        <h2 class="mh__h-display">Our <em>signature</em><br>sweets.</h2>
+      </div>
+      <p class="mh__lede" data-mh-reveal data-mh-reveal-delay="1">
+        A small selection of what Mithaas is famous for — silver-leafed kaju katli, soft
+        gulab jamun, rasgullas that bounce back, and the family of ladoos that show up
+        at every celebration. Available across all our stores.
+      </p>
+    </div>
+
+    <div class="mh-sweets-grid">
+      <div class="mh-sweet" data-mh-reveal>
+        <img src="https://www.site.javelin.co.in/media/media_library/cf007283-275e-4bf9-b748-a377901df380.jpg" alt="Gulab Jamun" />
+        <p class="mh-sweet__name">Gulab Jamun</p>
+      </div>
+      <div class="mh-sweet" data-mh-reveal data-mh-reveal-delay="1">
+        <img src="https://www.site.javelin.co.in/media/media_library/26349d96-1f70-4234-a9ea-e91ec0c1006b.jpg" alt="Kaju Katli" />
+        <p class="mh-sweet__name">Kaju Katli</p>
+      </div>
+      <div class="mh-sweet" data-mh-reveal data-mh-reveal-delay="2">
+        <img src="https://www.site.javelin.co.in/media/media_library/87adee80-845a-4de9-bc03-08e2cf8bfae5.jpg" alt="Rasgulla" />
+        <p class="mh-sweet__name">Sponge Rasgulla</p>
+      </div>
+      <div class="mh-sweet" data-mh-reveal data-mh-reveal-delay="3">
+        <img src="https://www.site.javelin.co.in/media/media_library/ddcef072-3492-4b07-b31f-f2c580a11816.jpg" alt="Boondi Ladoo" />
+        <p class="mh-sweet__name">Boondi Ladoo</p>
+      </div>
+      <div class="mh-sweet" data-mh-reveal>
+        <img src="https://www.site.javelin.co.in/media/media_library/9fab0803-cf0f-4c61-893b-895efd5aa473.jpg" alt="Moong Dal Halwa" />
+        <p class="mh-sweet__name">Moong Dal Halwa</p>
+      </div>
+      <div class="mh-sweet" data-mh-reveal data-mh-reveal-delay="1">
+        <img src="https://www.site.javelin.co.in/media/media_library/2e62ff3c-30bf-4c13-b698-a74cf348a266.jpg" alt="Rasmalai" />
+        <p class="mh-sweet__name">Rasmalai</p>
+      </div>
+      <div class="mh-sweet" data-mh-reveal data-mh-reveal-delay="2">
+        <img src="https://www.site.javelin.co.in/media/media_library/aa9c8dc9-727b-4902-a29c-9d392770cbd0.jpg" alt="Patisa" />
+        <p class="mh-sweet__name">Patisa</p>
+      </div>
+      <div class="mh-sweet" data-mh-reveal data-mh-reveal-delay="3">
+        <img src="https://www.site.javelin.co.in/media/media_library/96cbed80-b79e-42a0-b9db-b07202d0ff65.jpg" alt="Balushahi" />
+        <p class="mh-sweet__name">Balushahi</p>
+      </div>
+      <div class="mh-sweet" data-mh-reveal>
+        <img src="https://www.site.javelin.co.in/media/media_library/d5e1497c-cd98-45e5-80ff-40558e95bcab.jpg" alt="Anjeer Burfi" />
+        <p class="mh-sweet__name">Anjeer Burfi</p>
+      </div>
+      <div class="mh-sweet" data-mh-reveal data-mh-reveal-delay="1">
+        <img src="https://www.site.javelin.co.in/media/media_library/b9e5a3d3-936d-4e56-900d-008c3710eaaf.jpg" alt="Besan Ladoo" />
+        <p class="mh-sweet__name">Besan Ladoo</p>
+      </div>
+      <div class="mh-sweet" data-mh-reveal data-mh-reveal-delay="2">
+        <img src="https://www.site.javelin.co.in/media/media_library/25f008cf-1e6d-4987-ada5-efd507386c61.jpg" alt="Doda Burfi" />
+        <p class="mh-sweet__name">Doda Burfi</p>
+      </div>
+      <div class="mh-sweet" data-mh-reveal data-mh-reveal-delay="3">
+        <img src="https://www.site.javelin.co.in/media/media_library/12809479-dbae-450e-bbae-53a19e7c995f.jpg" alt="Imarti" />
+        <p class="mh-sweet__name">Imarti</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= 5. RESTAURANT ============= -->
+<section class="mh-section mh-restaurant">
+  <div class="mh__container">
+    <div class="mh-restaurant__grid">
+      <div class="mh-restaurant__image" data-mh-reveal>
+        <img src="https://www.site.javelin.co.in/media/media_library/f94d218f-39ea-4074-bcc8-394c57f2f5a1.jpg" alt="Mithaas multi-cuisine vegetarian restaurant" />
+      </div>
+
+      <div data-mh-reveal data-mh-reveal-delay="1">
+        <span class="mh__eyebrow">The Restaurant</span>
+        <h2 class="mh__h-display">
+          Three cuisines.<br>
+          <em>One </em><span class="script">vegetarian table.</span>
+        </h2>
+        <p class="mh__lede">
+          Mithaas isn't just a sweet shop. Sit down at any of our outlets and you'll find
+          a full multi-cuisine menu — homestyle North Indian thalis, crisp South Indian
+          dosas straight from the tawa, and Indo-Chinese favourites tossed in our smoky
+          woks. All entirely vegetarian. All served the way you'd serve guests at home.
+        </p>
+
+        <div class="mh-cuisines">
+          <span class="mh-cuisine"><span>01</span>North Indian</span>
+          <span class="mh-cuisine"><span>02</span>South Indian</span>
+          <span class="mh-cuisine"><span>03</span>Indo-Chinese</span>
+          <span class="mh-cuisine"><span>04</span>Chaat &amp; Street Food</span>
+          <span class="mh-cuisine"><span>05</span>Thalis &amp; Combos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= 6. ORDER ONLINE (Swiggy/Zomato) ============= -->
+<section class="mh-order" id="order">
+  <div class="mh__container">
+    <div class="mh-order__inner">
+      <div data-mh-reveal>
+        <h2 class="mh-order__title">
+          Shop your favourite<br>
+          sweets <em>online.</em>
+        </h2>
+        <p class="mh-order__p">
+          Now satisfying your sweet cravings is just a tap away. Order our delicious
+          treats anytime, anywhere — delivered fresh to your doorstep through Swiggy
+          and Zomato.
+        </p>
+        <hr class="mh-order__divider" />
+        <div class="mh-order__label">Order Now On</div>
+        <div class="mh-order__btns">
+          <a class="mh-order__btn mh-order__btn--swiggy" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2c-4.4 0-8 3.6-8 8 0 5.4 8 12 8 12s8-6.6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 110-6 3 3 0 010 6z"/>
+            </svg>
+            <span class="mh-order__btn-text">Swiggy</span>
+          </a>
+          <a class="mh-order__btn mh-order__btn--zomato" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M3 5h18v3H3V5zm0 5h18v3H3v-3zm0 5h12v3H3v-3z"/>
+            </svg>
+            <span class="mh-order__btn-text">zomato</span>
+          </a>
+        </div>
+      </div>
+
+      <svg class="mh-order__arrow" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M80 20 Q 60 40 65 60 Q 70 75 30 80" />
+        <path d="M30 80 L 42 70 M 30 80 L 40 88" />
+      </svg>
+
+      <div class="mh-order__visual" data-mh-reveal data-mh-reveal-delay="1" aria-hidden="true">
+        <div class="mh-order__oval"></div>
+        <div class="mh-order__oval-ring"></div>
+        <div class="mh-order__photo">
+          <img src="https://www.site.javelin.co.in/media/media_library/c2db8784-2334-45d7-b17b-d75acb329d33.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= 7. SPECIAL OCCASIONS / CATERING ============= -->
+<section class="mh-section mh-catering">
+  <div class="mh__container">
+    <div class="mh-catering__head" data-mh-reveal>
+      <span class="mh__eyebrow">Bespoke Catering</span>
+      <h2 class="mh__h-display" style="text-align: center;">
+        For every <em>celebration</em>,<br>
+        <span class="script">big or small.</span>
+      </h2>
+    </div>
+
+    <div class="mh-catering__grid">
+      <div class="mh-occ" data-mh-reveal data-mh-reveal-delay="1">
+        <span class="mh-occ__icon">💍</span>
+        <h3 class="mh-occ__name">Weddings</h3>
+        <p class="mh-occ__desc">
+          Bespoke mithai counters, customisable hampers and a full vegetarian buffet —
+          we design the sweetest part of your wedding day.
+        </p>
+      </div>
+      <div class="mh-occ" data-mh-reveal data-mh-reveal-delay="2">
+        <span class="mh-occ__icon">🪔</span>
+        <h3 class="mh-occ__name">Diwali Hampers</h3>
+        <p class="mh-occ__desc">
+          Premium gift boxes filled with our finest kaju, anjeer &amp; mawa sweets —
+          ready for family, friends and corporate gifting.
+        </p>
+      </div>
+      <div class="mh-occ" data-mh-reveal data-mh-reveal-delay="3">
+        <span class="mh-occ__icon">🍼</span>
+        <h3 class="mh-occ__name">Baby Showers &amp; Pujas</h3>
+        <p class="mh-occ__desc">
+          Custom thalis, mini-mithai trays and chaat counters for intimate home
+          ceremonies. Delivered on time, every time.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= 8. STORES ============= -->
+<section class="mh-section mh-stores">
+  <div class="mh__container">
+    <div class="mh-stores__inner">
+      <div data-mh-reveal>
+        <span class="mh__eyebrow">Visit us</span>
+        <h2 class="mh__h-display">
+          16+ outlets,<br>
+          <em>one </em><span class="script">family.</span>
+        </h2>
+        <p class="mh__lede">
+          From Noida to Greater Noida, Ghaziabad to Faridabad — Mithaas has a counter
+          near you. Drop in for hot jalebi in the morning, a full meal at lunch, and
+          a box of mithai on the way home.
+        </p>
+      </div>
+
+      <div class="mh-locations" data-mh-reveal data-mh-reveal-delay="1">
+        <div class="mh-loc">
+          <div class="mh-loc__city">Noida</div>
+          <h4 class="mh-loc__name">Paras Tierea</h4>
+          <p class="mh-loc__addr">Sector 137, Expressway, Noida — flagship store</p>
+        </div>
+        <div class="mh-loc">
+          <div class="mh-loc__city">Noida</div>
+          <h4 class="mh-loc__name">Sector 63</h4>
+          <p class="mh-loc__addr">J-63, Sector 63, Noida — head office &amp; outlet</p>
+        </div>
+        <div class="mh-loc">
+          <div class="mh-loc__city">Greater Noida</div>
+          <h4 class="mh-loc__name">Pari Chowk</h4>
+          <p class="mh-loc__addr">Greater Noida West — sweet shop &amp; restaurant</p>
+        </div>
+        <div class="mh-loc">
+          <div class="mh-loc__city">Ghaziabad</div>
+          <h4 class="mh-loc__name">Indirapuram</h4>
+          <p class="mh-loc__addr">Shipra Mall vicinity — full menu outlet</p>
+        </div>
+        <div class="mh-loc">
+          <div class="mh-loc__city">Delhi NCR</div>
+          <h4 class="mh-loc__name">Faridabad</h4>
+          <p class="mh-loc__addr">Sector 15 market — sweet shop &amp; chaat counter</p>
+        </div>
+        <div class="mh-loc">
+          <div class="mh-loc__city">+ 11 more</div>
+          <h4 class="mh-loc__name">Across the NCR</h4>
+          <p class="mh-loc__addr">View the full store locator on our find-us page</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= 9. TESTIMONIALS ============= -->
+<section class="mh-section mh-quotes">
+  <div class="mh__container">
+    <div class="mh-quotes__head" data-mh-reveal>
+      <span class="mh__eyebrow">Loved by</span>
+      <h2 class="mh__h-display" style="text-align: center;">What our <em>customers</em><br>are saying.</h2>
+    </div>
+
+    <div class="mh-quotes__grid">
+      <div class="mh-quote" data-mh-reveal data-mh-reveal-delay="1">
+        <p class="mh-quote__text">
+          Their gulab jamun is by far the best I've had in the NCR — soft, hot,
+          and the syrup is perfect. I never come home without a box.
+        </p>
+        <div class="mh-quote__by">
+          <strong>Rohan M.</strong>
+          Regular at Noida 137
+        </div>
+      </div>
+
+      <div class="mh-quote" data-mh-reveal data-mh-reveal-delay="2">
+        <p class="mh-quote__text">
+          We ordered the Diwali hampers for 80 colleagues last year — beautifully
+          packed and on time. Now it's an annual tradition.
+        </p>
+        <div class="mh-quote__by">
+          <strong>Aanya S.</strong>
+          Corporate gifting customer
+        </div>
+      </div>
+
+      <div class="mh-quote" data-mh-reveal data-mh-reveal-delay="3">
+        <p class="mh-quote__text">
+          The restaurant menu is criminally underrated — the South Indian dosa
+          rivals any specialist place. And then the sweets afterwards. Heaven.
+        </p>
+        <div class="mh-quote__by">
+          <strong>Vikram &amp; Family</strong>
+          Sunday-lunch regulars
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= 10. CTA ============= -->
+<section class="mh-cta">
+  <div class="mh__container">
+    <div class="mh-cta__inner" data-mh-reveal>
+      <span class="mh-cta__pre">Sweet, savoury, served fresh</span>
+      <h2 class="mh-cta__h">Come, taste the <em>Mithaas</em> difference.</h2>
+      <p class="mh-cta__p">
+        Whether it's a quick chaat run, a family dinner, a wedding order or a Diwali hamper —
+        we'd love to be part of your story.
+      </p>
+      <a class="mh-cta__btn" href="tel:+918448492344">
+        Call us · +91 84484 92344
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+</div>
+<!-- ============================================================
+     EMBED END
+     ============================================================ -->
+
+<script>
+  // Reveal-on-scroll
+  (function(){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.mithaas-home [data-mh-reveal]').forEach(el => io.observe(el));
+  })();
+</script>
+
+</body>
+</html>

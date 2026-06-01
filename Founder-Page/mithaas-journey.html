@@ -1,0 +1,1053 @@
+<!--
+  MITHAAS — THE JOURNEY PAGE
+  Embed code: paste into your CMS custom HTML block
+  Style: Fraunces + Manrope + Caveat | Maroon/Saffron palette
+  Covers: 2012–2025 timeline, stats, locations, products
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Manrope:wght@300;400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ── RESET & ROOT ───────────────────────────── */
+.mj-wrap * { box-sizing: border-box; margin: 0; padding: 0; }
+
+.mj-wrap {
+  --maroon:    #7B1818;
+  --maroon-d:  #4E0E0E;
+  --saffron:   #E8871A;
+  --saffron-l: #F5A83A;
+  --cream:     #FDF6EC;
+  --cream-d:   #F5E8D0;
+  --ink:       #1A0A0A;
+  --gold:      #C9942A;
+  --gold-l:    #F2C96E;
+  --white:     #FFFFFF;
+  --muted:     #7A5E4A;
+  --green:     #2D6A4F;
+
+  font-family: 'Manrope', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ── HERO BANNER ────────────────────────────── */
+.mj-hero {
+  background: var(--maroon-d);
+  position: relative;
+  overflow: hidden;
+  padding: 80px 40px 60px;
+  text-align: center;
+}
+.mj-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(232,135,26,0.18) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 30%, rgba(123,24,24,0.4) 0%, transparent 60%);
+}
+.mj-hero-ornament {
+  position: absolute;
+  font-size: 320px;
+  opacity: 0.04;
+  color: var(--saffron);
+  font-family: 'Fraunces', serif;
+  line-height: 1;
+  right: -40px;
+  top: -60px;
+  pointer-events: none;
+  user-select: none;
+}
+.mj-eyebrow {
+  font-family: 'Caveat', cursive;
+  font-size: 1.3rem;
+  color: var(--saffron-l);
+  letter-spacing: 0.04em;
+  margin-bottom: 14px;
+  position: relative;
+}
+.mj-hero h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  color: var(--white);
+  line-height: 1.05;
+  position: relative;
+  letter-spacing: -0.02em;
+}
+.mj-hero h1 em {
+  font-style: italic;
+  color: var(--gold-l);
+}
+.mj-hero-sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.6);
+  margin-top: 18px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  position: relative;
+}
+.mj-hero-line {
+  width: 60px;
+  height: 3px;
+  background: var(--saffron);
+  margin: 20px auto 0;
+  position: relative;
+  border-radius: 2px;
+}
+
+/* ── STAT STRIP ─────────────────────────────── */
+.mj-stats {
+  background: var(--saffron);
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+.mj-stat {
+  flex: 1;
+  min-width: 160px;
+  padding: 28px 24px;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.3);
+  position: relative;
+  overflow: hidden;
+}
+.mj-stat:last-child { border-right: none; }
+.mj-stat-num {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 2.4rem;
+  color: var(--maroon-d);
+  line-height: 1;
+  display: block;
+}
+.mj-stat-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--maroon-d);
+  margin-top: 5px;
+  display: block;
+  opacity: 0.8;
+}
+
+/* ── SECTION HEADINGS ───────────────────────── */
+.mj-section {
+  padding: 80px 40px;
+}
+.mj-section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.mj-sec-label {
+  font-family: 'Caveat', cursive;
+  font-size: 1.2rem;
+  color: var(--saffron);
+  margin-bottom: 8px;
+  display: block;
+}
+.mj-sec-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  color: var(--maroon-d);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.mj-sec-title em {
+  font-style: italic;
+  color: var(--saffron);
+}
+.mj-sec-desc {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 580px;
+}
+.mj-divider {
+  width: 48px; height: 4px;
+  background: var(--saffron);
+  border-radius: 3px;
+  margin: 20px 0 40px;
+}
+
+/* ── BEFORE/AFTER COMPARISON ────────────────── */
+.mj-compare {
+  background: var(--maroon-d);
+  padding: 80px 40px;
+}
+.mj-compare-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0;
+  max-width: 900px;
+  margin: 50px auto 0;
+  align-items: center;
+}
+.mj-cmp-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 44px 36px;
+  text-align: center;
+}
+.mj-cmp-card.then { border-color: rgba(255,255,255,0.15); }
+.mj-cmp-card.now  { background: var(--saffron); border-color: var(--saffron); }
+.mj-cmp-year {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 20px;
+  display: block;
+}
+.then .mj-cmp-year { color: rgba(255,255,255,0.5); }
+.now  .mj-cmp-year { color: var(--maroon-d); }
+.mj-cmp-big {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 4rem;
+  line-height: 1;
+  margin-bottom: 8px;
+  display: block;
+}
+.then .mj-cmp-big { color: var(--white); }
+.now  .mj-cmp-big { color: var(--maroon-d); }
+.mj-cmp-meta {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.then .mj-cmp-meta { color: rgba(255,255,255,0.5); }
+.now  .mj-cmp-meta { color: var(--maroon-d); opacity: 0.75; }
+.mj-cmp-item {
+  margin-top: 20px;
+  padding-top: 20px;
+}
+.then .mj-cmp-item { border-top: 1px solid rgba(255,255,255,0.1); }
+.now  .mj-cmp-item { border-top: 1px solid rgba(78,14,14,0.15); }
+.mj-arrow-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 28px;
+  flex-direction: column;
+  gap: 10px;
+}
+.mj-arrow-circle {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  color: var(--maroon-d);
+  font-weight: 900;
+}
+.mj-arrow-label {
+  font-family: 'Caveat', cursive;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+}
+
+/* ── TIMELINE ───────────────────────────────── */
+.mj-timeline {
+  background: var(--cream);
+}
+.mj-tl-track {
+  position: relative;
+  margin-top: 60px;
+}
+.mj-tl-track::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--saffron), var(--maroon));
+  transform: translateX(-50%);
+  border-radius: 3px;
+}
+.mj-tl-item {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: calc(50% + 48px);
+  margin-bottom: 56px;
+  position: relative;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.mj-tl-item.right {
+  justify-content: flex-start;
+  padding-right: 0;
+  padding-left: calc(50% + 48px);
+  transform: translateX(30px);
+}
+.mj-tl-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.mj-tl-dot {
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  transform: translate(-50%, 0);
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--saffron);
+  border: 3px solid var(--cream);
+  box-shadow: 0 0 0 3px var(--saffron);
+  z-index: 1;
+}
+.mj-tl-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 28px 30px;
+  max-width: 380px;
+  width: 100%;
+  box-shadow: 0 4px 24px rgba(123,24,24,0.08);
+  border: 1px solid rgba(123,24,24,0.06);
+  position: relative;
+}
+.mj-tl-card::after {
+  content: '';
+  position: absolute;
+  top: 22px;
+  width: 24px; height: 2px;
+  background: var(--saffron);
+}
+.mj-tl-item:not(.right) .mj-tl-card::after {
+  right: -24px;
+}
+.mj-tl-item.right .mj-tl-card::after {
+  left: -24px;
+}
+.mj-tl-year {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 2rem;
+  color: var(--saffron);
+  line-height: 1;
+  display: block;
+  margin-bottom: 8px;
+}
+.mj-tl-event {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--maroon-d);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.mj-tl-desc {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.mj-tl-badge {
+  display: inline-block;
+  background: var(--cream-d);
+  color: var(--saffron);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  border-radius: 30px;
+  margin-top: 12px;
+}
+
+/* ── LOCATIONS SECTION ──────────────────────── */
+.mj-locations {
+  background: var(--ink);
+  padding: 80px 40px;
+}
+.mj-loc-header .mj-sec-title { color: var(--white); }
+.mj-loc-header .mj-sec-desc  { color: rgba(255,255,255,0.5); }
+.mj-loc-header .mj-sec-label { color: var(--saffron-l); }
+
+.mj-city-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+.mj-city-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 28px 24px;
+  transition: background 0.25s, border-color 0.25s, transform 0.25s;
+  cursor: default;
+}
+.mj-city-card:hover {
+  background: rgba(232,135,26,0.12);
+  border-color: var(--saffron);
+  transform: translateY(-4px);
+}
+.mj-city-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--saffron-l);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.mj-city-name span.pin { font-size: 1.1rem; }
+.mj-city-outlets {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.mj-city-outlet {
+  font-size: 0.83rem;
+  color: rgba(255,255,255,0.55);
+  padding-left: 14px;
+  position: relative;
+  line-height: 1.5;
+}
+.mj-city-outlet::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--saffron);
+  opacity: 0.5;
+}
+.mj-city-count {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--saffron);
+  opacity: 0.8;
+}
+
+/* ── PRODUCTS / FOOD MAP ────────────────────── */
+.mj-products {
+  background: var(--cream);
+  padding: 80px 40px;
+}
+.mj-prod-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 48px;
+}
+.mj-prod-cat {
+  background: var(--white);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(123,24,24,0.06);
+  box-shadow: 0 3px 16px rgba(123,24,24,0.05);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.mj-prod-cat:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 32px rgba(123,24,24,0.12);
+}
+.mj-prod-head {
+  padding: 18px 20px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.mj-prod-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+.mj-prod-icon.sweets     { background: #FFF0F0; }
+.mj-prod-icon.snacks     { background: #FFF5E0; }
+.mj-prod-icon.bakery     { background: #FFF8EF; }
+.mj-prod-icon.trading    { background: #F0FFF4; }
+.mj-prod-icon.restaurant { background: #F0F4FF; }
+.mj-prod-icon.adda       { background: #FFF0F8; }
+.mj-prod-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--maroon-d);
+}
+.mj-prod-items {
+  padding: 0 20px 20px;
+  border-top: 1px solid rgba(123,24,24,0.06);
+  margin-top: 2px;
+}
+.mj-prod-tag {
+  display: inline-block;
+  font-size: 0.73rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--cream);
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin: 6px 4px 0 0;
+  border: 1px solid rgba(123,24,24,0.08);
+}
+
+/* ── CUISINE STRIP ──────────────────────────── */
+.mj-cuisines {
+  background: var(--maroon);
+  padding: 48px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  align-items: center;
+}
+.mj-cuisine-label {
+  font-family: 'Caveat', cursive;
+  font-size: 1.3rem;
+  color: rgba(255,255,255,0.6);
+  margin-right: 8px;
+  white-space: nowrap;
+}
+.mj-cuisine-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 40px;
+  padding: 10px 22px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  transition: background 0.2s;
+}
+.mj-cuisine-pill:hover {
+  background: var(--saffron);
+  border-color: var(--saffron);
+  color: var(--maroon-d);
+}
+.mj-cuisine-pill .ci { font-size: 1.2rem; }
+
+/* ── CLOSING BANNER ─────────────────────────── */
+.mj-closing {
+  background: linear-gradient(135deg, var(--maroon-d) 0%, var(--maroon) 50%, #C04500 100%);
+  padding: 80px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.mj-closing::before {
+  content: '2012→2025';
+  position: absolute;
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 120px;
+  color: rgba(255,255,255,0.04);
+  white-space: nowrap;
+  left: 50%; top: 50%;
+  transform: translate(-50%,-50%);
+  pointer-events: none;
+  letter-spacing: -4px;
+}
+.mj-closing-quote {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+  color: var(--white);
+  max-width: 700px;
+  margin: 0 auto 24px;
+  line-height: 1.35;
+  position: relative;
+}
+.mj-closing-quote::before {
+  content: '\201C';
+  font-size: 6rem;
+  line-height: 0.6;
+  vertical-align: -0.4em;
+  color: var(--saffron);
+  opacity: 0.5;
+  margin-right: 8px;
+}
+.mj-closing-attr {
+  font-family: 'Caveat', cursive;
+  font-size: 1.3rem;
+  color: var(--gold-l);
+  position: relative;
+}
+
+/* ── RESPONSIVE ─────────────────────────────── */
+@media (max-width: 720px) {
+  .mj-section { padding: 56px 20px; }
+  .mj-compare { padding: 56px 20px; }
+  .mj-locations { padding: 56px 20px; }
+  .mj-products { padding: 56px 20px; }
+  .mj-hero { padding: 60px 20px 48px; }
+
+  .mj-compare-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .mj-arrow-center { flex-direction: row; }
+
+  .mj-tl-track::before { left: 20px; }
+  .mj-tl-item,
+  .mj-tl-item.right {
+    justify-content: flex-start;
+    padding-left: 60px;
+    padding-right: 0;
+    transform: translateX(-20px);
+  }
+  .mj-tl-dot { left: 20px; }
+  .mj-tl-card { max-width: 100%; }
+  .mj-tl-card::after { display: none; }
+
+  .mj-stats { flex-direction: column; }
+  .mj-stat  { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); }
+}
+</style>
+
+<div class="mj-wrap">
+
+  <!-- ── HERO ── -->
+  <div class="mj-hero">
+    <div class="mj-hero-ornament">M</div>
+    <div class="mj-eyebrow">Crafting Sweet Memories Since</div>
+    <h1>The <em>Journey</em></h1>
+    <div class="mj-hero-sub">2012 &nbsp;→&nbsp; 2025</div>
+    <div class="mj-hero-line"></div>
+  </div>
+
+  <!-- ── STAT STRIP ── -->
+  <div class="mj-stats">
+    <div class="mj-stat">
+      <span class="mj-stat-num">13</span>
+      <span class="mj-stat-label">Years of Legacy</span>
+    </div>
+    <div class="mj-stat">
+      <span class="mj-stat-num">25+</span>
+      <span class="mj-stat-label">Outlets Across NCR</span>
+    </div>
+    <div class="mj-stat">
+      <span class="mj-stat-num">1000+</span>
+      <span class="mj-stat-label">Team Members</span>
+    </div>
+    <div class="mj-stat">
+      <span class="mj-stat-num">100%</span>
+      <span class="mj-stat-label">Pure Vegetarian</span>
+    </div>
+  </div>
+
+  <!-- ── BEFORE / AFTER ── -->
+  <div class="mj-compare">
+    <div style="max-width:1100px; margin:0 auto;">
+      <span class="mj-sec-label" style="color:var(--saffron-l);">Then &amp; Now</span>
+      <h2 class="mj-sec-title" style="color:var(--white);">From One Shop<br><em>to a Sweet Empire</em></h2>
+      <div class="mj-divider"></div>
+    </div>
+
+    <div class="mj-compare-grid">
+      <!-- THEN -->
+      <div class="mj-cmp-card then">
+        <span class="mj-cmp-year">2012 — The Beginning</span>
+        <div class="mj-cmp-item">
+          <span class="mj-cmp-big">1</span>
+          <span class="mj-cmp-meta">Outlet in Noida</span>
+        </div>
+        <div class="mj-cmp-item">
+          <span class="mj-cmp-big">5</span>
+          <span class="mj-cmp-meta">Team Members</span>
+        </div>
+        <div class="mj-cmp-item">
+          <span class="mj-cmp-big">1</span>
+          <span class="mj-cmp-meta">City</span>
+        </div>
+      </div>
+
+      <!-- ARROW -->
+      <div class="mj-arrow-center">
+        <div class="mj-arrow-circle">→</div>
+        <div class="mj-arrow-label">12 years of<br>growth</div>
+      </div>
+
+      <!-- NOW -->
+      <div class="mj-cmp-card now">
+        <span class="mj-cmp-year">2025 — Today</span>
+        <div class="mj-cmp-item">
+          <span class="mj-cmp-big">25+</span>
+          <span class="mj-cmp-meta">Outlets across NCR</span>
+        </div>
+        <div class="mj-cmp-item">
+          <span class="mj-cmp-big">1000+</span>
+          <span class="mj-cmp-meta">Employees</span>
+        </div>
+        <div class="mj-cmp-item">
+          <span class="mj-cmp-big">6+</span>
+          <span class="mj-cmp-meta">Cities &amp; Regions</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TIMELINE ── -->
+  <div class="mj-section mj-timeline">
+    <div class="mj-section-inner">
+      <span class="mj-sec-label">Milestones</span>
+      <h2 class="mj-sec-title">Our Growth <em>Story</em></h2>
+      <div class="mj-divider"></div>
+      <p class="mj-sec-desc">Every year brought new dreams, new outlets, new families we became a part of. Here's how we grew, one sweet milestone at a time.</p>
+
+      <div class="mj-tl-track" id="mj-tl-track">
+
+        <div class="mj-tl-item" data-delay="0">
+          <div class="mj-tl-dot"></div>
+          <div class="mj-tl-card">
+            <span class="mj-tl-year">2012</span>
+            <div class="mj-tl-event">The First Sweet Shop Opens</div>
+            <p class="mj-tl-desc">Mithaas launches its first outlet at Ashirwad Complex, Sector 53, Noida — serving traditional Indian sweets with 5 dedicated team members.</p>
+            <span class="mj-tl-badge">Founded</span>
+          </div>
+        </div>
+
+        <div class="mj-tl-item right" data-delay="100">
+          <div class="mj-tl-dot"></div>
+          <div class="mj-tl-card">
+            <span class="mj-tl-year">2013</span>
+            <div class="mj-tl-event">Casual Dining is Born</div>
+            <p class="mj-tl-desc">Expanding the vision beyond sweets, Mithaas opens its first casual dining restaurant — bringing multi-cuisine vegetarian meals to the table.</p>
+            <span class="mj-tl-badge">Dine-In Launch</span>
+          </div>
+        </div>
+
+        <div class="mj-tl-item" data-delay="200">
+          <div class="mj-tl-dot"></div>
+          <div class="mj-tl-card">
+            <span class="mj-tl-year">2014</span>
+            <div class="mj-tl-event">4 More Outlets Established</div>
+            <p class="mj-tl-desc">Growing demand fuels rapid expansion. By 2014, Mithaas had established 4 additional outlets, building a loyal community of sweet lovers across Noida.</p>
+            <span class="mj-tl-badge">Expansion</span>
+          </div>
+        </div>
+
+        <div class="mj-tl-item right" data-delay="300">
+          <div class="mj-tl-dot"></div>
+          <div class="mj-tl-card">
+            <span class="mj-tl-year">2016</span>
+            <div class="mj-tl-event">In-House Factory &amp; Bakery Division</div>
+            <p class="mj-tl-desc">A major milestone — Mithaas opens its own production factory in Noida and launches a dedicated bakery division, ensuring quality at every step.</p>
+            <span class="mj-tl-badge">Manufacturing</span>
+          </div>
+        </div>
+
+        <div class="mj-tl-item" data-delay="400">
+          <div class="mj-tl-dot"></div>
+          <div class="mj-tl-card">
+            <span class="mj-tl-year">2018</span>
+            <div class="mj-tl-event">10 Outlets Strong</div>
+            <p class="mj-tl-desc">Mithaas crosses the double-digit milestone — 10 outlets, a growing team, and an unwavering commitment to authentic flavours.</p>
+            <span class="mj-tl-badge">10 Outlets</span>
+          </div>
+        </div>
+
+        <div class="mj-tl-item right" data-delay="500">
+          <div class="mj-tl-dot"></div>
+          <div class="mj-tl-card">
+            <span class="mj-tl-year">2019</span>
+            <div class="mj-tl-event">Beyond Noida — 12 Outlets</div>
+            <p class="mj-tl-desc">The Mithaas family expands beyond Noida for the first time, spreading the sweetness to neighbouring communities with 12 outlets.</p>
+            <span class="mj-tl-badge">NCR Expansion</span>
+          </div>
+        </div>
+
+        <div class="mj-tl-item" data-delay="600">
+          <div class="mj-tl-dot"></div>
+          <div class="mj-tl-card">
+            <span class="mj-tl-year">2021</span>
+            <div class="mj-tl-event">Automated Factory &amp; R&amp;D Push</div>
+            <p class="mj-tl-desc">The production facility is upgraded with state-of-the-art automation. Research &amp; Development takes centre stage — new products, new possibilities.</p>
+            <span class="mj-tl-badge">Tech Upgrade</span>
+          </div>
+        </div>
+
+        <div class="mj-tl-item right" data-delay="700">
+          <div class="mj-tl-dot"></div>
+          <div class="mj-tl-card">
+            <span class="mj-tl-year">2023</span>
+            <div class="mj-tl-event">Frozen &amp; Export Markets</div>
+            <p class="mj-tl-desc">Mithaas enters the frozen food and export segments — taking authentic Indian flavours beyond borders to NRI families worldwide.</p>
+            <span class="mj-tl-badge">Global Reach</span>
+          </div>
+        </div>
+
+        <div class="mj-tl-item" data-delay="800">
+          <div class="mj-tl-dot"></div>
+          <div class="mj-tl-card">
+            <span class="mj-tl-year">2024</span>
+            <div class="mj-tl-event">Faridabad Entry — 16 Outlets Total</div>
+            <p class="mj-tl-desc">Mithaas expands into Faridabad, bringing the total outlet count to 16 and cementing its presence across the entire NCR region.</p>
+            <span class="mj-tl-badge">Faridabad</span>
+          </div>
+        </div>
+
+        <div class="mj-tl-item right" data-delay="900">
+          <div class="mj-tl-dot"></div>
+          <div class="mj-tl-card">
+            <span class="mj-tl-year">2025</span>
+            <div class="mj-tl-event">Delhi, Ghaziabad &amp; J&amp;K</div>
+            <p class="mj-tl-desc">2025 marks Mithaas' most ambitious year — opening in Lajpat Nagar (Delhi), Ghaziabad, and even Vaishno Devi, Jammu. 25+ outlets. 1000+ employees. The journey continues.</p>
+            <span class="mj-tl-badge">25+ Outlets</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ── LOCATIONS ── -->
+  <div class="mj-locations">
+    <div style="max-width:1100px; margin:0 auto;">
+      <div class="mj-loc-header">
+        <span class="mj-sec-label">Where We Are</span>
+        <h2 class="mj-sec-title">25 Locations.<br><em>One Sweet Family.</em></h2>
+        <div class="mj-divider"></div>
+        <p class="mj-sec-desc" style="color:rgba(255,255,255,0.5);">From the lanes of Noida to the markets of Lajpat Nagar and the hills of Jammu — Mithaas is always near.</p>
+      </div>
+
+      <div class="mj-city-grid">
+
+        <div class="mj-city-card">
+          <div class="mj-city-name"><span class="pin">📍</span> Noida</div>
+          <div class="mj-city-outlets">
+            <div class="mj-city-outlet">Ashirwad Complex, Sector 53</div>
+            <div class="mj-city-outlet">Kanchanjungha Market, Sector 53</div>
+            <div class="mj-city-outlet">Logix Mall City Centre</div>
+            <div class="mj-city-outlet">B Block, Sector 62</div>
+            <div class="mj-city-outlet">Amrapali Crystal Homes, Sector 76</div>
+            <div class="mj-city-outlet">Hazipur, Sector 104</div>
+            <div class="mj-city-outlet">Shahdara, Sector 141</div>
+          </div>
+          <span class="mj-city-count">7 Outlets</span>
+        </div>
+
+        <div class="mj-city-card">
+          <div class="mj-city-name"><span class="pin">📍</span> Greater Noida</div>
+          <div class="mj-city-outlets">
+            <div class="mj-city-outlet">Golden-i, Noida Extension</div>
+            <div class="mj-city-outlet">KP 2, Greater Noida</div>
+            <div class="mj-city-outlet">Pi 2, Greater Noida</div>
+          </div>
+          <span class="mj-city-count">3 Outlets</span>
+        </div>
+
+        <div class="mj-city-card">
+          <div class="mj-city-name"><span class="pin">📍</span> Ghaziabad</div>
+          <div class="mj-city-outlets">
+            <div class="mj-city-outlet">Vaibhav Khand, Indirapuram</div>
+            <div class="mj-city-outlet">Niti Khand-1, Indirapuram</div>
+            <div class="mj-city-outlet">Kings Woods Market, Crossings Republik</div>
+            <div class="mj-city-outlet">Kavi Nagar</div>
+            <div class="mj-city-outlet">Rajnagar Extension</div>
+          </div>
+          <span class="mj-city-count">5 Outlets</span>
+        </div>
+
+        <div class="mj-city-card">
+          <div class="mj-city-name"><span class="pin">📍</span> Faridabad</div>
+          <div class="mj-city-outlets">
+            <div class="mj-city-outlet">Sector 28, Faridabad</div>
+          </div>
+          <span class="mj-city-count">1 Outlet</span>
+        </div>
+
+        <div class="mj-city-card">
+          <div class="mj-city-name"><span class="pin">📍</span> Delhi</div>
+          <div class="mj-city-outlets">
+            <div class="mj-city-outlet">Lajpat Nagar</div>
+          </div>
+          <span class="mj-city-count">1 Outlet</span>
+        </div>
+
+        <div class="mj-city-card">
+          <div class="mj-city-name"><span class="pin">📍</span> Jammu</div>
+          <div class="mj-city-outlets">
+            <div class="mj-city-outlet">Vaishno Devi, Jammu</div>
+          </div>
+          <span class="mj-city-count">1 Outlet</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PRODUCTS ── -->
+  <div class="mj-products">
+    <div class="mj-section-inner">
+      <span class="mj-sec-label">What We Make</span>
+      <h2 class="mj-sec-title">Our <em>Products</em> &amp; Cuisines</h2>
+      <div class="mj-divider"></div>
+      <p class="mj-sec-desc">From traditional desi ghee sweets to continental cuisine — every bite is crafted with love and authenticity.</p>
+
+      <div class="mj-prod-grid">
+
+        <div class="mj-prod-cat">
+          <div class="mj-prod-head">
+            <div class="mj-prod-icon sweets">🍮</div>
+            <div class="mj-prod-name">Sweets</div>
+          </div>
+          <div class="mj-prod-items">
+            <span class="mj-prod-tag">Kaju Burfi</span>
+            <span class="mj-prod-tag">Rasgulla</span>
+            <span class="mj-prod-tag">Rasmalai</span>
+            <span class="mj-prod-tag">Special Ladoo</span>
+            <span class="mj-prod-tag">Kalakand</span>
+            <span class="mj-prod-tag">Milk Cake</span>
+            <span class="mj-prod-tag">Pista Burfi</span>
+            <span class="mj-prod-tag">Moondal Burfi</span>
+          </div>
+        </div>
+
+        <div class="mj-prod-cat">
+          <div class="mj-prod-head">
+            <div class="mj-prod-icon snacks">🥟</div>
+            <div class="mj-prod-name">Snacks</div>
+          </div>
+          <div class="mj-prod-items">
+            <span class="mj-prod-tag">Pakora</span>
+            <span class="mj-prod-tag">Kachori</span>
+            <span class="mj-prod-tag">Samosa</span>
+          </div>
+        </div>
+
+        <div class="mj-prod-cat">
+          <div class="mj-prod-head">
+            <div class="mj-prod-icon adda">🍛</div>
+            <div class="mj-prod-name">Adda Items</div>
+          </div>
+          <div class="mj-prod-items">
+            <span class="mj-prod-tag">Chole Bhature</span>
+            <span class="mj-prod-tag">Pao Bhaji</span>
+            <span class="mj-prod-tag">Matar Kulcha</span>
+            <span class="mj-prod-tag">Pani Puri</span>
+          </div>
+        </div>
+
+        <div class="mj-prod-cat">
+          <div class="mj-prod-head">
+            <div class="mj-prod-icon bakery">🎂</div>
+            <div class="mj-prod-name">Bakery</div>
+          </div>
+          <div class="mj-prod-items">
+            <span class="mj-prod-tag">Cakes &amp; Pastry</span>
+            <span class="mj-prod-tag">Burger</span>
+            <span class="mj-prod-tag">Sandwich</span>
+            <span class="mj-prod-tag">Patties</span>
+            <span class="mj-prod-tag">Black Forest</span>
+          </div>
+        </div>
+
+        <div class="mj-prod-cat">
+          <div class="mj-prod-head">
+            <div class="mj-prod-icon trading">🛒</div>
+            <div class="mj-prod-name">Trading</div>
+          </div>
+          <div class="mj-prod-items">
+            <span class="mj-prod-tag">Gol Matti</span>
+            <span class="mj-prod-tag">Namakpara</span>
+            <span class="mj-prod-tag">Cookies</span>
+            <span class="mj-prod-tag">Hampers</span>
+          </div>
+        </div>
+
+        <div class="mj-prod-cat">
+          <div class="mj-prod-head">
+            <div class="mj-prod-icon restaurant">🍽️</div>
+            <div class="mj-prod-name">Restaurant</div>
+          </div>
+          <div class="mj-prod-items">
+            <span class="mj-prod-tag">Dal Makhani</span>
+            <span class="mj-prod-tag">Shahi Paneer</span>
+            <span class="mj-prod-tag">Noodles</span>
+            <span class="mj-prod-tag">Dosa</span>
+            <span class="mj-prod-tag">Platters</span>
+            <span class="mj-prod-tag">Uttapam</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CUISINE STRIP ── -->
+  <div class="mj-cuisines">
+    <span class="mj-cuisine-label">We serve →</span>
+    <span class="mj-cuisine-pill"><span class="ci">🇮🇳</span> North Indian</span>
+    <span class="mj-cuisine-pill"><span class="ci">🥘</span> South Indian</span>
+    <span class="mj-cuisine-pill"><span class="ci">🥡</span> Chinese</span>
+    <span class="mj-cuisine-pill"><span class="ci">🍝</span> Continental</span>
+    <span class="mj-cuisine-pill"><span class="ci">🎊</span> Festive Special</span>
+  </div>
+
+  <!-- ── CLOSING ── -->
+  <div class="mj-closing">
+    <div class="mj-closing-quote">
+      Gholey Rishton Mein Mithaas — spreading sweetness in every relationship.
+    </div>
+    <div class="mj-closing-attr">— Pushpendra Sharma, Founder &amp; MD</div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  // Intersection Observer for timeline animation
+  var items = document.querySelectorAll('.mj-tl-item');
+  if (!items.length) return;
+
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        var delay = parseInt(e.target.getAttribute('data-delay') || 0);
+        setTimeout(function(){
+          e.target.classList.add('visible');
+        }, delay);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  items.forEach(function(el){ obs.observe(el); });
+
+  // Number counter animation for stat strip
+  var stats = document.querySelectorAll('.mj-stat-num');
+  var statsObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        statsObs.unobserve(e.target);
+        var el = e.target;
+        var text = el.textContent;
+        var num = parseFloat(text.replace(/[^0-9.]/g,''));
+        var suffix = text.replace(/[0-9.]/g,'');
+        if (isNaN(num)) return;
+        var start = 0, dur = 1200, startTime = null;
+        function tick(ts){
+          if (!startTime) startTime = ts;
+          var prog = Math.min((ts - startTime)/dur, 1);
+          var ease = 1 - Math.pow(1 - prog, 3);
+          el.textContent = Math.round(ease * num) + suffix;
+          if (prog < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+    });
+  }, { threshold: 0.5 });
+  stats.forEach(function(el){ statsObs.observe(el); });
+})();
+</script>
