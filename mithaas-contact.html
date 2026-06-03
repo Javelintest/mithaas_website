@@ -1,0 +1,545 @@
+<!--
+  MITHAAS — CONTACT PAGE (design only, no form)
+  Standalone embed | paste into CMS custom HTML block
+  Style: Fraunces + Manrope + Caveat | maroon · saffron · cream · ink
+
+  ⚠ The form area is intentionally left EMPTY — drop your own form embed
+    into the marked slot ("PASTE YOUR FORM HERE").
+  Replace every [ ] bracket with Mithaas' real contact details.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Manrope:wght@300;400;500;600;700;800&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+.mct * { box-sizing: border-box; margin: 0; padding: 0; }
+.mct {
+  --maroon:   #7B1818;
+  --maroon-d: #4E0E0E;
+  --saffron:  #E8871A;
+  --saff-l:   #F5A83A;
+  --gold-l:   #F2C96E;
+  --cream:    #FDF6EC;
+  --cream-d:  #F5E8D0;
+  --ink:      #1A0A0A;
+  --white:    #FFFFFF;
+  --muted:    #6E5645;
+  font-family: 'Manrope', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* shared */
+.mct-inner { max-width: 1180px; margin: 0 auto; }
+.mct-eyebrow {
+  font-family: 'Caveat', cursive; font-size: 1.3rem;
+  color: var(--saffron); display: block; margin-bottom: 8px;
+}
+.mct-h2 {
+  font-family: 'Fraunces', serif; font-weight: 900;
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  color: var(--maroon-d); line-height: 1.1; letter-spacing: -0.02em;
+}
+.mct-h2 em { font-style: italic; color: var(--saffron); }
+.mct-rule { width: 50px; height: 4px; background: var(--saffron); border-radius: 3px; margin: 20px 0 0; }
+
+/* ═══ HERO ═══ */
+.mct-hero {
+  background: var(--maroon-d);
+  position: relative; overflow: hidden;
+  padding: 90px 40px 70px; text-align: center;
+}
+.mct-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 40%, rgba(232,135,26,0.16) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 60%, rgba(200,80,20,0.2) 0%, transparent 55%);
+  pointer-events: none;
+}
+.mct-hero::after {
+  content: '✉'; position: absolute; font-size: 260px; opacity: 0.04;
+  right: 6%; top: 50%; transform: translateY(-50%); pointer-events: none;
+}
+.mct-hero-eyebrow {
+  font-family: 'Caveat', cursive; font-size: 1.4rem; color: var(--gold-l);
+  display: block; margin-bottom: 12px; position: relative;
+}
+.mct-hero-title {
+  font-family: 'Fraunces', serif; font-weight: 900;
+  font-size: clamp(2.6rem, 7vw, 4.6rem); color: var(--white);
+  line-height: 1.02; letter-spacing: -0.03em; position: relative;
+}
+.mct-hero-title em { font-style: italic; color: var(--gold-l); }
+.mct-hero-sub {
+  font-size: 1.05rem; color: rgba(255,255,255,0.6);
+  max-width: 540px; margin: 20px auto 0; line-height: 1.65; position: relative;
+}
+
+/* ═══ QUICK CONTACT CARDS ═══ */
+.mct-cards-sec { padding: 70px 40px 30px; }
+.mct-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-top: -110px;
+  position: relative; z-index: 5;
+}
+.mct-card {
+  background: var(--white);
+  border: 1px solid rgba(123,24,24,0.07);
+  border-radius: 20px;
+  padding: 32px 26px;
+  text-align: center;
+  box-shadow: 0 10px 36px rgba(123,24,24,0.1);
+  transition: transform 0.28s, box-shadow 0.28s;
+}
+.mct-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(123,24,24,0.16); }
+.mct-card-ic {
+  width: 60px; height: 60px; border-radius: 18px;
+  background: var(--maroon-d);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; margin: 0 auto 18px;
+  transition: background 0.25s, transform 0.25s;
+}
+.mct-card:hover .mct-card-ic { background: var(--saffron); transform: rotate(-6deg) scale(1.05); }
+.mct-card-label {
+  font-size: 0.7rem; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--saffron); margin-bottom: 8px; display: block;
+}
+.mct-card-h {
+  font-family: 'Fraunces', serif; font-weight: 700;
+  font-size: 1.05rem; color: var(--maroon-d); margin-bottom: 8px;
+}
+.mct-card-v {
+  font-size: 0.9rem; color: var(--muted); line-height: 1.55;
+}
+.mct-card-v a { color: var(--maroon-d); text-decoration: none; font-weight: 600; }
+.mct-card-v a:hover { color: var(--saffron); }
+
+/* ═══ FORM + INFO SPLIT ═══ */
+.mct-main { padding: 60px 40px; }
+.mct-split {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 50px;
+  align-items: start;
+}
+
+/* ── LEFT: FORM SLOT ── */
+.mct-form-panel {
+  background: var(--white);
+  border: 1px solid rgba(123,24,24,0.08);
+  border-radius: 24px;
+  padding: 44px 40px;
+  box-shadow: 0 8px 36px rgba(123,24,24,0.07);
+}
+.mct-form-head { margin-bottom: 28px; }
+.mct-form-head .mct-rule { margin: 16px 0 0; }
+
+/* the empty slot where the user pastes their own form */
+.mct-form-slot {
+  min-height: 360px;
+  border: 2px dashed rgba(232,135,26,0.4);
+  border-radius: 18px;
+  background:
+    repeating-linear-gradient(45deg, rgba(232,135,26,0.03) 0px, rgba(232,135,26,0.03) 12px, transparent 12px, transparent 24px);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 12px; text-align: center; padding: 40px 24px;
+}
+.mct-form-slot .slot-ic {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: rgba(232,135,26,0.12);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem; color: var(--saffron);
+}
+.mct-form-slot .slot-h {
+  font-family: 'Fraunces', serif; font-weight: 700;
+  font-size: 1.1rem; color: var(--maroon-d);
+}
+.mct-form-slot .slot-p {
+  font-size: 0.88rem; color: var(--muted); line-height: 1.6; max-width: 340px;
+}
+.mct-form-slot code {
+  font-family: monospace; font-size: 0.82rem;
+  background: var(--cream-d); color: var(--maroon-d);
+  padding: 2px 8px; border-radius: 5px;
+}
+
+/* ── RIGHT: INFO PANEL ── */
+.mct-info-h {
+  font-family: 'Fraunces', serif; font-weight: 900;
+  font-size: 1.5rem; color: var(--maroon-d); margin-bottom: 4px;
+}
+.mct-info-sub { font-size: 0.92rem; color: var(--muted); line-height: 1.6; margin-bottom: 28px; }
+
+.mct-info-row {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(123,24,24,0.07);
+}
+.mct-info-row:last-of-type { border-bottom: none; }
+.mct-info-ic {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: var(--cream-d);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.15rem; color: var(--saffron); flex-shrink: 0;
+}
+.mct-info-tx { padding-top: 2px; }
+.mct-info-k {
+  font-size: 0.72rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--saffron); display: block; margin-bottom: 4px;
+}
+.mct-info-val { font-size: 0.95rem; color: var(--maroon-d); font-weight: 600; line-height: 1.5; }
+.mct-info-val a { color: inherit; text-decoration: none; }
+.mct-info-val a:hover { color: var(--saffron); }
+.mct-info-val span { display: block; font-weight: 400; color: var(--muted); font-size: 0.86rem; margin-top: 2px; }
+
+/* social row */
+.mct-info-social { margin-top: 26px; }
+.mct-info-social-h {
+  font-size: 0.72rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--muted); margin-bottom: 12px;
+}
+.mct-socs { display: flex; gap: 10px; }
+.mct-soc {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: var(--maroon-d); color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none;
+  transition: transform 0.25s, background 0.25s;
+}
+.mct-soc:hover { background: var(--saffron); color: var(--maroon-d); transform: translateY(-4px); }
+.mct-soc svg { width: 18px; height: 18px; fill: currentColor; }
+
+/* ═══ HOURS + DEPARTMENTS ═══ */
+.mct-strip { background: var(--ink); padding: 64px 40px; }
+.mct-strip-grid {
+  display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px; align-items: start;
+}
+.mct-hours-h, .mct-dept-h {
+  font-family: 'Fraunces', serif; font-weight: 900; font-size: 1.4rem;
+  color: var(--white); margin-bottom: 6px;
+}
+.mct-hours-sub { font-size: 0.88rem; color: rgba(255,255,255,0.45); margin-bottom: 24px; }
+.mct-hours-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.92rem;
+}
+.mct-hours-row:last-child { border-bottom: none; }
+.mct-hours-day { color: rgba(255,255,255,0.7); font-weight: 500; }
+.mct-hours-time { color: var(--saff-l); font-weight: 700; }
+.mct-hours-badge {
+  display: inline-block; margin-top: 16px;
+  font-size: 0.78rem; font-weight: 700;
+  color: var(--maroon-d); background: var(--saff-l);
+  padding: 6px 14px; border-radius: 30px;
+}
+
+.mct-depts { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.mct-dept {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px; padding: 22px 22px;
+  transition: border-color 0.25s, background 0.25s;
+}
+.mct-dept:hover { border-color: rgba(232,135,26,0.4); background: rgba(232,135,26,0.07); }
+.mct-dept-ic { font-size: 1.4rem; margin-bottom: 10px; }
+.mct-dept-name {
+  font-family: 'Fraunces', serif; font-weight: 700;
+  font-size: 1rem; color: var(--white); margin-bottom: 6px;
+}
+.mct-dept-contact { font-size: 0.84rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+.mct-dept-contact a { color: var(--saff-l); text-decoration: none; }
+.mct-dept-contact a:hover { text-decoration: underline; }
+
+/* ═══ MAP ═══ */
+.mct-map-sec { padding: 64px 40px 80px; }
+.mct-map-head { text-align: center; margin-bottom: 40px; }
+.mct-map-head .mct-rule { margin: 20px auto 0; }
+.mct-map-frame {
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(123,24,24,0.1);
+  box-shadow: 0 14px 50px rgba(123,24,24,0.12);
+  position: relative;
+}
+/* map placeholder */
+.mct-map-ph {
+  width: 100%; min-height: 420px;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(232,135,26,0.15) 0%, transparent 40%),
+    radial-gradient(circle at 70% 60%, rgba(123,24,24,0.12) 0%, transparent 40%),
+    linear-gradient(135deg, var(--cream-d) 0%, var(--cream) 100%);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 14px;
+  position: relative;
+}
+.mct-map-ph::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(123,24,24,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(123,24,24,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.mct-map-pin {
+  width: 64px; height: 64px; border-radius: 50% 50% 50% 0;
+  background: var(--saffron);
+  transform: rotate(-45deg);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 12px 30px rgba(232,135,26,0.4);
+  position: relative;
+  animation: mctBounce 2s ease-in-out infinite;
+}
+.mct-map-pin span { transform: rotate(45deg); font-size: 1.6rem; }
+@keyframes mctBounce {
+  0%, 100% { transform: rotate(-45deg) translateY(0); }
+  50%      { transform: rotate(-45deg) translateY(-10px); }
+}
+.mct-map-ph-tx {
+  font-size: 0.85rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--muted); position: relative; text-align: center; line-height: 1.6;
+}
+.mct-map-ph-tx code {
+  font-family: monospace; background: var(--white); color: var(--maroon-d);
+  padding: 2px 8px; border-radius: 5px; font-size: 0.8rem; text-transform: none; letter-spacing: 0;
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 980px) {
+  .mct-cards { grid-template-columns: 1fr 1fr; margin-top: -90px; }
+  .mct-split { grid-template-columns: 1fr; gap: 36px; }
+  .mct-strip-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+@media (max-width: 640px) {
+  .mct-hero { padding: 70px 22px 56px; }
+  .mct-cards-sec { padding: 52px 20px 24px; }
+  .mct-main { padding: 44px 20px; }
+  .mct-strip { padding: 52px 20px; }
+  .mct-map-sec { padding: 48px 20px 64px; }
+  .mct-cards { grid-template-columns: 1fr; margin-top: -70px; }
+  .mct-form-panel { padding: 30px 22px; }
+  .mct-depts { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="mct">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="mct-hero">
+    <span class="mct-hero-eyebrow">We'd Love to Hear From You</span>
+    <h1 class="mct-hero-title">Get in <em>Touch</em></h1>
+    <p class="mct-hero-sub">Questions, feedback, bulk orders, or just a sweet hello — our team is always happy to help.</p>
+  </section>
+
+  <!-- ═══ QUICK CONTACT CARDS ═══ -->
+  <section class="mct-cards-sec">
+    <div class="mct-inner">
+      <div class="mct-cards">
+        <div class="mct-card">
+          <div class="mct-card-ic">📞</div>
+          <span class="mct-card-label">Call Us</span>
+          <div class="mct-card-h">Phone</div>
+          <div class="mct-card-v"><a href="tel:[+91XXXXXXXXXX]">[+91 XXXXX XXXXX]</a></div>
+        </div>
+        <div class="mct-card">
+          <div class="mct-card-ic">📧</div>
+          <span class="mct-card-label">Email Us</span>
+          <div class="mct-card-h">Email</div>
+          <div class="mct-card-v"><a href="mailto:[info@mithaas.com]">[info@mithaas.com]</a></div>
+        </div>
+        <div class="mct-card">
+          <div class="mct-card-ic">💬</div>
+          <span class="mct-card-label">Chat</span>
+          <div class="mct-card-h">WhatsApp</div>
+          <div class="mct-card-v"><a href="[https://wa.me/91XXXXXXXXXX]" target="_blank" rel="noopener">[+91 XXXXX XXXXX]</a></div>
+        </div>
+        <div class="mct-card">
+          <div class="mct-card-ic">📍</div>
+          <span class="mct-card-label">Visit Us</span>
+          <div class="mct-card-h">Outlets</div>
+          <div class="mct-card-v">25+ across NCR &amp; beyond</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FORM + INFO ═══ -->
+  <section class="mct-main">
+    <div class="mct-inner">
+      <div class="mct-split">
+
+        <!-- LEFT: FORM SLOT -->
+        <div class="mct-form-panel">
+          <div class="mct-form-head">
+            <span class="mct-eyebrow">Send a Message</span>
+            <h2 class="mct-h2">Drop Us a <em>Line</em></h2>
+            <div class="mct-rule"></div>
+          </div>
+
+          <!-- ════════════════════════════════════════════
+               PASTE YOUR FORM HERE
+               Replace the entire .mct-form-slot block below
+               with your own form embed code.
+          ═════════════════════════════════════════════ -->
+          <div class="mct-form-slot">
+            <div class="slot-ic">📝</div>
+            <div class="slot-h">Your Form Goes Here</div>
+            <div class="slot-p">
+              Paste your form embed inside this panel — replace the
+              <code>.mct-form-slot</code> block in the HTML.
+            </div>
+          </div>
+          <!-- ════════════════════════════════════════════ -->
+
+        </div>
+
+        <!-- RIGHT: INFO -->
+        <div class="mct-info-panel">
+          <h3 class="mct-info-h">Contact Information</h3>
+          <p class="mct-info-sub">Reach us through any of the channels below — we usually respond within one business day.</p>
+
+          <div class="mct-info-row">
+            <div class="mct-info-ic">🏢</div>
+            <div class="mct-info-tx">
+              <span class="mct-info-k">Head Office</span>
+              <div class="mct-info-val">Mithaas Sweets and Restaurant Pvt. Ltd.
+                <span>J 63, Sector 63 Rd, Block J, Sector 63,<br>Chotpur, Noida, Uttar Pradesh 201309</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mct-info-row">
+            <div class="mct-info-ic">📞</div>
+            <div class="mct-info-tx">
+              <span class="mct-info-k">Phone</span>
+              <div class="mct-info-val"><a href="tel:[+91XXXXXXXXXX]">[+91 XXXXX XXXXX]</a></div>
+            </div>
+          </div>
+
+          <div class="mct-info-row">
+            <div class="mct-info-ic">📧</div>
+            <div class="mct-info-tx">
+              <span class="mct-info-k">Email</span>
+              <div class="mct-info-val"><a href="mailto:[info@mithaas.com]">[info@mithaas.com]</a></div>
+            </div>
+          </div>
+
+          <div class="mct-info-row">
+            <div class="mct-info-ic">🕐</div>
+            <div class="mct-info-tx">
+              <span class="mct-info-k">Hours</span>
+              <div class="mct-info-val">Open Daily<span>9:00 AM – 11:00 PM</span></div>
+            </div>
+          </div>
+
+          <div class="mct-info-social">
+            <div class="mct-info-social-h">Follow Us</div>
+            <div class="mct-socs">
+              <a class="mct-soc" href="https://in.linkedin.com/company/mithaas" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+              </a>
+              <a class="mct-soc" href="https://www.instagram.com/mithaasofficial/" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+              </a>
+              <a class="mct-soc" href="https://www.facebook.com/themithaas/" target="_blank" rel="noopener" aria-label="Facebook">
+                <svg viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02z"/></svg>
+              </a>
+              <a class="mct-soc" href="[https://wa.me/91XXXXXXXXXX]" target="_blank" rel="noopener" aria-label="WhatsApp">
+                <svg viewBox="0 0 24 24"><path d="M16.75 13.96c.25.13.41.2.46.3.06.11.04.61-.21 1.18-.2.56-1.24 1.1-1.7 1.12-.46.02-.47.36-2.96-.73-2.49-1.09-3.99-3.75-4.11-3.92-.12-.17-.96-1.38-.92-2.61.05-1.22.69-1.8.95-2.04.24-.26.51-.29.68-.27h.47c.15 0 .36-.06.55.42l.69 1.71c.06.13.1.28.01.44l-.27.41-.39.42c-.12.12-.26.25-.12.5.12.26.62 1.09 1.32 1.78.91.88 1.71 1.17 1.95 1.3.24.14.39.12.54-.04l.81-.94c.19-.25.35-.19.58-.11l1.67.79M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10c-1.97 0-3.8-.57-5.35-1.55L2 22l1.55-4.65A9.97 9.97 0 0 1 2 12 10 10 0 0 1 12 2m0 2a8 8 0 0 0-8 8c0 1.72.54 3.31 1.46 4.61L4.5 19.5l2.89-.96A7.95 7.95 0 0 0 12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ HOURS + DEPARTMENTS ═══ -->
+  <section class="mct-strip">
+    <div class="mct-inner">
+      <div class="mct-strip-grid">
+
+        <!-- hours -->
+        <div>
+          <h3 class="mct-hours-h">Opening Hours</h3>
+          <p class="mct-hours-sub">Visit us any day of the week.</p>
+          <div class="mct-hours-row"><span class="mct-hours-day">Monday – Thursday</span><span class="mct-hours-time">9:00 AM – 11:00 PM</span></div>
+          <div class="mct-hours-row"><span class="mct-hours-day">Friday – Saturday</span><span class="mct-hours-time">9:00 AM – 11:30 PM</span></div>
+          <div class="mct-hours-row"><span class="mct-hours-day">Sunday</span><span class="mct-hours-time">9:00 AM – 11:00 PM</span></div>
+          <div class="mct-hours-row"><span class="mct-hours-day">Festivals</span><span class="mct-hours-time">Extended Hours</span></div>
+          <span class="mct-hours-badge">✓ Open All 7 Days</span>
+        </div>
+
+        <!-- departments -->
+        <div>
+          <h3 class="mct-dept-h">Reach the Right Team</h3>
+          <p class="mct-hours-sub">Contact a specific department directly.</p>
+          <div class="mct-depts">
+            <div class="mct-dept">
+              <div class="mct-dept-ic">🎁</div>
+              <div class="mct-dept-name">Bulk &amp; Corporate</div>
+              <div class="mct-dept-contact"><a href="mailto:[orders@mithaas.com]">[orders@mithaas.com]</a><br>[+91 XXXXX XXXXX]</div>
+            </div>
+            <div class="mct-dept">
+              <div class="mct-dept-ic">🌍</div>
+              <div class="mct-dept-name">Export Enquiries</div>
+              <div class="mct-dept-contact"><a href="mailto:[export@mithaas.com]">[export@mithaas.com]</a><br>[+91 XXXXX XXXXX]</div>
+            </div>
+            <div class="mct-dept">
+              <div class="mct-dept-ic">💼</div>
+              <div class="mct-dept-name">Careers / HR</div>
+              <div class="mct-dept-contact"><a href="mailto:[careers@mithaas.com]">[careers@mithaas.com]</a><br>via LinkedIn</div>
+            </div>
+            <div class="mct-dept">
+              <div class="mct-dept-ic">🤝</div>
+              <div class="mct-dept-name">Franchise / Partner</div>
+              <div class="mct-dept-contact"><a href="mailto:[partner@mithaas.com]">[partner@mithaas.com]</a><br>[+91 XXXXX XXXXX]</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MAP ═══ -->
+  <section class="mct-map-sec">
+    <div class="mct-inner">
+      <div class="mct-map-head">
+        <span class="mct-eyebrow">Find Us</span>
+        <h2 class="mct-h2">Visit Our <em>Head Office</em></h2>
+        <div class="mct-rule"></div>
+      </div>
+
+      <div class="mct-map-frame">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d708.7221441493228!2d77.39003215364342!3d28.622371572187852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cefc097a8ef71%3A0x2f4b2a3f55f61d9e!2sMithaas%20Sweets%20%26%20Restaurant%20Pvt%20Ltd.%20(Corporate%20Office%20%26%20Central%20Factory)!5e1!3m2!1sen!2sin!4v1780314223834!5m2!1sen!2sin"
+          width="100%" height="460" style="border:0; display:block;"
+          allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mithaas Corporate Office &amp; Central Factory"></iframe>
+      </div>
+
+      <!-- directions button -->
+      <div style="text-align:center; margin-top:24px;">
+        <a href="https://www.google.com/maps/place/Mithaas+Sweets+%26+Restaurant+Pvt+Ltd.+(Corporate+Office+%26+Central+Factory)/@28.6223775,77.3900227,17z/data=!4m6!3m5!1s0x390cefc097a8ef71:0x2f4b2a3f55f61d9e!8m2!3d28.6223775!4d77.3900227!16s%2Fg%2F11qmx2flpc"
+           target="_blank" rel="noopener"
+           style="display:inline-flex; align-items:center; gap:9px; background:var(--maroon-d); color:var(--white); padding:14px 28px; border-radius:50px; font-size:0.92rem; font-weight:700; text-decoration:none; box-shadow:0 8px 24px rgba(78,14,14,0.25); transition:background 0.25s, transform 0.25s;"
+           onmouseover="this.style.background='var(--saffron)';this.style.color='var(--maroon-d)';this.style.transform='translateY(-3px)';"
+           onmouseout="this.style.background='var(--maroon-d)';this.style.color='var(--white)';this.style.transform='translateY(0)';">
+          🧭 Get Directions
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</div>
